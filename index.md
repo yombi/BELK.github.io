@@ -1991,37 +1991,12 @@ Las maquina a evaluar forman una pila ELK, lo que se traduce en que los servicio
 ## Vulnerabilidades<a name="id53"></a>
 
   
-
-Descripción
-
-Nombre
-
-CVSS
-
-SSH es vulnerable a ataques de fuerza bruta
-
-Brute-force/Dictionary Attack
-
-7.3
-
-Elasticsearch es vulnerable a ataques de fuerza bruta
-
-Brute-force/Dictionary Attack
-
-5.3
-
-Kibana es vulnerable a ataques de fuerza bruta
-
-Brute-force/Dictionary Attack
-
-6.5
-
-Extracción de información de servicios
-
-N/A
-
-0.0
-
+| Description |Nombre   | CVSS     |
+| :---        |    :----:   |          ---: |
+| SSH es vulnerable a ataques de fuerza brut      | Brute-force/Dictionary Attack       | 7.3   |
+| Elasticsearch es vulnerable a ataques de fuerza bruta   | Brute-force/Dictionary Attack        | 5.3     |
+| Kibana es vulnerable a ataques de fuerza bruta   | Brute-force/Dictionary Attack       | 6.5   |
+| Extracción de información de servicios   | N/A     | 0.0   |
   
 
 ## Hallazgos<a name="id54"></a>
