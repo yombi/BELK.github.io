@@ -1,9 +1,17 @@
-# LDAP
-Debemos instalar los paquetes necesarios para tener el servidor LDAP. Estos se instalan con la siguiente línea:<br>
-<p align="center">
-`apt -y install slapd ldap-utils ldapscripts`
-</p>
-Durante la instalación, se le solicitará que se configure la contraseña de administrador LDAP<br>
-[comment]: <> (This is a comment, it will not be included)
-[comment]: <> (in  the output file unless you use it in)
-[comment]: <> (a reference style link.)
+### ProFTPD.
+
+Comenzamos por instalar el paquete necesario para tener el servidor ftp funcional con
+
+[dnf](https://www.server-world.info/en/command/html/dnf.html) install proftpd
+
+Ahora modificamos las reglas de firewall de la misma máquina para que permita el servicio
+
+firewall-cmd --add-service=ftp --permanent
+
+firewall-cmd --reload
+
+![](https://lh6.googleusercontent.com/-v8Qgl3RGIwlDjUlCKVsZshOPnt43QigUMip5-MLtiFR8SZPYm08Hc6GI5O5N8J34l2MQloY0sbpyPAkHnsuyFMBUANHSv_m9haHVPwMDjgMV-8NJecQO7NO3ZayRzy79zv4FVMs)
+
+Notemos que el servicio está listo
+
+![](https://lh5.googleusercontent.com/3R2eVjC5NqyxWZPpFxYcfQZxMtLMQ5jg3UlYaSbrExmAa2LnTQOzpxi9zytMl0GD1A-TR3uEhOzNjfCex69C_uXAeol0JL711Lu98N3RKzKvcR6OXYi4h46ZkyTq-0CI-BEPeAcm)
