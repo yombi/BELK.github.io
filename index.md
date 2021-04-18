@@ -6,7 +6,7 @@ Comenzamos por instalar el paquete necesario para tener el servidor ftp funciona
 
 Ahora modificamos las reglas de firewall de la misma máquina para que permita el servicio
 
-firewall-cmd --add-service=ftp --permanent
+`firewall-cmd --add-service=ftp --permanent`
 
 firewall-cmd --reload
 
