@@ -2163,7 +2163,7 @@ Fue una gran experiencia de aprendizaje.
 
 [Logstash Introduction. (s/f). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/vL3w) [https://www.elastic.co/guide/en/logstash/7.10/introduction.html](https://www.elastic.co/guide/en/logstash/7.10/introduction.html)
 
-[Mercado, J. A., & Ver todas las entradas por Juan Andres Mercado →. (2017, octubre 18). How to Install Kibana with Debian Packages.](http://paperpile.com/b/Q4Pnnj/YtQu) [https://juanmercadoit.com/2017/10/18/how-to-install-kibana-with-debian-packages/](https://juanmercadoit.com/2017/10/18/how-to-install-kibana-with-debian-packages/)
+[Mercado, J. A. (2017, octubre 18). How to Install Kibana with Debian Packages.](http://paperpile.com/b/Q4Pnnj/YtQu) [https://juanmercadoit.com/2017/10/18/how-to-install-kibana-with-debian-packages/](https://juanmercadoit.com/2017/10/18/how-to-install-kibana-with-debian-packages/)
 
 [Node. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/WKfg) [https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html)
 
@@ -2178,4 +2178,3 @@ Fue una gran experiencia de aprendizaje.
 [Winlogbeat quick start: installation and configuration. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/qFzA) [https://www.elastic.co/guide/en/beats/winlogbeat/7.10/winlogbeat-installation-configuration.html](https://www.elastic.co/guide/en/beats/winlogbeat/7.10/winlogbeat-installation-configuration.html)
 
 [yombi. (s/f). yombi/Migrar-Drupal. Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/ze8O) [https://github.com/yombi/Migrar-Drupal](https://github.com/yombi/Migrar-Drupal)
-
