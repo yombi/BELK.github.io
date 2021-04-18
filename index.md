@@ -1,17 +1,17 @@
 ###  Proyecto final: Instalación y configuración de la pila ELK.
 
 **Tabla de contenidos**   
-* [Definición del proyecto](#id1)
-* [Objetivos planteados](#id2)
-* [Instalación de ambientes](#id3)
-    1. [Windows](#id31)
+1. [Definición del proyecto](#id1)
+2. [Objetivos planteados](#id2)
+3. [Instalación de ambientes](#id3)
+    * [Windows](#id31)
         - [Hyper-V](#id311)
         - [IIS](#id312)
         - [Active Directory](#id313)
         - [DNS](#id314)
         - [DHCP](#id315)
         - [SQL Server](#id316)
-    2. [Linux](#id32)
+    * [Linux](#id32)
         - [Correo electrónico](#id3201)
             * [SMTP, SMTPS](#id32011)
             * [POP3, POP3S, IMAP, IMAPS](#id32012)
@@ -26,49 +26,49 @@
         - [PostgreSQL](#id3209)
         - [MySQL/MariaDB](#id3210)
         - [ProFTPD](#id3211)
-    4. [Dispositivos de red](#id33)
-* [Instalación de BELK Stack](#id4)
-    1. [Beats](#id401)
+    * [Dispositivos de red](#id33)
+4. [Instalación de BELK Stack](#id4)
+    * [Beats](#id401)
         - [CentOS](#id4011)
         - [Debian](#id4012)
         - [Windows](#id4013)
         - [Dispositivos de red](#id4014)
-    2. [Elasticsearch](#id402)
-    3. [Logstash](#id403)
-    4. [Kibana](#id404)
-    5. [Configuración de TLS-HTTPS](#id405)
-    6. [Generación de visualizaciones de kibana](#id406)
-    7. [Dashboards](#id407)
+    * [Elasticsearch](#id402)
+    * [Logstash](#id403)
+    * [Kibana](#id404)
+    * [Configuración de TLS-HTTPS](#id405)
+    * [Generación de visualizaciones de kibana](#id406)
+    * [Dashboards](#id407)
         - [Email Dashboard](#id4071)
         - [Web Dashboard](#id4072)
         - [WAF Dashboard](#id4073)
         - [Iptables Dashboard](#id4074)
         - [FTP-DB Dashboard](#id4075)
         - [Windows Dashboard](#id4076)
-    9. [Alertas](#id408)
+    * [Alertas](#id408)
         - [Alertas de Email](#id4081)
         - [Alertas de WAF](#id4082)
         - [Alertas de Web](#id4083)
         - [Alertas de Iptables y fail2ban](#id4084)
         - [Alertas de base de datos](#id4085)
         - [Alertas de FTP](#id4086)
-    10. [Conectores](#id409)
-    11. [Reportes](#id410)
-* [Pentest](#id5)
-    1. [Resumen ejecutivo](#id51)
+    * [Conectores](#id409)
+    * [Reportes](#id410)
+5. [Pentest](#id5)
+    * [Resumen ejecutivo](#id51)
         - [Puntos positivos](#id511)
         - [Puntos negativos](#id512)
-    2. [Introducción](#id52)
+    * [Introducción](#id52)
         - [Objetivo](#id521)
         - [Restricciones](#id522)
         - [Alcance](#id523)
         - [Antecedentes](#id524)
         - [Herramientas usadas](#id525)
-    3. [Vulnerabilidades](#id53)
-    4. [Hallazgos](#id54)
-    5. [Recomendaciones](#id55)
-* [Conclusión](#id6)
-* [Bibliografía](#id7)
+    * [Vulnerabilidades](#id53)
+    * [Hallazgos](#id54)
+    * [Recomendaciones](#id55)
+6. [Conclusión](#id6)
+7. [Bibliografía](#id7)
 
 # Definición del proyecto.<a name="id1"></a>
 
@@ -1990,13 +1990,14 @@ Las maquina a evaluar forman una pila ELK, lo que se traduce en que los servicio
 
 ## Vulnerabilidades<a name="id53"></a>
 
-  
+
 | Description |Nombre   | CVSS     |
 | :---        |    :----:   |          ---: |
 | SSH es vulnerable a ataques de fuerza brut      | Brute-force/Dictionary Attack       | 7.3   |
 | Elasticsearch es vulnerable a ataques de fuerza bruta   | Brute-force/Dictionary Attack        | 5.3     |
 | Kibana es vulnerable a ataques de fuerza bruta   | Brute-force/Dictionary Attack       | 6.5   |
 | Extracción de información de servicios   | N/A     | 0.0   |
+
   
 
 ## Hallazgos<a name="id54"></a>
@@ -2177,3 +2178,4 @@ Fue una gran experiencia de aprendizaje.
 [Winlogbeat quick start: installation and configuration. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/qFzA) [https://www.elastic.co/guide/en/beats/winlogbeat/7.10/winlogbeat-installation-configuration.html](https://www.elastic.co/guide/en/beats/winlogbeat/7.10/winlogbeat-installation-configuration.html)
 
 [yombi. (s/f). yombi/Migrar-Drupal. Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/ze8O) [https://github.com/yombi/Migrar-Drupal](https://github.com/yombi/Migrar-Drupal)
+
