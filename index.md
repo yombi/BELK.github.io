@@ -1,4 +1,76 @@
-# Definición del proyecto.
+###  Proyecto final: Instalación y configuración de la pila ELK.
+
+**Tabla de contenidos**   
+* [Definición del proyecto](#id1)
+* [Objetivos planteados](#id2)
+* [Instalación de ambientes](#id3)
+    1. [Windows](#id31)
+        - [Hyper-V](#id311)
+        - [IIS](#id312)
+        - [Active Directory](#id313)
+        - [DNS](#id314)
+        - [DHCP](#id315)
+        - [SQL Server](#id316)
+    2. [Linux](#id32)
+        - [Correo electrónico](#id3201)
+            * [SMTP, SMTPS](#id32011)
+            * [POP3, POP3S, IMAP, IMAPS](#id32012)
+            * [Amavis y Spamassassin](#id32013)
+        - [LDAP](#id3202)
+        - [LDAPS](#id3203)
+        - [Apache HTTPD (HTTP,HTTPS)](#id3204)
+        - [NginX (HTTP, HTTPS)](#id3205)
+        - [SSH](#id3206)
+        - [Firewall (Netfilter, fail2ban)](#id3207)
+        - [WAF (modSecurity para Apache HTTPD y NginX)](#id3208)
+        - [PostgreSQL](#id3209)
+        - [MySQL/MariaDB](#id3210)
+        - [ProFTPD](#id3211)
+    4. [Dispositivos de red](#id33)
+* [Instalación de BELK Stack](#id4)
+    1. [Beats](#id401)
+        - [CentOS](#id4011)
+        - [Debian](#id4012)
+        - [Windows](#id4013)
+        - [Dispositivos de red](#id4014)
+    2. [Elasticsearch](#id402)
+    3. [Logstash](#id403)
+    4. [Kibana](#id404)
+    5. [Configuración de TLS-HTTPS](#id405)
+    6. [Generación de visualizaciones de kibana](#id406)
+    7. [Dashboards](#id407)
+        - [Email Dashboard](#id4071)
+        - [Web Dashboard](#id4072)
+        - [WAF Dashboard](#id4073)
+        - [Iptables Dashboard](#id4074)
+        - [FTP-DB Dashboard](#id4075)
+        - [Windows Dashboard](#id4076)
+    9. [Alertas](#id408)
+        - [Alertas de Email](#id4081)
+        - [Alertas de WAF](#id4082)
+        - [Alertas de Web](#id4083)
+        - [Alertas de Iptables y fail2ban](#id4084)
+        - [Alertas de base de datos](#id4085)
+        - [Alertas de FTP](#id4086)
+    10. [Conectores](#id409)
+    11. [Reportes](#id410)
+* [Pentest](#id5)
+    1. [Resumen ejecutivo](#id51)
+        - [Puntos positivos](#id511)
+        - [Puntos negativos](#id512)
+    2. [Introducción](#id52)
+        - [Objetivo](#id521)
+        - [Restricciones](#id522)
+        - [Alcance](#id523)
+        - [Antecedentes](#id524)
+        - [Herramientas usadas](#id525)
+    3. [Vulnerabilidades](#id53)
+    4. [Hallazgos](#id54)
+    5. [Recomendaciones](#id55)
+* [Conclusión](#id6)
+* [Bibliografía](#id7)
+
+# Definición del proyecto.<a name="id1"></a>
 
 El proyecto consiste en desarrollo de una infraestructura que implemente la pila BELK (Beats, Elasticsearch, Logstash, Kibaba) para que de esta forma tenga la capacidad de generar reportes, informes, tablas, gráficos e identificar patrones anómalos a través de la correlación de eventos.
 
@@ -17,7 +89,7 @@ También se cuenta con una infraestructura de servicios en ambientes Windows y L
 
   
 
-# Objetivos planteados.
+# Objetivos planteados.<a name="id2"></a>
 
 El principal objetivo es el desarrollo de una infraestructura que implemente la pila BELK, para ello es necesario implementar una estructura con equipos que puedan ser monitoreados y que generan logs para ser recopilados por la pila BELK.
 
@@ -29,7 +101,7 @@ Otro objetivo que se tiene es la creación de un script que permita establecer l
   
   
 
-# Instalación de ambientes.
+# Instalación de ambientes.<a name="id3"></a>
 
 En esta sección de la documentación se encuentra registrado la instalación de los servicios separados de acuerdo al ambiente al cual pertenecen.
 
@@ -37,13 +109,13 @@ En esta sección de la documentación se encuentra registrado la instalación de
   
   
 
-## Windows.
+## Windows.<a name="id31"></a>
 
 Para esta infraestructura se tomó la decisión de crear dos servidores con sistemas Windows Server 2019 para una mejor distribución del trabajo. Una de estas máquinas cuenta con los servicios de Hyper-V, IIS y Active Directory, el otro servidor Windows tiene los servicios de DNS, DHCP y SQLServer, ambos servidores son virtualizados en VMWare.
 
   
 
-### Hyper-V.
+### Hyper-V.<a name="id311"></a>
 
 Para realizar la instalación de Hyper-V en un servidor Windows Server 2019 hacemos uso del programa Server Manager en el cual seleccionamos la opción de “Add roles and features”.
 
@@ -133,7 +205,7 @@ En esta imagen podemos ver como en efecto es posible virtualizar equipos comprob
   
   
 
-### IIS.
+### IIS.<a name="id312"></a>
 
 Para instalar IIS hacemos uso nuevamente del wizard para la instalación de roles y características. En la sección de roles seleccionamos la opción del rol de IIS.
 
@@ -165,7 +237,7 @@ Este servicio no requiere de reinicio así que podemos comprobar su funcionamien
 
   
 
-### Active Directory.
+### Active Directory.<a name="id313"></a>
 
 Antes de realizar la instalación de Active Directory es necesario configurar una IP estática al servidor que esté en el rango de los demás servidores, además de asignarle un nombre para su identificación.
 
@@ -238,7 +310,7 @@ Una vez pasada la verificación se puede instalar, en este caso es necesario rei
 
 ![](https://lh5.googleusercontent.com/d8-JyAqBRYW6cQVZAPGz2UYWXDSG0J66FL8-6sUGtKrc8I0RPoYX4eVxTs-AG4HpXKdmNrKtksZJWKCIlUPYWplMzkMLZ0p_VsipnLCSXXQjY_KvOuo2XvvSExYl5mfRXmjD6tj_)
 
-### DNS.
+### DNS.<a name="id314"></a>
 
 Al igual que en el servidor de Windows anterior, en este caso se debe fijar una dirección IPv4 estática, en este caso se fijó la dirección 10.10.10.6, y formar parte del dominio de Active Directory configurado anteriormente.
 
@@ -401,7 +473,7 @@ Después de reiniciar el servicio tendremos el archivo de logs.
 
 ![](https://lh4.googleusercontent.com/tCIfNWUusH93L2IrTMbBw89jHj0YnnHxtPPc0yn3wjSKbbLtW7Rymr_o_ntIwMU1pwLFsK8Eq53zlwxncLz-_meFInQOLPfcD8iSlArRX0D3koosJpjcSb5q2y4SxU3ngjlgCU-Z)
 
-### DHCP.
+### DHCP.<a name="id315"></a>
 
 La instalación del servidor DHCP se realizó sobre el mismo servidor DNS de modo que no se requirió alguna configuración previa.
 
@@ -528,7 +600,7 @@ Especificamos la ruta para la generación de logs. Además como powershell advie
   
   
 
-### SQL Server.
+### SQL Server.<a name="id316"></a>
 
 La instalación de SQL Server 2019 se llevó a cabo en el mismo servidor utilizado para el servicio de DHCP y DNS. En este caso se instaló la versión Express, la cual puede ser descargada en el siguiente enlace: [SQL Server Downloads | Microsoft](https://www.microsoft.com/en-us/sql-server/sql-server-downloads)
 
@@ -578,15 +650,15 @@ En el panel izquierdo podemos observar toda la estructura de la instancia de SQL
 
 ![](https://lh5.googleusercontent.com/hg688NRqKAsP3FagNfJCmo2FoV7SEdVMQmliVbH4wqeLxVs8ZT7KRe5nbEVSsfDbRMLOyCS6AZYikWpne8-KTFZwQzqVCIL_UOXSkhZnNbJD9SzAhTLT0I8jT4bl3U3KvFCZDDAA)
 
-## Linux.
+## Linux.<a name="id32"></a>
 
-### Correo electrónico.
+### Correo electrónico.<a name="id3201"></a>
 
 Se instaló y configuró un servidor de correo electrónico sobre el sistema operativo Debian 10.7.0. Este servidor cuenta con los servicios de correo a través de SMTP, SMTPS, IMAP, IMAPS, POP3 y POP3S. Además, se configuraron e instalaron los servicios de Amavis y Spamassassin para el procesamiento y manejo de spam.
 
   
 
-#### SMTP, SMTPS
+#### SMTP, SMTPS<a name="id32011"></a>
 
 La instalación del servicio comienza con la instalación del paquete postfix.
 
@@ -657,7 +729,7 @@ Volvemos a verificar que el correo se encuentra en el directorio correspondiente
 
 ![](https://lh5.googleusercontent.com/LVs6ZBXU0iqcG8tV8JORoOb0c0633GXQx_hNfFp_qE5K8fS6dpPGU06X2CU1Qqimdg8icdrPSPNknVfwKIqrYfQlh9LAg994hkM7pdzGZRbW5jHKVE7mpcJCiyUtIaEyIpE4UOOS)
 
-#### POP3, POP3S, IMAP, IMAPS
+#### POP3, POP3S, IMAP, IMAPS<a name="id32012"></a>
 
 Lo siguiente consiste en instalar y configurar los servicios para la consulta de correo. Comenzamos instalando los paquetes correspondientes.
 
@@ -733,7 +805,7 @@ Y finalmente corroboramos el funcionamiento de POP3S.
 
 ![](https://lh5.googleusercontent.com/K1odgcHKPsWQcp1NeC_meUW0onisk4-uqBzgRZuqsV4IOWEAtdV3ZsRWA-u7AobYRueKP3ziuAdO5LkBBjlPlp4Fj15pQg6n1mJbph-C5shNAMvMs0HXineQLTHIlAP3Xi_aV2I2)
 
-#### Amavis y Spamassassin
+#### Amavis y Spamassassin<a name="id32013"></a>
 
 Instalamos el paquete de amavisd-new para Amavis, el cual es una interfaz entre el MTA y los filtros de mail. Adicionalmente instalamos los paquetes spamassassin y spamc para el filtrado de spam.
 
@@ -785,7 +857,7 @@ Verificamos que el correo se encuentra en el directorio del usuario y que ha sid
 
 Como se puede observar, el correo contiene las cabeceras generadas por Spamassassin y en las cuales se indica el puntaje obtenido, así como una bandera que indica si el correo se considera como spam o no.
 
-### LDAP
+### LDAP<a name="id3202"></a>
 
 Debemos instalar los paquetes necesarios para tener el servidor LDAP. Estos se instalan con la siguiente línea:
 
@@ -833,7 +905,7 @@ Ahora que tenemos el servidor ldap configurado, podemos verificar los datos con 
 
 En este punto ya se tiene un servidor LDAP funcional.
 
-### LDAPS.
+### LDAPS.<a name="id3203"></a>
 
 Para configurar el servidor OpenLDAP con certificado SSL / TLS, necesita un certificado CA, un certificado de servidor y un archivo de clave de certificado de servidor. Creamos directorios para almacenar dichos certificados.
 
@@ -888,7 +960,7 @@ Lo cargamos a ldap con el comando usado para cargar el archivo logs.ldif,solo qu
 
   
 
-### Apache HTTPD (HTTP, HTTPS).
+### Apache HTTPD (HTTP, HTTPS).<a name="id3204"></a>
 
 Servidor Web (Apache NGINX)
 
@@ -1018,7 +1090,7 @@ Finalmente se hace la petición a la página, especificando el puerto.
 
 ![](https://lh5.googleusercontent.com/yRBKsOh7zyBJ7R7tL9KeIWmVl9IB3nzWVCiF4cSy7nXYS0H0yEqaE1RbGx9G-2s1aYXMIuaYpu9L-HKAEJi-0AjmLe7NR1AcRw7D6AyJOPS4H625ZUoIdsbwxriY4jgXMGptTW5q)
 
-### NginX (HTTP, HTTPS).
+### NginX (HTTP, HTTPS).<a name="id3205"></a>
 
 Instalación de NGINX
 
@@ -1092,7 +1164,7 @@ Donde se da click en continuar a 10.10.10.9
 
 ![](https://lh4.googleusercontent.com/JNpqZCgS9zv_a6mVZ08y8qFpUYxq5uR2RI4c866fSG4bTOWrdaYx5sRVXTbEdYEcNUCpSd_QolomPYWmPdtmFy_u1BjPhvuDKqyW7W6T3CkOyR5-hEO58ceGmw3r3LYrbSwG4Wzd)
 
-### SSH
+### SSH<a name="id3206"></a>
 
 Debemos ingresar el comando
 
@@ -1116,7 +1188,7 @@ Ahora los logs estarán llegando a /var/log/messages
 
   
 
-### Firewall (Netfilter, fail2ban).
+### Firewall (Netfilter, fail2ban).<a name="id3207"></a>
 
 Creamos el usuario para la administración del firewall
 
@@ -1245,7 +1317,7 @@ Revisamos las reglas y las guardamos.
 
 ![](https://lh5.googleusercontent.com/n4cgi1xhOk-4wyttsycO0elsWv_WG6tytunrDUl0FDsn7-uya_nYSf7nWJiO7W6KdHOixFBnjqDnWY8d-fJz26uq2vQOB3mRnR75xqTGCHvZyQQuMYVLyr5ee25etC0FaPrVkmix)
 
-### WAF (modSecurity para Apache HTTPD y NginX).
+### WAF (modSecurity para Apache HTTPD y NginX).<a name="id3208"></a>
 
 Creación del usuario para el servidor
 
@@ -1417,7 +1489,7 @@ Para probar que las páginas son protegidas por modSecurity generamos una petici
 
 ![](https://lh4.googleusercontent.com/R60eqgj9FVVa-NpJkWel4CK5YpdchmkCZ1H6DXBBRVTZbc5mjxtm-y-KPGznB4j-hWmZO_X_rdCy0h95e4XXwENKMcVc0u_u6SrgSmku7YU_p-ltdsvwmQJ2Iaod5_8ouMHzgmHa)
 
-### PostgreSQL.
+### PostgreSQL.<a name="id3209"></a>
 
 Comenzamos por instalar el paquete. Para instalar PostgresSQL 12 y todas sus dependencias usamos
 
@@ -1476,7 +1548,7 @@ Probando la conexión desde otra máquina con el comando
 
 Notaremos que el servicio es funcional y acepta conexiones.
 
-### MySQL/MariaDB.
+### MySQL/MariaDB.<a name="id3210"></a>
 
 Comenzamos por instalar el paquete. Para instalar Mariadb y todas sus dependencias usamos
 
@@ -1528,7 +1600,7 @@ Probando la conexión desde otra máquina con el comando
 
 Notaremos que el servicio es funcional y acepta conexiones.
 
-### ProFTPD.
+### ProFTPD.<a name="id3211"></a>
 
 Comenzamos por instalar el paquete necesario para tener el servidor ftp funcional con
 
@@ -1553,7 +1625,7 @@ Ahora probaremos el acceso al servicio desde otra máquina. Debemos descargar un
 
 ![](https://lh6.googleusercontent.com/dA-XGHj-4hH5qahIhMMMdNq66gR91cBDlZRXTqIIO6pLiXv2fS6S5890TZckerjJzrRxYf62yyKFF3rn26924Zzt8osWE8IgRm0e0T52srBlY0BM2AP496qWwPuYtf6dzSr-bcK2)
 
-## Dispositivos de red.
+## Dispositivos de red.<a name="id33"></a>
 
 Para los dispositivos de red se optó por utilizar GNS3 debido a que este servidor nos permite emular distintos tipos de dispositivos de red así como utilizar máquinas virtuales de VMWare.
 
@@ -1597,13 +1669,13 @@ Se implementa una regla de SNAT para que se haga la traducción y pueda contacta
 
   
 
-# Instalación de BELK Stack
+# Instalación de BELK Stack<a name="id4"></a>
 
 En esta sección se describe el proceso de instalación y configuración de cada uno de los componentes de la pila BELK.
 
-## Beats
+## Beats<a name="id401"></a>
 
-### CentOS
+### CentOS<a name="id4011"></a>
 
 En CentOS debemos descargar el siguiente paquete.
 
@@ -1633,7 +1705,7 @@ Y para habilitarlo ejecutamos el siguiente comando.
 
 `systemctl enable filebeat`
 
-### Debian
+### Debian<a name="id4012"></a>
 
 En Debian debemos de descargar el siguiente paquete.
 
@@ -1645,7 +1717,7 @@ Una vez descargado debemos de instalarlo con el siguiente comando.
 
 La configuración de Debian es exactamente la misma que la de CentOS por lo cual no lo colocamos debido a que sería redundante.
 
-### Windows.
+### Windows.<a name="id4013"></a>
 
 Es necesario descargar el siguiente zip desde la página oficial de elastic.
 
@@ -1671,13 +1743,13 @@ Después en services activamos el servicio.
 
 ![](https://lh6.googleusercontent.com/onUTFgT2EDQ5PiJkrYiCxWOLvj8nno7ZNgWShp3Ll1Uz8sCaYjk4CpUerQanPSy6_3eiZc1H14HhiBhsg0qmHw5JqKHD3-c9i6C89gQ1bhF4Uq4Fp__qKKhG5vSGQVnbUAh1yNF8)
 
-### Dispositivos de red.
+### Dispositivos de red.<a name="id4014"></a>
 
 Como en los dispositivos no es posible instalar un beat es necesario mandar los logs a un equipo que sea capaz de procesarlos mediante syslog. En el caso de el router y el switch es necesario. Escribir los siguientes comandos.
 
 ![](https://lh3.googleusercontent.com/G2QaHV0tCtJWCyUHL8LgOjM3TGs95vmvtbh6XCqxVeotCBEyq1HCoxIdi5Hf1m5ImU0xhNgnRJVwEime-HhSI0sEBE-B8K-J5SjSFTuds7Zfwh6mRSOmopPHt4Te6wH-qWpXgzfG)
 
-Podemos comprobar el funcionamiento con el comando sh logg.
+Podemos comprobar el funcionamiento con el comando sh log.
 
 ![](https://lh4.googleusercontent.com/I442FlQ22OLMhHfwp8u7VdhYiy9Q6pgHiovKf_ePjEKA1TVVAm07NHyCh7IAkTmKYzC5dij5p98gvWUQPKYwQrbSL9W6mi1wSch56DWDN_gz-ytg2Ip0hKTGrU1uKS6Zht1e3js1)
 
@@ -1695,7 +1767,7 @@ Una vez activado el módulo debemos de configurarlo mediante el archivo /etc/fil
 
 En el caso de fortigate se hace uso de un filtro de logstash para recibir los logs y procesarlos.
 
-## Elasticsearch
+## Elasticsearch<a name="id402"></a>
 
 Lo primero que debemos hacer es instalar el paquete gnupg, el cual es una herramienta de cifrado y administración de firmas, este paquete nos será de utilidad para poder agregar la llave GPG de Elasticsearch.
 
@@ -1751,7 +1823,7 @@ Finalmente verificamos que nuestra instancia se encuentra en funcionamiento.
 
 El proceso de instalación y configuración para la segunda instancia de elasticsearch es el mismo, simplemente se debe indicar un nombre de nodo distinto (es02.aafa.local) y su correspondiente dirección de host (10.10.10.25), además, indicamos que deseamos comunicarnos con la primera instancia (10.10.10.24).
 
-## Logstash
+## Logstash<a name="id403"></a>
 
 Iniciamos por descargar gnupg con
 
@@ -1807,7 +1879,7 @@ Lo cual debería regresar un “ok” como señal de que no hay errores, así co
 
 En este momento tenemos un logstash funcional.
 
-## Kibana
+## Kibana<a name="id404"></a>
 
 Es una aplicación gratuita y abierta que permite a los usuarios buscar datos en índices de Elasticsearch y luego visualizar los resultados a través de opciones de gráficos estándar o apps integradas. Los usuarios pueden elegir entre diferentes gráficos y filtrar segmentos específicos de datos. Una vista de dashboard combina estos elementos visuales para compartirlos a través del navegador y brindar vistas analíticas en tiempo real de grandes volúmenes de datos.
 
@@ -1855,9 +1927,9 @@ Ahora se revisa en el navegador, donde se visita [IPKibana:5601](http://ipkibana
 
 
 
-# Pentest
+# Pentest<a name="id5"></a>
 
-## Resumen ejecutivo
+## Resumen ejecutivo<a name="id51"></a>
 
 El proceso con el cual se realizó la prueba será descrito de manera general a continuación:
 
@@ -1870,38 +1942,38 @@ El proceso con el cual se realizó la prueba será descrito de manera general a 
 
 Con base en lo anterior, reportamos puntos a favor y en contra del sistema.
 
-### Puntos positivos
+### Puntos positivos<a name="id511"></a>
 
 Los sistemas cuentan con solo los servicios indispensables para su funcionamiento y monitoreo, lo que evita que existan varias ventanas de oportunidad para atacantes.
 
 Los servicios encontrados no presentan vulnerabilidades críticas o altas.
 
-### Puntos negativos
+### Puntos negativos<a name="id512"></a>
 
 Los servicios son vulnerables a ataques de fuerza bruta. Esto representa un riesgo medio ya que, de sufrir un ataque exitoso, se podría comprometer la triada de la seguridad de la pila.
 
-## Introducción
+## Introducción<a name="id52"></a>
 
-### Objetivo
+### Objetivo<a name="id521"></a>
 
 El objetivo de esta prueba es encontrar vulnerabilidades en la pila ELK que pudieran ser explotadas una vez que se haga pública
 
-### Restricciones
+### Restricciones<a name="id522"></a>
 
 No hacer modificaciones sobre la pila
 
-### Alcance
+### Alcance<a name="id523"></a>
 
 La prueba se limita a las máquinas que conforman la pila
 
-### Antecedentes
+### Antecedentes<a name="id524"></a>
 
 Las maquina a evaluar forman una pila ELK, lo que se traduce en que los servicios de Elasticsearch, Logstash y Kibana estarán presentes por lo que ya se tiene información relevante a priori.
 
   
   
 
-### Herramientas usadas
+### Herramientas usadas<a name="id525"></a>
 
 -   nmap: Programa que sirve para efectuar escaneo de puertos,versiones de los servicios en estos e incluso el sistema operativo del host.
     
@@ -1916,7 +1988,7 @@ Las maquina a evaluar forman una pila ELK, lo que se traduce en que los servicio
 
   
 
-## Vulnerabilidades
+## Vulnerabilidades<a name="id53"></a>
 
   
 
@@ -1952,7 +2024,7 @@ N/A
 
   
 
-## Hallazgos
+## Hallazgos<a name="id54"></a>
 
 Comenzamos por lanzar un escaneo a uno de los servidores de Elasticsearch. Dado que los 3 servidores de Elasticsearch tienen los mismos servicios y configuración, solo bastará hacer pruebas en uno (el principal)
 
@@ -2032,7 +2104,7 @@ Notemos que el ataque puede seguirse ejecutando sin problemas, por lo que el ser
 
   
 
-## Recomendaciones
+## Recomendaciones<a name="id55"></a>
 
 -   Instalar un servicio como Fail2ban para evitar este tipo de ataques.
     
@@ -2043,15 +2115,15 @@ Notemos que el ataque puede seguirse ejecutando sin problemas, por lo que el ser
 -   Usar certificados en lugar de contraseñas para autenticar en SSH
  
 
-# Conclusión.
+# Conclusión.<a name="id6"></a>
 
 El proyecto ayudó a reforzar los conocimientos sobre servicios y redes que se adquirieron durante el Plan de Becarios, en particular sobre infraestructura de Windows, ya que no se volvió a implementar un servicio sobre este sistema operativo después del primer módulo. Así mismo, se adquirió conocimientos nuevos sobre herramientas como lo son Amavis, Spamassassin, FortiGate, GNS3 y Cerebro, entre otros. Además, nos permitió adquirir conocimientos referente a la realización de un hardening sobre sistemas operativos Debian y CentOS, lo cual nos parece muy útil ya que es necesario implementar una línea base sobre aquellos equipos que conforman nuestra infraestructura de trabajo.
 
-Por otra parte, se logró un aprendizaje significativo respecto al funcionamiento, configuración,instalación y administración de una pila ELK.
+Por otra parte, se logró un aprendizaje significativo respecto al funcionamiento, configuración, instalación y administración de una pila ELK.
 
 Fue una gran experiencia de aprendizaje.
 
-# Bibliografía.
+# Bibliografía.<a name="id7"></a>
 
 [3.7.1 Spamassassin [Servidor Debian]. (s/f-a). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/BCdZ) [https://servidordebian.org/es/buster/intranet/antispam/spamassassin](https://servidordebian.org/es/buster/intranet/antispam/spamassassin)
 
