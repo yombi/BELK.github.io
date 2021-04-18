@@ -2155,7 +2155,7 @@ Fue una gran experiencia de aprendizaje.
 
 [Install Elasticsearch with Debian Package. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/BDmt) [https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html)
 
-[Install GNS3 with GNS3 VM with routers and switches| CCNA / CCNP Practical Labs. (2020, junio 16).](http://paperpile.com/b/Q4Pnnj/Vzxp) [https://www.youtube.com/watch?v=c1Lr_xOqaIA](https://www.youtube.com/watch?v=c1Lr_xOqaIA)
+[Install GNS3 with GNS3 VM with routers and switches CCNA / CCNP Practical Labs. (2020, junio 16).](http://paperpile.com/b/Q4Pnnj/Vzxp) [https://www.youtube.com/watch?v=c1Lr_xOqaIA](https://www.youtube.com/watch?v=c1Lr_xOqaIA)
 
 [Install Kibana with Debian package. (s/f). Recuperado el 4 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/4y69) [https://www.elastic.co/guide/en/kibana/current/deb.html#deb-repo](https://www.elastic.co/guide/en/kibana/current/deb.html#deb-repo)
 
