@@ -2095,9 +2095,1592 @@ Nos dirigimos a `Management > Security > Users > Create user`. En esta nueva ven
 
 ![](https://lh5.googleusercontent.com/IXyXQR5eJpS2voYsqxUDfU1BZuDCewK954i-YGxVTEYM2fQOTopbdcNdUbdRCIM1Dg4x5aUjn3RwGeC02aOu9Qsy6vzf1q0CZkXft4A8P4tBhOrV0i8aNFHvOqTj70cHRU5jghXc)
 
-## Generación de visualizaciones en Kibana<a name="id406"></a>
 
+## Dashboards<a name="id407"></a>
 
+Kibana posee paneles de visualización llamados Dashboards, los cuales nos permiten observar gráficas, métricas, líneas de tiempo, bitácoras, etc; todo en un mismo lugar.
+
+Para crear un dashboard simplemente seleccionamos la opción Kibana > Dashboard, ubicada en el panel izquierdo. Posteriormente en la nueva ventana hacemos click en Create dashboard.
+
+![](https://lh4.googleusercontent.com/QtQ_x4nrn_KmvTIAJePJ3YVQqdrecKJSwDeQlGMKJRkIS7BXgiX7UKitOzsK3iHJa9rQVOKsEbQJfg16xjgOLMyFvHAmDH1BHYUvN6G4EZLOLEzVCSj-6BsBJ_Rn4Rw0oDW97a08)
+
+En la nueva ventana se mostrará un recuadro que nos permitirá agregar un objeto existente o crear uno nuevo. Al seleccionar la opción Create new, se nos llevará a la ventana de creación de visualizaciones, por lo que se deberá seguir el proceso de creación de visualizaciones descrito anteriormente. En el caso de seleccionar la opción Add an existing, se desplegará un nuevo panel del lado derecho en el cual se podrán seleccionar los elementos que deseamos agregar a nuestro nuevo dashboard.
+
+![](https://lh3.googleusercontent.com/IjtOFCsj3KEuPvwSaaDGpBNfEjvb75YUKreZo4LDrwSGaGl9jRo2_V0Lojqgmy33Np6djVNfTcpl0aptRL_UPW1_iJg5inELer2xfWovXSWWzq4UvkVGzJevZTke6hv2RchkBQYN)
+
+En el panel lateral derecho podemos navegar entre los distintos tipos de objetos creados y seleccionar aquellos que deseamos incorporar al dashboard. También se cuenta con la opción de crear un nuevo objeto.
+
+![](https://lh3.googleusercontent.com/WAWqeyENYTH6y2E-43F6-Urd6zmzirBdVzaZKBF7QC1-acZsJscbTDUfcsjsYiCiHE1a0hJXQU9uVrqMLO8uP7MzEXdhj-jWSPPDgwYeeiJp96QEij8cqL0FmfXEifIePxbBEDg0)
+
+Ya que hemos seleccionado los objetos que nos interesan, podemos reorganizar y redimensionar cada objeto a través de la marca inferior derecha.
+
+Una vez realizados todos los cambios, podemos guardar nuestro dashboard haciendo click en el botón Save.
+
+![](https://lh5.googleusercontent.com/tNr_IbK2iBNrsYtfwr0MNywgV8TbqQnQzR7qpPcHxM0qjpQTYSbcYNCEMDzey2iWwaH5H1wLwMz6BUmqYUvAAIvczSKWuCaBPisgnKsHiphiBVtys1s_0ZwGrklcLOEpp0ElunY4)
+
+Al guardar el dashboard deberemos asignarle un título y una descripción. Una vez ingresados podemos hacer click en Save.
+
+![](https://lh4.googleusercontent.com/D7TDXDrpA8S4lEWNCKmmtVpR6qEE1qjJiYZmPW2VdZwjyw_ATJyhYlpWkWMZhzhSiUmUtV1cvAgxAD9K2jh926L_DdtC3M7EGDrDDnUN76ZuMpM09kEtzN0FMr3XeemcxMnH8cQq)
+
+Si nos dirigimos nuevamente a Kibana > Dashboard desde el panel izquierdo, podremos acceder a los distintos dashboards que hayamos creado.
+
+![](https://lh5.googleusercontent.com/LgpHHbBH0v2q_NlRWNhl8wQSbI_0fmlso29TIlJ6vov9v1CYh2DQCSmnBXPRj-HVbmnsix95VwkX6RUhwJittEv1pUvDZfPXvH_uCTNYb1Nyq6e4gMc4Mxr_v-vfvprWPzEXjNaW)
+
+### Email Dashboard<a name="id40701"></a>
+
+El dashboard de Email está compuesto por distintas gráficas, métricas, una línea de tiempo y un panel de bitácoras.
+
+La primera sección del dashboard permite observar la cantidad de emails procesados (enviados y recibidos), cuántos de ellos fueron clasificados como Enviados, Rebotados o Diferidos. Además, se cuenta con una gráfica que muestra la distribución de emails, es decir, qué porcentaje de los emails en cuarentena son SPAM o se detectaron como malware; y qué porcentaje de los emails entregados se encuentran limpios, son SPAM o no pudieron ser verificados.
+
+![](https://lh5.googleusercontent.com/rXH1yKnDgaNAwuXSuyuQM3nlAyki9QwhPke4C4Kr-7-pgJ6SJECb2oiXITwdqqJf5XfqzKh-uWQ37jHELmGT1tTfMIdUOit_G63BmU-JJph6T8LNpOI91IpiRMWgukkZ_PN3TlI6)
+
+La segunda parte muestra métricas sobre email enviados y recibidos, así como la cantidad de bytes enviados y recibidos. Además, se cuenta con una línea de tiempo que permite observar los estados de los emails a través del tiempo.
+
+![](https://lh6.googleusercontent.com/3tci7uyNncGFyPbGb4Lnb-Vl6Na1g_FmGfMKAc0e-evh7JcW7T51BwVHz4ss8WMJ8fbgzaLk5oXfGLL6dq90r4WurxsChU6BHIGc7oFCmDjveYg518Td-hMGon00mI8Fk3FSsSdM)
+
+La siguiente sección permite observar un top 5 de direcciones de correo de remitentes y destinatarios, así como un top 5 de países y direcciones IP de clientes de correo electrónico.
+
+![](https://lh4.googleusercontent.com/M1iSXzl_u_K4Aa6LrUQqbQY1WgAkS2XhbG1qn2oULUYwhKfOzR0tFYQ7cHAmYwayTf-y2KgKLghTJ69l1oo4bp_lw_39neT5Pp-qn-GALtzFif-uHPJpfodtETy3eAzvPpOWNoCM)
+
+Posteriormente podemos observar un top 5 de países y direcciones IP que envían más SPAM, así como un top 5 de países y direcciones IP que aquellos que intentan utilizar el servidor de correo como relay.
+
+![](https://lh3.googleusercontent.com/rhaGK651atL5b2j4Z1uEdk7C9HVR2U1RkkNupcXRE3m3NaSF72Hlk5YtyH6QCQfKcRyTQfgq8Bkp_d5JbGDMRMglFu00sDwcwGL04DhueGnpUPDZH7gQEh80thX1wHZesOkXucjR)
+
+También se muestra un top 5 de países y direcciones IP que envían emails con direcciones de remitentes inválidas, así como aquellos que tienen más fallos de autenticación. Esta sección nos permite identificar posibles ataques de enumeración de usuarios o ataques de fuerza bruta.
+
+![](https://lh5.googleusercontent.com/IAuD3UzzR8Tb3VdSl-VAByyk8aP-3mwXW6FjP__3G3znWOcYWeSz_2AXR0sz9RIh__pUT18_m5VpLhuciYFKLK1iL-6QAzVwqh-YwzeUn0CVWWXTNkmVLcxA80BWhDSkiMqyIPQ7)
+
+Finalmente se cuenta con una sección que muestra un top 5 de países y direcciones IP que cuentan con la mayor cantidad de autenticaciones fallidas en los servicios de IMAP y POP3 (Dovecot). Esta sección nos permite identificar posibles ataques de fuerza bruta sobre IMAP y POP3.
+
+Además, se cuenta con un panel que permite observar las bitácoras del servicio email.
+
+![](https://lh3.googleusercontent.com/TMjwkLKS4aDexj5N8jhXAdCL31B8g9ocGER6yVlUfZil3dkx8KUOVNi5yPD0J72q6PsCIFwI-qNZ-SzgHm-bYfMSfp9Ts9WnhqBVc81OKBBXJ3H9CCUM0waPi_BNYQZ6kO9FN1f2)
+
+### Web Dashboard<a name="id40702"></a>
+
+Para el servicio web obtenemos el total de logs que se han recibido, para esto creamos una visualización tipo Metric, donde incluimos el filtro para que este cuente los logs tanto del servicio Apache como Nginx.
+
+  
+
+NOTA: En el dashboard del servicio Web en alguna gráficas se especifica que no se incluyan los logs que provienen del WAF, ya que este esta en proxy inverso y los logs son repetidos tanto en el WAF como en el servidor Web pero según sea necesario se obtendrán los datos requeridos de cada uno.
+
+![](https://lh5.googleusercontent.com/mWJLAytVNXQKXWVYzxCpjJR2gFq4wWyJV5kdbJ313vwZs5PSR09Q0y0P_0fTrZhO2-wJOkMK5nqRPtoKV_YH-nuI19VMUVXAp99mMYg454nf288i9vHB53M_SlP9h_S4vgbkR9Mu)
+
+  
+
+Para mostrar el total de logs para el servicio de Apache creamos una visualización tipo Metric, en la cual agregamos un filtro donde solo tomamos en cuenta los logs de apache.
+
+  
+
+![](https://lh4.googleusercontent.com/6TydKYSx2GRyaeU1q7uWPgZ0dFkWPzkSeFjxEiEGmCKVxryA_AcGRvZJq2hIueFIFbxeAv4gGIW7iukxvIcH9tVKV_33R3B36DvTyfF039SVj_Hzie1U_vEKxOfUKdNnCc9nBZzH)
+
+  
+
+Para mostrar el total de logs para el servicio de Nginx se crea una visualización del tipo Metric, donde se agrega el filtro para el servicio de Nginx.
+
+![](https://lh6.googleusercontent.com/O9jsYm1I9Z-G_A46Any51j5dZG9SsWZFL6MNwxT94LtOdFO2f0OxOErHuz3WZ6qiVAcJKsH873dCOyHKffXfA099ny6G4r_r9wg9ylj0vmSiJtoCgDb2d1LDauxnidhjgLoPD18i)
+
+Para ver qué página es la que más logs manda, excluyendo cuando el log incluye - pues esto no arroja datos más específicos, creamos una visualización Lens del tipo Donut, donde en Slice by seleccionamos Filters, dentro de este creamos tantos filtros como sean necesarios, en este caso 4, uno para cada página y en size by seleccionamos Count of records.
+
+![](https://lh4.googleusercontent.com/wedxmIBpofinl0G3GHe5PnFnZjkHhiPTUL1FOqTIyF8ybQXjOyEINS9cyml6nxRul0aKHMOy_M_oujtHIE6atwJ6Gxg_2uDBdl5FjQbZ2bgkkQMAkAJ1-3jS-i7_KvgywgB_3cnG)
+
+![](https://lh4.googleusercontent.com/w8g66PhVzGwkbT1MwJbyUjS9LxyNsXslLjARTBIzRP8aJ94g29drc30HOS1KBgB3N0aVau8bpq0zx_S_GsckjkeXRlPMvUnPIceCR046mjsP_KSraWJl-PxgC1ljXKM8R0TGSHrE)
+
+  
+
+Para listar los usuarios más utilizados en una autenticación básica para los servicios web en intentos fallidos, creamos una visualización tipo tabla de datos, donde creamos un bucket, en aggregation seleccionamos Terms, en Field seleccionamos web_auth.keyword y en size ponemos 10 para que este sea top 10. Se agrega un filtro para saber que el código de respuesta pertenece a los 400 y para quitar aquellos logs cuando no se ingresa un usuario..
+
+  
+
+![](https://lh5.googleusercontent.com/nEBeVftKyb6_4_NMYBSXB2JHmpKqzBE58zJhGl0GgFryBU_OcMWD7IUWhbOF4JLRYaStd96JzqQpTi9Q4BTm2gl2lKN9CAl4UwKn4Xzn1LMiHRZ0I2U330Tq8w_ZLlTdZP4IZHC2)
+
+![](https://lh6.googleusercontent.com/gAR0DkItgMRP6nM5PZP68IjLPKtgIZ2CU2z5AOT7egxe-Cr9WtpA8W0QUp3-N7n8K2TG2OwVVzm-YAohPtvo-XpHZQYJxK2zj-85BzmzbZyfLbiDQssbchn9X6MhdsZvsbKdRxYp)
+
+Para mostrar el top 5 de los usuarios que más han ingresado a la página creamos una visualización del tipo tabla de datos donde ingresamos un filtro para definir el código exitoso con un 200 y quitar los logs que no incluyen un usuario. En este creamos un bucket, donde Aggregation es Terms, en Field seleccionamos web_auth.keyword y en Size definimos que sea el top 5.
+
+![](https://lh6.googleusercontent.com/xs5Qd_1zr36RmNV6M4TIis3rpN-imYa8ceJLd0yb6ffwUkduIQ6ynkLcfniQWAPANOppvhrbqaJokk2jqPLo2dUgTZ-SI09Pcg4VPBjqDZ-nUInlc1WIRVxVOIR-KZzFGaXMRFdk)
+
+![](https://lh6.googleusercontent.com/eKnVWX6CMdANlir-boj6wzKorfENsGmAEj0tLGXtiuz809_kAUTXh0xw95AOPhTwIwnm33HEBKfa2d3K9L3jb8vXdzITywZspDIMshSTwDUwe0yh5ZvPzuPYKVl0DpsZ8NS740Mu)
+
+Para crear una visualización donde se muestre el top de usuarios a través del tiempo, creamos una visualización tipo TSVB, en la primera etiqueta ponemos como Nombre usuario y establecemos un color a esta, en la configuración interna en Aggregation ponemos Count y en Group by establecemos Terms, en By seleccionamos web_auth.keyword además de excluir el usuario - (esto es por que el log indica que no se ha utilizado un usuario para ingresar a la página) y para definir el top, elegimos 10.
+
+![](https://lh5.googleusercontent.com/hD2oE8knJ-BoGUQ_wF5f4eNYjbdSX_T49YI2MsyyBzNcOw7nzyLwRknQBbo-WNSOwVTS5Rt6-aclRZqIz31MH_CcYnol8ctEOfOWVJp6_JGLSwK3Xak_PNCrkaT_G126QMFtZaqg)
+
+![](https://lh4.googleusercontent.com/nbPdw1Mib_tBOKbFkDx0lseC-iTUUZR2WjKJw9S1LOaRjZei24ssYoTz9aNYfRo19HftBNj28lDgd3iJ617Giwk7CW878cmpMYrrlc9Fw3iOdap3HK2dk1CghDE_YsDNYuQCQEIg)
+
+Para visualizar el top 10 de usuarios con el top 10 de código creamos una visualización tipo Pie, donde creamos 2 buckets, en el primero especificamos Terms para Aggregation y en Field web_auth.keyword además de 10 en Size para definir el top 10.
+
+![](https://lh4.googleusercontent.com/wxffk0hOIQnG5l_5zA9pjAKa-gLUMrequXXRceRMYfXkmERrqvJjCm13Fdd9ySkamgvP8IAZzDbIujhGMFw9YDimB1o_6RltxOBsYM4iu4tVZ-EuVjUt_sps3joPNqqbzbCSS3Cq)
+
+En el último bucket Aggregation es Terms, el campo es web_code.keyword y en size es 10. De este modo podemos observar la siguente gráfica.
+
+  
+
+![](https://lh3.googleusercontent.com/mG0W4rWiUHV5wO7V_uG7DCv3Jxf8mM845eT9VBSVvk6AXOzoMBaPpfPJxoouOe6s2ujFM4_-VihTW7reJ4vW_qdWvuJahWxeJxDTNjzDAQBSNZ8tY0qNZ_D2PE_c42pDE4LKivB8)
+
+  
+  
+  
+
+Para mostrar el top 10 de la información de la aplicación con la que se visitó la página creamos una visualización tipo Tabla de datos, en esta definimos un nuevo bucket, donde Aggregation es Terms y en Field es web_browserInfo.keyword, además en size definimos 10 para especificar que sea el top 10.
+
+![](https://lh4.googleusercontent.com/835UNNb_pukHVvqsXKXrXcLrBGiurZOS8QFhAUopvPmpB6M8m5nUMtvzvBsdx09swNxDIgkWDAyBNjf_vRqwUrveQlh1MPQ4BE-cJV7egmVdMkYu7EhHJDDheknAMychMTvYkkYt)
+
+Además agregamos un filtro para especificar que aquellos log donde no aparezca información sobre este, no sea mostrado.
+
+![](https://lh4.googleusercontent.com/r5c9jmmMIVwDceJHZcR_r9BpPR0HwwEaxhhoNick0gFwwXJl1s3OHBbtjdStmW9xaqyflI9cW6M1k0xnQS9Bzj3Ux5Fr83xSzd24CIPPQVXuFdIFIYS3EVcadLUFbYx799rnR4Fz)
+
+Para obtener el promedio de bytes de las peticiones creamos una visualización Lens del tipo Metric, una vez aquí en el campo Metric seleccionamos Average y el campo, en este caso web_bytes, finalmente en formato del valor, seleccionamos bytes.
+
+  
+
+![](https://lh5.googleusercontent.com/2sSzkE5csY7s8ZmNM6GV9B5TrkE4HKW4rzy1_LSIpoahiGLhmNvWO4RbfjPbY395y37l1eahxoAsqGupyy2foDsDCQmXdNBhBhPwVMN9V24YSungpTRR4Ydw5kUqhtLkGeXIHA_Q)
+
+  
+
+Para mostrar las 3 IP que mandaron el paquete más grande creamos una visualización de tabla de datos, en la sección Metric definimos Aggregation como Max y en Field como web_bytes.
+
+  
+
+![](https://lh3.googleusercontent.com/1Htsg9O2UIpKkK95HIOppSokzn8pCtKCWwStrsqdUKuiTlBXvIsyczciy0-NeossIjRbEFVN-WVQPcf4Og_WBZSn6Fec6FADO4mnI5AJR5Zn8uP1y7WoRNWnV7_2Ukz54b_VE_3E)
+
+Además agregamos un bucket, donde en Aggregation ponemos Terms y en Field web_clientIP. En order by seleccionamos Custom metric donde en Aggregation escribimos Max y en Field web_bytes. Finalmente en Size escribimos 3 para definir los top 3.
+
+![](https://lh4.googleusercontent.com/Yh97Ki3ItpwMRXizBT5hitZcqdnPhZsqDW1RmQRxRoc514k9i7kBJGNAFuf4zHhsleyTn24-Bklu_ozMBmqAvw34XsTWOqZ4mKr3FS9xGEvAUOtbqa1Us6FDorhnFEX1vwcXHLHd)![](https://lh6.googleusercontent.com/-OQgitS3JrR2Crg8GqIMyQ1O2FXcmiPp_E3cxgvC3HfEzMvKFIXwTX6mSAIH-y_a7giQsh4LZdxyeQoBWeuX72YH3GEY64-OxFJiK-pM5SukwKIFTQu5KIgqaeK1RvnNUT_hOI-W)
+
+Para mostrar los 5 clientes IP más frecuentes, creamos una visualización tipo data Table, donde creamos un bucket donde en Aggregation elegimos Terms y en Field seleccionamos web_clientIP.keyword.
+
+  
+
+![](https://lh4.googleusercontent.com/x9dyubNCEiDfnMIJxUsw7xsJSgPQSqa9O2TadlXy3AdeQ2KADjqYX8sRTccVvaQajlqbA2kCT42tAf37WTQkXJWmGcySpyepZbtiZ6MM2kNvmt7uRR20wel0eWBHxWjnRMVkZKHl)
+
+![](https://lh4.googleusercontent.com/rY0oZvb6Lu6pxcBRMDwYv6m-jWDiKrT_TIGfRzf1sWjRZc7RHL6qU1lASzlf8ZPrAVkAW-J4cBWimbbpm7zi6EMhKYviEGN1ZhxxA9LZ3N4qpBIugSIGUjiRj167UNXGsQpWFjpL)
+
+  
+
+Para listar el total de logs recibidos para el top 10 de los códigos creamos una visualización tipo Metric, donde creamos un bucket, en aggregation ponemos Terms, en field seleccionamos web_code.keyword y en Size seleccionamos 10.
+
+![](https://lh4.googleusercontent.com/oOvdrWXCDrWzLaWy2A4K6gZNb_BTBwC6vBTuSVJBhyvOTr2r8FvXFlReFrvBF9yAvKDCOHMCf1DKSpcEuz-ub2N6m1WKLtl7YYK9dG5FsMrEZAftIkk-EiiZI2Gr5reaKoULY2Tz)
+
+![](https://lh5.googleusercontent.com/BDhjRXcGa2JIoBnvyCBv2oZfp1xoOztyAJ1Ky0JyZsrP0ILa1IYOXnMO49GBv7hlO20SDOPKck90MfvyFk09YnVqd6aSIsPrzccL6UdYu1v6R6Sn_BPKsNB0MuBq0LvRn8MZuAl6)
+
+Para listar el top 5 de los métodos más utilizados creamos visualizaciones tipo Metric, donde creamos un nuevo bucket, en Aggregation seleccionamos Terms, en Field elegimos web_method.keyword.
+
+![](https://lh3.googleusercontent.com/Gbje9ZCGx4Pj6e5erIOAQ9PKC5PBNibkBrHXaZi1wp9S3iqAulc3EE4Exwj1hHqZCiWCN_S5aYW9juFKW6DyKZ4egEzZ3oU6rlZ-a06Q7HHRs8GMHcTPnbK_56h-txEio8RGOIs3)
+
+  
+  
+  
+
+![](https://lh6.googleusercontent.com/fNRsJ2WHE_EX030svPqxLBitED07aWl3UN6VjxJNx7VLs3kUO5QHqZ9-qvKOX_t6rFOreEbKverwRkMzlpxaLbOhk_IiiXwi1TPe8qisWM0FFXvWirbeLs9ZY0gg8lfbTnHP4c-k)
+
+Ahora queremos ver cuál IP tiene la mayor cantidad de bytes a través del tiempo creamos una visualización tipo TSVB donde configuramos la etiqueta para que muestre las IP que tienen valores máximos en cuanto a bytes se refiere, para esto en Aggregation seleccionamos Max, en Field web_bytes, en Group by Terms, en by web_clientIP.keyword y excluimos el cliente 10.10.10.12, siento esta la Ip para el servidor WAF.
+
+![](https://lh3.googleusercontent.com/scObwthnB3Z_IESx7vsDfdF-QldciHoxMouVDhmfj-yRI1Mqg3z5A9ImKLFKP_UWO-YVEo6IP9m3Kynnb981L2jwKCVLbMxnZRQIEdCWk2MnXT__611yM_S5oCRmniCi5pVRtVtP)
+
+![](https://lh3.googleusercontent.com/IXmMJCO7nrzqIU50O_drIcImfhSRYKhYMa3ixR31mbTpcRYyBoQGN1vAPb76q38JqyHvOxcG85UtOuVjhzNdb0chj2RYYAWn0LLp-hSO_Y54GSVZg9D8fhDS-IumnPSYVXM6-fmj)
+
+  
+  
+  
+
+Para visualizar la relación código web -Tiempo creamos una visualización tipo TSVB donde configuramos la etiqueta, en esta seleccionamos Count para Aggregation, Terms para group by y web_code.keyword para by, de esta manera se muestran las incidencias de códigos respuesta a través del tiempo.
+
+![](https://lh3.googleusercontent.com/d4pQm7yBSeZds4XVJGVYx8a2YkpcNvlr5ojkUp5Opdy80rpMP4PLQRH8JxByHePBnpMohucvlny5dMlsLSX9j_I-BrLI8yGiquHKXZpdTNdPfjdgZC4kj-Uv60yvw7j9ma-YNXj5)
+
+![](https://lh4.googleusercontent.com/gvfSo0jRk2-yY-IiRw2SNBK-Mp_9ofBHcVrWxKK3jCsyi618GSS7h4ileOO9I5q-xhGxerXore8wPwnI6endmt7FSQajp_PjfmoQv6Z_0q_Dwhluf6vBI_es5IFGTXxZlI97mGjb)
+
+  
+
+Para mostrar los cliente IP a través del tiempo creamos una visualización tipo Lens y dentro de esta el tipo Stacked bar, para el eje X seleccionamos @timestamp, para el eje Y Count of records y para BreakDown by top values of web_clientIP.keyword.
+
+![](https://lh3.googleusercontent.com/ptAfD7hId9114_Ky9cThcjLFpYuITYAm39SjNVVq1khnMjQZYdE9JvDHT40IZqVccns6RPee-ygs0nz2lb6gYjZ58xVH-y1jNETJhCPpTmda1nloCW3UMbx-rTB307aC42XVtVyw)
+
+Para poder visualizar los métodos usados con respecto al tiempo, creamos una visualización tipo Lens, stacked bar, donde en el eje X ponemos @timestamp, en el eje Y Count of record y en Break down by Top values of web_method.keyword, dentro de este seleccionamos el tamaño de 10.
+
+![](https://lh3.googleusercontent.com/yFevUFUEr-3l9_EiCJJ6nl7r-CvhIBhnYPQVxVGVHqWjKb0xHnazQlANGMjwsR6JCwSD7cBlkw8CJsANHNl2nwcM77H166eUAHFQTD7j6mlHIVP5CQfk7cVJ_zmTqBq-gkLJs0al)
+
+  
+
+Para mostrar la cuenta de records a través del tiempo, creamos una tabla tipo Lens, stacked bar, donde en el eje X seleccionamos @timestamp y en el eje Y Count of Records
+
+![](https://lh6.googleusercontent.com/nvA_aqvNRr-dF3zxpHBXyHxdo22TgjM2dANPYTBmIwKz7quYf0ZfL0mlx9BnB5pzm6wrcqVM4R2qZFyL2w3UEmmOtw_6NeucZs3v1ffndFkMd1UXyd-dM51P-ytCqyDy45LDMM7x)
+
+  
+
+Para mostrar el top de los request creamos una visualización del tipo Tabla de datos, dentro de esta creamos un bucket donde en Aggregation seleccionamos Terms, en Field web_request.keyword y en Size 10, para mostrar el top 10.
+
+![](https://lh5.googleusercontent.com/KRC1XLE0mSSscM8Jevm7NdMLUZVHZq9ioC4a4qd8gOGXMyh_1hYEvYFq0pi-7Tg6_uPgBza7k26J_EyEXVxLQx6QCx7pwXqKVqEDZhkhdO8FDzdQtp_afHYOvqHgdD2WOoHotS1z)
+
+![](https://lh6.googleusercontent.com/fk80Tq7AF3n0Her1YNolo0HNRm5RgeLKimtfJ25v_h9RcASgxbAULHhR6fg_O-DRZzQHp0uX8NrT6PO76awiLAocYbYc6XxHxluOQ2IUKTGsIozAKFuvR6yLBPUNBJTPo4Rtb01k)
+
+Para mostrar la relación entre el cliente IP y los requests que ha pedido creamos una visualización tipo Pie, dentro de esta creamos dos buckets, para el primero Aggregation tiene el valor de Terms, en field web_clientIP.keyword y size 10, esto para que se listen los top 10 clientes IP.
+
+![](https://lh6.googleusercontent.com/4yzbkmYe0j5cOj-b86ixLZux8a9fiSbheGvfbrMHD6tRoSdfhdudi0rY6L_V8qzeMMJCROQLAO5c8uK5fKXKDm0mdfn6OoxOY8jQNTEVBoia_8jkUPCJdrEGT7S17AkRaN_YJdPb)
+
+Para el segundo bucket en Aggregation seleccionamos Terms, en Field web_request.keyword y en size 10, para que de igual forma muestra el top 10 de request por cada IP.
+
+![](https://lh5.googleusercontent.com/34Y3F80u0im0Tnw2lcMg9ACGxylQ2_iaTjBTJ8IEHtililSvIbUBxdI9rtwGVu6sILPV4dS1WVyNi4rMeFsbWLDyjTtwjK5vlRevO7kPq_eFs3g14-Ui5lTgTG2ldOuz3OgSFz6_)
+
+  
+
+![](https://lh4.googleusercontent.com/6-DqlhovovAJ_IjX6KgbpEehgi0igIlrWBxzfRx3mJIedhvB8ncMM30m5Tjap9XvNY8xc2ifnQiX2Sfn7wMS11pcFobaqSKGmxXPdKeSICartallFP0frhZeUK35fxM6N0hB1t8o)
+
+Para mostrar los request a través del tiempo creamos una visualización tipo TSVB donde configuramos la etiqueta para mostrar los request, para esto en Aggregation dejamos el Count, en Group by seleccionamos Terms, en By web_request.keyword
+
+![](https://lh4.googleusercontent.com/m7SMGEp5B2ypghQT8OeVP1mEZMWDn9zOEL6vlyA0kKHZkc-LdvD8slMuwp1Bms3ij9jP1_A4U2XliCK-u9S5SsLpkD9fUJzgj1Y20ja804TfVu0MgOGrP42vUe9a-yCbmQYGz7nM)
+
+![](https://lh6.googleusercontent.com/nKGVVZ_sM3KzWSEsvFCrqOqSgz05QBEBYs9VDezRItIIKRJQfciuVlpoLi4Wz7uDaPJgO5CbE6dMb91a81gUBWHM_SaF2cOff-dMuuvTCwf3qAw-ULozeOrTKyvcjzfRj-bOkM0N)
+
+  
+  
+  
+  
+  
+  
+
+Ahora creamos una tabla de datos para listar los países más frecuentes que hacen peticiones al servicio web, dentro de esta visualización, agrgamos un filtro para especificar que es solo este servicio, además creamos un nuevo bucket, dentro de este en Aggregation ponemos Terms y en Field geoip.country_name.keyword.
+
+![](https://lh4.googleusercontent.com/LbzD6XjoZYhgaBcDtY_lovkY0cQJqNqZaDcBflXwBYq5Qru-7bsfkDk5JQzoTz_om3Q7pEJhiXdhwY4H-yRIcfUZvCrAa9RYzPGARyYGQXmpkdZCvnVFsCpBKmfPgzKFQNmyml_K)
+
+![](https://lh4.googleusercontent.com/EabDQuROwn9bIHyWdbRNyUyAfzRsHOrPgNnbbR6DvKf7RdqqJhB_uAkgUDYUfovfeeO5Gh7aM_JVX-BiVhz1SWZp7jmZY5TMX9pYlpiVk3aHO8TPM_W7-3YNFwOeJbuVU-nceUar)
+
+  
+  
+
+## WAF Dashboard<a name="id40703"></a>
+
+Ahora para el servicio de WAF, iniciamos con una visualización Metric donde mostramos el total de records. Para lograr esto ingresamos el filtro servicio.keyword : “WAF”.
+
+  
+
+![](https://lh4.googleusercontent.com/vlj1WLDQOOEudjsF258JOLfztpgK6KgpHdVmFooO1nroMithL5n2S1jr50GzVCvfxS2xTuUCdUWRgUFrrv92jJXVjYnRNIGzjvlhNrWkFuh6RM_i9iy5GGf0G664X_Mepl77O02z)
+
+Para mostrar la página que recibe más peticiones que el WAF identifica como intentos de violación de alguna de sus reglas, creamos una visualización tipo Lens, donde inicialmente agregamos un filtro para especificar el servicio WAF, posterior a esto seleccinamos Donut como el tipo de Lens, en el apartado de Slice by se elige Top values of log.file.path.keword, esto para mostrar los logs de qué página se tienen, finalmente en el apartado Size by, se escoge Count of records.
+
+![](https://lh6.googleusercontent.com/m98n25XOWfuX46HygN1bIhuEW6cypuVqN0NHosJDIoPRnXRFcVB81_Nkk6dMmawPjuXEV7ELBXJcwnPiZZUvy2XI1afIuoB6BEr1zKxnOpAQkmM1l4ZlM_DbDQZAx_McO-OwFWr3)
+
+  
+
+Para mostrar la cantidad de veces que se han hecho peticiones a una página a través del tiempo creamos una visualización TSVB, donde creamos tantas etiquetas como creamos necesarias, en este caso, una para cada página. En este caso definimos que cada etiqueta lleva el nombre de cada página y serán agrupadas por un query, donde definimos que deben coincidir con la ruta del log, esto para asegurarnos ya sea que las peticiones se hacen ya sea por IP o por nombre de dominio, estas son contadas. Adempas se definen distintos colores para cada etiqueta y se agrega que especificar que el servicio a revisar es WAF, para asegurarnos que son los únicos logs que le llegan a la gráfica.
+
+  
+
+![](https://lh3.googleusercontent.com/pBuE6_hDHGJoqnCDE_qwrs5ZFtPJwLfwQG3XKfgGP4h8g0sINVPkn5UFaIqEb6G75EmRbw1Gz1UdEAYt5PVzlAYXVAHWW4BrqbJ6L3jyYUeU9GbCzPHhQOPUtTXIC8dBHxcvZ40S)
+
+![](https://lh3.googleusercontent.com/j7ySct3jCYlW0rtsiCWEWKXMLB04w85riPbJAcPw7MoYUmjCpSdv7DC2PFcGXTJ0dM5Q-3O5YQB7J1BtDVWxh8FtwclduLM_7ZB1qeJqnqYSXVIG-j3v_A2mKSbya6ErapCUsXET)
+
+![](https://lh3.googleusercontent.com/oorK9qS8vAbMS2JXaAy3Z3z-4SWTOj-EdKG6Fc9jBJZiKTDHG-Kjq7YDBiOHpkhAVjb0tPruLUFIojmMgs49jtB-3XztJ8jsC-K6i4Gsr4SzdBQDX0MFMF0c5ygYoCI03jPLGmip)
+
+Para generar una gráfica que especifique el top 10 de IPs que han hecho peticiones con intentos de violación a cuales reglas OWASP hacia cual servidor web, requiriendo cuál de los top 10 de URIs, creamos una visualización del tipo Lens, para esto creamos cinco buckets, para el primero Aggregation es Filters, creamos 4 filtros donde cada uno buscará el path de cada página, esto para saber a qué página es a la que le estan llegando esas peticiones sin importar si se llega a estas por nombre de dominio o por IP.
+
+  
+
+![](https://lh6.googleusercontent.com/u1P6t2wvhDvkdJ1BtuB-VMBsSky74gNP_m5fFTC92RkKStmlOY4rEGCsJIPXrPivUtHvDIlydrfMAERQ7JUXVhKHCOw61JROnREUdwcBEl0oJM5bYaRRpp9bpOgEC-cKOqXDKIb8)
+
+En los siguientes Buckets, Aggregation es Terms, donde en el segundo, en Field seleccionamos host_ipv4.keyword. Además es justo aquí, en Size donde definimos que es el top 10.
+
+![](https://lh4.googleusercontent.com/4rAuRNvSQmbLuv3iaWJjTj9pQLB3G9Bw-49PuJTCh_bTC92gz6zCCn1OpH1x0u3u32diDmoiK958RWSS7oBoVSD_oRiDv9Eq5rRdk5uS1nWVX0dQcC0W_9W7g8tGZIc0dwAaosZ7)
+
+  
+
+En el tercer bucket, en Field seleccionamos waf_clientIP.keyword, como en el anterior bucket, en Size donde definimos 10.
+
+![](https://lh5.googleusercontent.com/LEhh8CQLXO78ZBppWb7Mfrr1yjNw8ti0IVMQD3Pb3uiFHcOkMoOQi2k5H3eKFQyApaa1bBCZ3CtfeX7yoByQTVWd7xojvOhyoOCqAhvMHwYrO0g5z4R95UFSp7hd3Gd4MssJyziE)
+
+En el cuarto bucket seleccionamos Terms para el campo de Aggregation, en Field seleccionamos waf_uri.keyword y en size definimos el top 10.
+
+![](https://lh6.googleusercontent.com/1az__zCcoWnD46j4vDLZpbNCSWMpFIfuoy00TASUvAE1MCgpxyBUxVOvPnn9EvnpaRGHKx4p6nXmGYx8CGluE2x-l1PPHfi40GHtOc5cdgYIv3wXdNALdUTSjEojbY3CAJ5Wo521)
+
+  
+
+Como ya se mencionó previamente, en el quinto bucket, en Aggregation va Terms, en Field seleccionamos OWASPrule.keyword y en size 33 pues este es el total de reglas de OWASP.
+
+![](https://lh3.googleusercontent.com/U421uLvLgYzXksK4wtlOEHyuMsqGCB4P57buPcFAqpXAxH98Pej8oYENIXDNcvPcR45T9guHzwc93Y3IJSPbW7AyCF4nlPbzM05JCTea6F149b2V0u-KJyu5SBJf1Nsk-EHsBFf4)
+
+Finalmente obtenemos la siguiente gráfica. Además nos aseguramos que esto sea para WAF, agregando un filtro general para toda la visualización en la cual especificamos servicio.keyword : “WAF”.
+
+  
+
+![](https://lh3.googleusercontent.com/KM5oIHwyZMvQcYgJmPKoyzm1TQufeLra9UpQwaK7dpRh3thMg_nRwTo-Q5famimHki-bRBTXPuYp5gWdf_0QoRgQgfN-YzorhvsVQzqEyQWDrwEzw6nHrbgj5dtLthkkaJ1FlEGV)
+
+  
+
+Para mostrar el total de peticiones al top 5 de las reglas OWASP creamos una visualización de tipo Metric, donde agregamos un bucket donde en Aggregation seleccionamos Terms y en Field elegimos OWASPrule.keyword.
+
+![](https://lh6.googleusercontent.com/6DBPwXp_OW-BWn9IQjp7bdUcDomzREflAFTHN0gBbB22TurQg1KFE4dEGMfOXn6l_OJu_IMV8IbdB_blz22lkjEmU1DkHbye-5zY7ER00tXZr4wa9bxRRi24MwxY2ml9hVsOnWCV)
+
+![](https://lh3.googleusercontent.com/V859zTXuqaG3UIrTsnu6MAM3rKwI7io61LZ3gOkn8KWAwchENcA7CO_2BqRsTfvsx2UwiFDp6BKr6AuDlitCs7Zw1jC5LNzHh7UBx7U9D33ROuChJzm9scyVrVEa6PEWLmFISu71)
+
+Para enlistar el top 10 de las IP cliente para el servicio de WAF creamos una visualización de tabla de datos, en la cual creamos un bucket nuevo, donde Aggregation es Terms, en Field waf_clientIP.keyword y en size 10.
+
+![](https://lh5.googleusercontent.com/7xMuIa30Nz8eGMKj9EudArq7rhApE_i_8jzjTVdQNqU1yOSBkiICsaOln5isAhT8JzeYBRx1EqwWMuDwyZm4FHGLuPk_i5I6AgatXfAeklN3uxmar8NENdewC_GoPIZxMQsI7Gkx)
+
+![](https://lh5.googleusercontent.com/mwT-Or_W01BUqlObdtSc0UGo0MWS6mdFPOYe96QeimdtVjvWVivZqcPs1NhD1Q5rX740iwpBhF_JevXHH9tCXOU1Hf-2vWD7slAhA6fkt-HUHI2nvcv4M0Mpj9BgjFsy4bmpXFQ7)
+
+Para enlistar los 10 recursos con más peticiones hacia el WAF elegimos la visualización tipo Data Table, donde creamos un nuevo bucket, en el cual en Aggregation seleccionamos Terms, en Field waf_uri.keyword y en size 10.
+
+  
+
+![](https://lh3.googleusercontent.com/nPMj_Wa6mIaHvJh-cl3GykSB25Udh9X2gMt1GKsQBwhobsaogDpN8Be_8muGNINlGCPH6fZ8x0xpCAYacbkHpHWiBA1Na1QWVHyU5lKEFWq9QyBv-2HALZ8Y1S2cfTNyyx54ClLj)
+
+![](https://lh3.googleusercontent.com/xBUWrgrgq9pnCiwd3z3S3DGOKGCZOV-Jq7hfTZkxpg-ycqBkGlzeLXLh45YA_hI_fxiM7K8KMjBBNMlBuiebRMq57zmKv0WBD6LobHlHWHFEpIjg7wBtMrY0PxCaum5VSmn2KdD0)
+
+Para mostrar las reglas que han intentado violar a través del tiempo creamos una visualización del tipo Lens, dentro de esta seleccionamos Stacked bar, en el eje X elegimos @timestamp, en el eje Y Count of record y en Break down by, los valores Top de OWASPrule.keyword.
+
+![](https://lh4.googleusercontent.com/3pIVpl0-OpzzbiBHUxvVJ54x6ntLDiDZi8Xw8aFC0U_jsnzIu-_EjYQhlb1sS-dhREl23NQkgVO176scffyUy1kbyYio8Yxa10dBDKjAAmKLm2J1wBvRiZg4n_HrH2S8KR5NvEIv)
+
+  
+
+Para hacer una relación tiempo-Top 10 de Clientes IP creamos una visualización tipo Lens, en la cual seleccionamos tipo Stacked bar, en el eje X @timestamp, en el eje Y Count of records y en break down by seleccionamos Top Values of waf_clientIP.keyword.
+
+  
+  
+
+![](https://lh6.googleusercontent.com/whBVmM5V7reCLxHUKkvoEqDkLGpTv4lyIY4kPjV82r6iH9OsBmQrYDnRZcnmSM7yjw0Lfw89EAxKNu54TmO0yiJUUW3apaYFTQSJ8og0dmDL_EmFA61CLohexIxGBlajUQvuFYHl)
+
+Para poder visualizar a qué recurso se intenta ingresar a través del tiempo creamos una visualización tipo Lens stacked bar, donde en el eje X seleccionamos @timestamp, en el eje Y Count of records y en Break down by seleccionamos top values of waf_uri.keyword, dentro de este seleccionamos el top que sea requerido, en este caso 10.
+
+![](https://lh5.googleusercontent.com/yIezusVchEm4eTP99TsR_WmqtAb4EbfA-NZjmnuWTaA4C4TgABtMXe1YnZvwa6pHHAJJwzeWwIJVDtH3Zcl9-pily2NL6pSZR9t-cAVYkrlxfKDqh-6Ae5NUr5hhbUq18HH62Tbd)
+
+  
+  
+
+Mostramos una relación Tiempo Total de records, para esto creamos una visualización tipo Lens, stacked bar, donde en el eje X seleccionamos @timestamp y en Y Count of Records, Además de agregar el filtro para seleccionar el servicio de WAF.
+
+![](https://lh4.googleusercontent.com/7POCH_ZL7AShSLMVOUIEfLgic6hTf9EWBKG5fyex9eDKTIp_Ma2v8kOdP6pqBA2W69_hJtlXqCHzwklVOC1uo-di0wlXxyxO60xaYw3hQ_pMk3XxydDnYYQTlnBD61vubUNTTSr8)
+
+Para visualizar el conteo top 5 de las peticiones relacionadas a diferentes ataques que el WAF detecta a través del tiempo, creamos una visualización tipo TSVB para todos, en estas configuramos la etiqueta para la coincidencia del log con las reglas OWASP, para esto en Group by seleccionamos Filters y agregamos tantos filtros sean necesarion para las reglas OWASP.
+
+![](https://lh4.googleusercontent.com/6-qu3XVn32iStuInC23adSxlD1fnBPrBy3Za3Kbhjeb6TmCOc4WkSmmDtgsfkMqGnM3Ol2TI04QchDm6VYdp-bHpgFSnWuqQIXmtRKI8av6Zw2Zw1f1arofFzyqJ6EBxqMhvQw_p)
+
+![](https://lh4.googleusercontent.com/4hc4U7NYTkF7h7_XeRUkdVjYt3Pfr1Qet6B3kJNfxn1l7jQQgJQd-OGajPb7NbDTp9iyLeptiRRM2-wn1Oujkn5vsXqI417G_oe5rvumOu6PDlRkzX1eMgTKwPslCK4qsJD8K7v9)
+
+  
+
+Para enlistar los países que más peticiones han hecho, que el WAF alerta de algún intento de violaciónde sus reglas, se crea una visualización del tipo tabla de datos, en la cual en Aggregation seleccionamos Terms y en field geoip.county_name.keyword. Además se agrega el filtro para saber que es únicamente de WAF.
+
+![](https://lh4.googleusercontent.com/IBXWB8W5owevleEmHY7o_gXuaR1Az1YVBMoN-VTH66QUBpUFvewCb2dARqsbcgmQXgSn-M0uajZWYkTxtu638fsgGfMhn7PaohAvpQJ9hM6qhZXpJ2wqQqrZCu9_Ox6rAxAtbRsu)
+
+![](https://lh4.googleusercontent.com/i_3zgRMgQEghx0MHD3Z29qfQZSl2V_RjzJa6iPSQmjNQ25Lwfa_qBdcTgZNPaefytyvs42HpeVEA7vLlndSGxhw4AfLEI2J0Y5xqKTxnXW21Hr22J21s77F0CHTdl505IiTOyaPO)
+
+  
+  
+  
+  
+
+### Iptables Dashboard<a name="id40704"></a>
+
+Para mostrar los puertos destino más solicitados en porcentajes, creamos una visualización tipo Lens.
+
+![](https://lh6.googleusercontent.com/WozMBljnn2LHWv5GaFFWWXQtB6NSfLyfhoAHnqN9uNrhv1b_NTPDejROq0ZRhlXnS9OwKfGb38LMngoN_I_OEy2fzjCvcsaLj_Dkkm3Cb-o3JYVu3OTu1zZ0-qcjEUBEDcV1Zxmh)
+
+  
+
+Donde en tipo de Lens seleccionamos Donut, en slice by seleccionamos el top 5 para iptables_dstPort, y en size by Count of records. Esto contando a los puertos bien conocidos únicamente, para esto creamos un filtro donde le damos un rango de valores al puerto destino.
+
+  
+  
+
+![](https://lh6.googleusercontent.com/q7_nAP183Dp0VDEOgOICbz_1LBnUz6AqNkLdtiSf6yAYoVrzjHH6XDPRDx6ZX09aQjvwHt0UwIIFB80JH2QvD7qMhpMh1CUBuAclDq0SM_PaJCE9jpf0QguOe2OWzvsFJU6z5ATB)
+
+  
+
+Para visualizar qué IP está haciendo qué peticiones no permitidas en un tiempo definido, primero definimos en un filtro general para la tabla que los puertos sean del 0 al 1023. Posterior a esto, en el eje X seleccionamos @timestamp y en el eje Y el conteo de los records, finalmente en breakdown by, seleccionamos Top values de iptables_srcIP.keyword.
+
+![](https://lh3.googleusercontent.com/Pxk-70xeXoq0sJmCMj9gqwW-GK4O6V8cS7Xc3UDVyItldU370KvYHyBhYOAh8YdkBOCttSGUtv4Ee2alRBEE23rDfNRpuEej8uC5P4dqKKCfc_L_IRV4wJi1TnmOzNYGh4ApOuxq)
+
+  
+  
+
+Para visualizar los porcentajes de las peticiones a puertos origen dentro de los puertos bien conocidos, creamos una visualización tipo Lens, donde en Slice by seleccionamos los valores Top de iptables_srcIP.keyword y en Size by dejamos Count of records.El tipo de Lens es Donut.
+
+![](https://lh5.googleusercontent.com/fQ7nj78xCDXaGdNzGw_ssBxVUoNlxIdEqnkIKmdOeWPp1uwev0J_JZcMBDU98elTW-g6lWezLaXtDIyswHicKE-WhCyXgT0fqJAc9_ErUFcNcbSW-V_BUF3YZWdO9f-nWcm-Fw_F)
+
+  
+  
+  
+
+Para mostrar el total de peticiones a los puertos bien conocidos cremoas una visualización de tipo Metric, donde especificamos como filtro iptables_dstPort donde los valores se encuentran entre 0 a 1023.
+
+  
+
+![](https://lh6.googleusercontent.com/jmAsXpXCF-4Byk6InhOhpvheKb21zBt6FIRlXeaeWaFjLWzP-U27P5xRu5Aiqd5rOwQMFM6xnIJ-lYz8T_pDWLh6MrY_8Bx620KxLEiKJ_xZSEvLz1fHhsvO4K5F-HZ-vkKdNkD1)
+
+Para conocer el top 5 de las IP baneadas por fail2ban creamos una tabla de datos, en la cual creamos un bucket donde Aggregation es Terms y field es fail2ban_bannedIP.keyword.
+
+![](https://lh6.googleusercontent.com/qkfjIyIoMgGC_8SijrbQNakhSOiz4lzbxPPV54R3eMqGBSpwx0gK0shW5i0-Rw8BtJUbRUwLGSZrqFyCobjxk9IF0vx0bwn9oEcmA1Wx8UbiQKNer8cixX4AiX8rBjZ1BuZfyNpn)
+
+  
+  
+  
+
+![](https://lh4.googleusercontent.com/7aQA5OrnYWh7Uj8IU_03mVwViQzyTlMSQXhT5wtuyKnin9ohPvMA6ZlwlvoCjbjDejXEl_9_5LlXfKIIqZEQ49uC6daDZZDbaAaB-tm5OIP_9yUva6sfyLICXyTXS--J4GBMpayy)
+
+  
+
+Para poder observar cuando las IP son baneadas, creamos una visualización Lens, donde seleccionamos el tipo Stacked bar, en el eje X elegimos @timestamp, en el eje Y el conteno de records y en break down by el top de los valores de fail2ban_bannedIP.keyword.
+
+![](https://lh3.googleusercontent.com/oTlWR_2sWkxxlovSqjfj4kO4RoMd4-4Hk83C4pDl4Gt4FEVR4ensXsD3_u0jyEe05xUrJHphdRxphG9ULNTY8U_UmDwEEVSk2Qb4ajd59Em2ZByBdxzeLC6XbnwisS99PwtXi5NG)
+
+  
+  
+
+Para visualizar el top 5 de peticiones por protocolo creamos una visualización de tipo Metric, donde creamos un bucket, en Aggregation elegimos Terms y en Field iptables_protocol.keyword.
+
+![](https://lh5.googleusercontent.com/3x8FfCXxgzx4PugSdcH7WcOZ7zuj4HsLGhrrrFfPavOGlBzLnJGCN_McjtvcrRVeaP2cuKd2EjDWXAoFNz-DAJwVyaXNsr87_m9r_m5Tq4fcFl_TtKHBGL6xfsHkFN3kJHOmGRVR)
+
+Además de agregar un filtro de puertos bien conocidos.
+
+![](https://lh5.googleusercontent.com/bp1wDj4df8x1mJhXDowDHNUZgZlYyRh0Vq2Ic93rc6G-UlR9tBJoRBcA4aDiONoeK7q6YW3NIlWuchG2-Eea6k_rvVX7kcB4Q6-WZNrANk6S7KPOr7KV9mrqeJR8OqI9nu4hhaMf)
+
+Repetimos este paso tanto para puertos registrados como para puertos dinámicos y/o privados.
+
+  
+
+![](https://lh4.googleusercontent.com/HXWueX7ggqmDkyiHHYUzXj_yTfFk5jWeQ9CefZ__Dlslgob9wn4j-HOamWVOkS3P1eaOjzk3O3ILDT8d-2fCbXIP-zv4T_qB-zKYnz0cgYwePOF8OlGSkFnnJYJF4C42b4gm4Ti3)
+
+![](https://lh6.googleusercontent.com/x-ML3AOKhZp3tDU-Evo88DR8c75F-7p5rWmB1rFqROPClb-ue7H-ndzm3LIFnlqdneMtSlGupLtUlkifApKoGPTTwr7DTOYLEevi5hbxrAAoRePD15J67Q064ztXJlrW_JL-9EyO)
+
+Para mostrar qué IP ha hecho peticiones a qué puerto registrado, creamos una visualización Lens, donde definimos el tipo de Lens como Donut, agregamos un filtro general para esta visualización donde definimos el rango para los puertos registrados, siendo estos de 1024-65535, en slice by seleccionamos Top values of iptables_srcIP.keyword y en Size of es Count of records.
+
+  
+
+![](https://lh4.googleusercontent.com/dF1DlfViPnsrqM4T8T3Z7qnqDFdhu6OlD4otrSmS8i66MX43tk44dP7YwvI7S-Kh4em-Qq2SELVbvftQP9Ur1oXnsGgPDKp2NRJnLRANWNnHXpmM7TSltndFrsza6vrVn3w4r9nV)
+
+  
+
+Para los puertos dinámicos y/o privados repetimos el paso anterior, solo definimos el rango de puertos para aquellos que pertenecen a la clasificación.
+
+![](https://lh5.googleusercontent.com/9oNkKRqMtEi2xbPHDjsSgp_imRdXk2NITztFTvXGPcv3-0AxPEICtZapWigqbf7Yh0UuLm4NIFIMoR2IR61yd5IRU_sGxIRATrinbM-bsiD1RwWaI4YgyXYUKaUtItiMgVkyqq9z)
+
+  
+
+Igualmente para los puertos registrados, donde los puertos van del 1024 al 49151.
+
+![](https://lh3.googleusercontent.com/e7bxJJo8_qfs_QAtNpFn2Ae4iVorAY--kivh670wWego21BEe56gqVQ_aMvDyv5-oYe7rYec-b9AO9QB3peYBGy-u5i09y33fVdJ1xjQNRjN6VkezZ7BaunUsihCRcLonlD-7svJ)
+
+  
+
+Creamos una gráfica que relaciona el top 10 de IP con el top 10 de puertos a los que ha hecho peticiones no permitidas por iptables, separando por puertos bien conocidos, registrado y dinámicos y/o privados. Para esto se crean una visualización tipo Pie, agregamos tres buckets por cada gráfica, para los tres buckets, aggregation es Terms y en Field, para el primer bucket, ponemos la IP origen.
+
+![](https://lh4.googleusercontent.com/IzzNrg31kViW277M7uAuZEd70s9YzTNoL41I5bZwgTfIbeFSMMYt_w23QLLrUe3feYhj8V1tnKKUPnldBwrja4vY5GL2nQKyjSNviFNYRU1EZvkKl7M4Ue3Ni40Sw6bJRBdJTouP)
+
+En el suguiente bucket, Field es iptable_protocol.keyword.
+
+![](https://lh4.googleusercontent.com/SPlPBdounGcoQ5lzjJl0rHTJcnjMWO-uTb8pLH5Aveysks0hbzDt11KRN8DrfUjNvaYIZLuvKIQMPVQ73S9us4TklLEBQTQJFatTbZmOjhUc7uea57hQ8xRXeg4wmcfaBQK2teH1)
+
+  
+
+Para el tercer bucket en Field seleccionamos el puerto destino.
+
+![](https://lh5.googleusercontent.com/1qNthmM16c7FjLehc71Je8gDwLqHFTZ3Fwk0fmjf2SUiyR-5CK3mvZpaZbzPFbx_U9C4U4BLLiiLYm5fVurXq6oBVfmLynx_C8fxdmna2uWH1KSruzljsT9ISgqPEPETtFItDMux)
+
+Los resultados son los siguientes.
+
+![](https://lh5.googleusercontent.com/z6L3jYuiFUiNqIsi4J6gx_k_tvXNMg_siseYp911wHSoS7ejTxssU0U5yQUG3qWaOZjJVmXJcZwBO8exGWKGvef9UQ47HDW5zrK3jEYVTeV65IsTvm7HOeIWiXRYyrIzSfVS-iV4)
+
+![](https://lh5.googleusercontent.com/tJP3SdRri_cYeWxXy5zKUF2f0U7-ycMlqJGsaie8n5G81L3rq1yZ6e0CVUMYqDGqOdexCUOWOFrUVjaCt3i7EHn_reCIwye9uUu4x9qSFZP0af1NknsfojHBlPYchhdg5vDJMqDW)
+
+  
+  
+
+![](https://lh5.googleusercontent.com/TPBl9SjzP8bv1gg0wW9GGcNP4XWqqjKW1AbAW4wlACN2LHAOlMXVd2rGpm1knXLeMImrbW7F4vjBCIpYZwJuE4TWWtntKMmsGj4zUaQJ5PrrYx17lS-CXF6Jn8HtUX6nHPuezhGR)
+
+  
+
+*************TTL , tabla y atraves del tiempo ***************
+
+Para mostrar el TTL de cada protocolo que han sido recibidos por los logs, creamos una visualización del tipo Pie, donde creamos dos buckets. En el primero seleccionamos Terms para Aggregation, en Field elegimos iptables_protocol.keyword y en Size seleccionamos Size para poder visualizar los 10 más frecuentes.
+
+![](https://lh6.googleusercontent.com/S9uO3AaQMILomcCXp62DcMVZ__e9q6MIToehApoKcPhj5IOGhw8peF5_cHDVPLTF4mUyeaq2LZwSH5HELjmxGmUfOEMN55tqBi-3N37aa3DkUbpu3Kj-6nL5-qtQWv4wT45G73N6)
+
+Para el segundo bucket, en aggregation seleccionamos terms al igual que en el bucket anterior, pero en este caso para Field seleccionamos iptables_ttl.keyword
+
+  
+
+![](https://lh6.googleusercontent.com/E7BAe7QWd5APTdv5zZ1qiUV0a4wxnNpnUjZ9y4m9LVXOaw-rCHZbrZkxzSwVGSst5xhLOzUuRJFVSU016IdlenwU-8bvNSFY04N05dxEFtxX7KB_1A7NDGc1kE4_wvtMmIBkSQkI)
+
+  
+
+Para hacer una lista con los SO por TTL creamos una visualización del tipo Markdown, dentro del cual escribimos el contenido de la tabla.
+
+![](https://lh5.googleusercontent.com/vsnhkhp0hld29XGgsw2nPkvgFnXikHdjhg_bVZljNkNANp71PNwckY-LKKIbWDhcLvFI_l1JYgELlaBGFQU4PtxrxdbbUAevp5pRoP77TcqT-Y0OUD0Ercu12DC2JxDGS8ilHydc)
+
+Finalmente obtenemos la siguiente tabla.
+
+![](https://lh4.googleusercontent.com/r3BFmvB6OzVjEx2lNbTIjMh2fa_pwUc0_9KWB6jIoTLbg-y-OyrEwl0LXrlx5SXEBWrk0VuEoG4OfsvQR5YevTZXQfjggbyUi5L_12KM5Ebd5z-uzCfnj1b9viItQrCMCH-IJ8G1)
+
+  
+  
+  
+  
+
+Para visualizar la cantidad de peticiones a puertos destino, a través del tiempo, dividimos estos en 2 gráficas, las cuales llevan el mismo procedimiento, cambiando únicamente el rango de puertos. Creamos una visualización tipo Lens, el tipo de Lens es Stacked bar, donde el eje X es @timestamp, el eje Y es Count of records y en Break down by seleccionamos el campo iptables_dstPort.
+
+  
+  
+  
+  
+
+![](https://lh5.googleusercontent.com/ZqrqVVeuyfe9azr4IaVRhGYGPnP9O7bfCutGoYvDR2rCJGNjVqIjJShzDUMICClG-J5yvjEf3-PrFtK6w52FaGxGJ-5wREV9SgQhsSZBzmdbobdl1nKJBhyl4SBfvdHsZd9ce9Hc)
+
+Para ver cuántos paquetes se han recibido a través del tiempo creamos una visualización del tipo Lens, stacked bar, donde en el eje X buscamos @timestamp y en el eje Y Count of records.
+
+![](https://lh3.googleusercontent.com/fqoW9MuA10DbO_UIHQLD7QSbV7q8PPSuVCrBvVRsG2gIXJa4gIWu30xL7kKlt_7-f676zinymtvtKVnF4hiUArxSQfH1_BDpC2OxoFi8JlBg6lHyr4AqCghdKTWIeMO23kZEV6MW)
+
+  
+
+Para listar el top 5 de los países que más mandan peticiones no permitidas creamos una tabla de datos, donde creamos un bucket, dentro de este en Aggregation seleccionamos Terms, en Field geoip.country_name.keyword y en Size.
+
+![](https://lh6.googleusercontent.com/0CYxK5aAz_EOdqQ_W_UwExfMEGq_37_OUwHjoouSyjqGX708vZdZkVUiGV6gtHIog2yBsjB1bq5Yhq3ufUAWaH7M7J0kBq0vWVnQr_uQjWJAd8Qu30QyGDF2m2aHjg7Q2vzZsSkn)
+
+![](https://lh3.googleusercontent.com/Fsswss8TB2RG13q-HDPR6qCLY2t3NtC55jeMoArQAOVG14xTW99BkzMacKN_-uRzYqr5AFputdq-DTHcuejXURO1cDemPd8BvCfPsK5DCERhjr_EKOYqvnaToqv3Sz488o8UnD0K)
+
+Para las IP de fail2ban hacemos lo mismo.
+
+  
+
+![](https://lh6.googleusercontent.com/Cd5z60B6THky2SrQD_qsBBZmtOQ7-aPz9_QJGiZF9w0ikex1RqvuokZjY2l4VXjTgfRY-JvlaROPZ_B8Z8saWqOqtjSchizcOix9d75EA0AaTKouSE-_Jb4QmqoDig78RsOpLxNo)
+
+### FTP-MariaDB-PSQL Dashboard<a name="id40705"></a>
+
+Dado que los servicios de FTP, MariaDB y psql se encuentran en un mismo servidor, el Dashboard creado para ambos servicios será uno solo. El dashboard mostrará, en la primer fila, eventos fallidos de inicio de sesión por ip para cada servicio, excepto para psql pues sus logs no reflejan la ip cliente. La fila que sigue indica los eventos de inicio de sesión fallidos por usuario para cada servicio y un conteo de usuarios usados en psql
+
+![](https://lh5.googleusercontent.com/xCcYldFnczKR8Y-z1uHVDmb9APbd017UbBIlW-d4pIUQPmXimu-JkSZtr7X4nvyO1FLcFrN8dJnu4z5o2vf6AZF67ZEIpQF329H47sOWFhHxVywsO4v2sgzMaJ-WPNerzJygkZ6z)
+
+Para la siguiente fila del dashboard se desglosan los eventos de inicio de sesión por país para MariaDB y el una top 5 de los países que más peticiones mandan. Esta gráfica no es necesaria en FTP pues este no es un servicio público y psql no registra ip de clientes en sus logs.
+
+  
+
+![](https://lh5.googleusercontent.com/O3U916pK-qecgtg7_cY32Q41qMV319Ovk3OSsch-4wNkTf6X6AY_SygF9TrOw3GLlBFZGtbLTZgfMpeHvMLCJ2Im4sxIlAwGopIM0utNhXJ3afvkoM8zSvDnI2C04LUudiFeaDNs)
+
+Las gráficas de línea de tiempo que le siguen representan las peticiones a los servicios a través del tiempo.
+
+![](https://lh6.googleusercontent.com/Ag8Qt-8dFnhZQWOCbhnurRJauiYitay6An3NXylAg0IODyLksk1gc0evsBhXE0Mwmw64x8eRei0dx1MVJdI73z85iuhqLr1HLle1GgwDCPHq1cs0rzpL-KU690MDKqSlA9lCmqEx)
+
+  
+
+### DNS<a name="id40706"></a>
+
+Para este dashboard se muestran el top 5 de dominios solicitados y las ip que más peticiones mandan a nuestro servidor
+
+![](https://lh3.googleusercontent.com/Eln9WQWYITI04yl25PKYiSKEMB5mGsimZsQXiWIjz9opBfhixs5WaQrUkaR92UF63wxxYU9qgxOSgUxn3R4HIesx8MMF5cQiDSIdjjArLop5CTOHLEIhsX0JEF8x503dWWs6NS2B)
+
+Las ip que más respuestas NXDOMAIN reciben
+
+![](https://lh4.googleusercontent.com/CrMEIK6u879DpflTLPPud6zuIIVwwbpOUQLmz_AVORaR7DMS_IYyn2kP4oEDvaIpLmPKrTd9pwdfEc0-rG_Uuwt95SKp09Ax0LHnajP6wSmuwA3JZJh2DLLb8qYy0TFZsq-OERtx)
+
+Las ip que más “reverse resolutions” solicitan al DNS
+
+![](https://lh4.googleusercontent.com/UQN8Pk_cqgvZSukxDcE7dLpp_Yz4ntL6RkpbzSyiNwdd_u2sAZgLatmqZrRKVQmeJO_lYRXFBjT4pcegjMhHPhSF2OFK116jyGCa9HGt1ZAowkmwvCDGBLSlCTGTLrlqqznfvD_g)
+
+Los países que más peticiones mandan(en porcentaje y cantidad)
+
+![](https://lh3.googleusercontent.com/rkLClRX0BKIBbJ8m8zoBguc4aAP8ohsSn0o3adC3jq5Gn_Hm9Zmjqg0VqQYzQ0ftQI2RdsYYjEPoSf7YdInq3BsPfALtRGdZd4B8_s4AnxPkuBBAfNz5-8ibnWnHyViB1e07v8tC)
+
+  
+  
+
+Tipos de registro solicitados
+
+![](https://lh6.googleusercontent.com/d5TBVnResLvALwA_1iUN8Q07KBWVxIXt1WCHabrK8fzJ1h5_OFYChH9F24j51N_Vk_dr5cmt20lUsBcra9jsVmFouno6S0MJgVCahEnIoYhxIvkB2kHEz8Fi9e_rBQ11a1VOlQfL)
+
+Y, para finalizar, una línea de tiempo de peticiones del DNS
+
+![](https://lh3.googleusercontent.com/gZCJgy21A0WE8LpEguqPv3MeHtrHLN_RXnj1CstYPWeCX9ViQU-W5HAtsbP8xt7XH7nzx5N7R3aB5l2dVJhFHWYIlXI8vpSrNIAPCT1NvKwnFIcb9SvnrTeyVmpNi3GHCYQxbER6)
+
+### MSSQL<a name="id40707"></a>
+
+Para este dashboard se muestran los códigos de error más frecuentes registrados. Poniendo atención especial al código 8 pues este es usuario válido con contraseña no válida
+
+![](https://lh6.googleusercontent.com/x6YlgxTrInrkeRkcA2vpnrojHu_PEe0SM-Yx8XWeVbSx_-7D0OccAPtt0LyafnU49uKT-Xc_LMFvQzv-qGlmI3mXmg5kVhblZOvSVoVBcshhRjwgaiZlBy5WC6ax0Vlv7NmQowB8)
+
+Cantidad de inicios de sesión exitosos y no exitosos
+
+![](https://lh5.googleusercontent.com/91CfR7b8OXpu3gy1l5wr5s_4nJEgGHLphfR8ebAwcbDzg4urKA-965_MMq5HyN3N96lC-ASExt92DkgVYHyvKlK3bfiC69o_eChRY6wCX0P0TC0y7rnOeRRh0LihUppAcDw0hBeq)
+
+Las ip que más peticiones hacen y la cantidad total de peticiones
+
+![](https://lh6.googleusercontent.com/dURkd4Ms_Elv3kCQaSn8BpvZiOMoXFVy4Aie5PhP2ySHAImzViNZkoax3yyko5h8ENumoFE640-_4NbWy5H3KugxCRiyYKx_QM6i25Q7omXsSuEvW_NsKtyWpYb_fENES0Wit6Yi)
+
+Los usuarios más utilizados para hacer peticiones de inicio de sesión
+
+![](https://lh6.googleusercontent.com/EI3Ync1hVnuKUTNUuk8QifGT-nk0RX574zQsdQ-m_yZdWFECq7DBybi4Dule45H78-6U62zi1rF8mn-YTl1vlXHLg7C5zAqwR7Mf-W4_VByFEBJmvD5FSKDZVoIJHClxSfBrI3EW)
+
+Y una línea de tiempo de las peticiones al servicio
+
+![](https://lh5.googleusercontent.com/u2EGOH6Q-RxuaqKPmr5cegwOK0S5dONf-NqowVPETJ7_AgJGi7_kK9d3RwfrZBZfQQNU-Sey900VNA7NPfIhyrZEm0RdHVn_RMop0RgEnIxLOSDYoe6cNMMWrXJKKZrAkttya8uz)
+
+  
+  
+
+### LDAP(S)<a name="id40708"></a>
+
+Se muestran los DN únicos usados al intentar autenticar en ldap así como la cantidad total de peticiones hechas. También se muestran dichos DN
+
+![](https://lh4.googleusercontent.com/yTTO6DwLYyEU40Lt81QuuJzF_NP7pI7PdCrj9rcABSsC4dhjOjRUWKsdO3iTDQAJj5M_UIDUoTm9LkrdmNXLx7-esN-lOqUiRYhDHNqRbj1jqUmB84254_0uD9dtPlCRZsXOyRx4)
+
+![](https://lh3.googleusercontent.com/wq9FyTnJrxPnvDfwd-Aw1xJQXRyFCmPtLIRLyxZQU1NSHAo5aoulMEzosANvy8PsMM0V5Mf9hEl7dUCZYwvkNZyHgcCmiAcfdPglGUmOLu-5CPPCaEwXZsbgXiSs4pkLF4VoT8SV)
+
+Las ip que más peticiones hacen así como el total de conexiones usando TLS usadas
+
+![](https://lh4.googleusercontent.com/bNEtamnmSOGXFtehnGHa8FaodUncZU-05991pL6j8DLZ8yJ2d5wmYg_sgLO_v-zmnhJIW7UH3RysrUWr4HOUlH8a_BFRbpr-qRp2P5S_3ezP__qIbK8gJrIXeTsiO_2ECZwVph5W)
+
+Los países que más peticiones mandan(en porcentaje y cantidad)
+
+![](https://lh5.googleusercontent.com/DYTJwoYQCQaRritjLM6TSHDPgWwtclidUTNnRJ_BlQiyRxsTcmvWrdp_l1QEhh4JFjaYRutKU-AO0WUOunkHAqZJ04m8abkAEATiZLgtXg2Wwi4Kk2jEAjHXuNmd_qQmTwthCHDu)
+
+  
+  
+
+La cantidad de eventos que el log de ldap registra y su cuenta
+
+![](https://lh6.googleusercontent.com/VWNvlN3m1cH4k4v1OXm_FPfxQuXRscCDyqnervwkHK2o5CmGsBBCop1MObNvVF2AxPR6sDSZy0YhXluCTMtYobUuHz3_QShuIiKuWgw-yiHaLvFMAuLixiUUqvaJuR05d4YpSXf9)
+
+Y una línea de tiempo de las peticiones al servicio
+
+![](https://lh5.googleusercontent.com/2cAHPd7sI3v12Av14sIoHt14NK5bjLpCv9DCfSDSRbjqdU6LZnm5kFp4Gxu_xqBcGUoDbFDhtAKAAXkgABUXVxi3SbW-qr1wJjqMSzZBRTN5R3eDSwSm--A7ZxIJOl2K3Jgzv5xU)
+
+### SSH<a name="id40709"></a>
+
+Se muestran el conteo de eventos de inicio de sesión desglosados por país y el conteo
+
+![](https://lh5.googleusercontent.com/yxKElAxBzu2ZKT7W32F1ig6N44v4Q3HU-OwzYaKBahfLUHYOU9Kvk6VLTQw6EZMOazorUk8r6PEW4xVMK5Ewk_Ye6XUsqCCxK5ToZ71aRkZwlwQA7Dq6K8xSzV27VcqdLfNNCPUH)
+
+  
+
+![](https://lh3.googleusercontent.com/3NHB72xotXrB6sIMB8ji-S3kkl2VDXOfaAuOnvNm9TwjgFbbIVG7N_J5nDD-UdFuzxMbIR-oUEdrwPYTW3SJhvS97vpYGe2_ad59RoatakqKS53oHOzeGNCI1sp4-qxnKb_t4DYP)
+
+  
+
+Conteo total de evento de inicio de sesión y cantidad de usuarios utilizados
+
+![](https://lh5.googleusercontent.com/KBZ-j61oddr0wUeYYOfnj5wcoeCpjxoPiI4vn4WvHaCCdsZ5sRK001G2_mZusZ4dWpqnue2vDJKkJ0uXBpzQ_nFsFubQpGKIDZgybqLGJU94UXEDf1umEerQdwdgSDNRw5V8EeA7)
+
+Eventos de inicio de sesión desglosados por usuarios
+
+![](https://lh3.googleusercontent.com/qK5iRWE13Vvpjx1Ekdx8EFJgjQgaVPB4hA3eUhG78H_Aj80HYbxnPXqoFYozOy52zZRNHjFdqvtewYYE5_2mNurhT2TwPf8bmNW3TDU10Wg8HcLfKmA0jv-o0CmdF6AdIwjsZFZk)
+
+Ip que más peticiones hacen al servidor
+
+![](https://lh6.googleusercontent.com/bbmoyZ_vAiNQhxsWsGSQUuq4lvNXrWG9vRJY097sq2XNvE9T7zY8BkJqWjqXpaiXSJMoK94lvuBvDmtfWlQDgSaKnuX4lENLANAAbN4eOZ1Y_n9Ln01IFJAV1dwflb4a_myloUOP)
+
+  
+
+Y una línea de tiempo de las peticiones al servicio
+
+![](https://lh6.googleusercontent.com/4vY1-r0B5Lz3w2lBrJ-Kwv8pRvGHm38Wd11ooxEpV8FQ6YKneWJQP0tmgE2O4JdDVxgHAUjRckk65jkxe9J3-touAK85YYC2Bt8GziWlzSRTxYf_7mv19V2izA6hzUTfuxvDczA-)
+
+### Windows Dashboard<a name="id40710"></a>
+
+Se muestra el top 5 de eventos de de los canales de Security, System y Application, esto es para identificar un aumento en en el número de estos logs lo cual pueden indicar una comportamiento anómalo en el sistema.
+
+![](https://lh6.googleusercontent.com/XVChKMUBlpF88I80y6RZJt-ujkDed-AqIxCHhWkoBByrnhkw26KvjBOq-1pjGjYYJnj6ZoJb_KPfGjq4yN8rkgmiYfv-jvHC5TeH4RwoKVsgL5wQn_a61aUY0Uh18yXU6N2zis_p)
+
+Posteriormente tenemos una tabla que muestra los últimos eventos registrados en el cual se puede ver el timestamp del evento, el host del cual proviene, el canal, el id y el mensaje en el cual viene una pequeña descripción de qué trata el evento.
+
+  
+
+![](https://lh6.googleusercontent.com/crtfQOnkDemhY5jRr2eJGCSh2Uqw71C9FZsTfv5FJfBTuU2PS8_gpgL8EK2yxkLgdFXMvVr5GW0rWBQV2C9iCHHKzLolsX9hnmoFb9evV-yfZUbvQkhf7o6pW2lnT8ukMKl8PtWD)
+
+Junto a esto viene una gráfica de la cantidad de eventos porcentual, esto es para monitorear que no exista un gran aumento en la cantidad de eventos en un canal que puede denotar un comportamiento anómalo en el sistema.
+
+![](https://lh3.googleusercontent.com/C9fVEKH55T3oSbvPLe2tCpsG0TD_BHp8wI_rRl1JMzRv9UxPyQkkcB3ruFolKj2Xaps0gtqDrf-_PUkHOSA64EEIUsg7LtPXaXhz_057yxxoZf-pn32ve2oc2pj67Z7Li-JqAIlv)
+
+Posteriormente se muestra una gráfica que muestra en el tiempo la cantidad de los eventos recolectado el cual también puede denotar si existe un aumento en las actividades en el sistema.
+
+![](https://lh4.googleusercontent.com/f2SPeyyRm2B1QhlHw7-pxaPvD3dZqEFK6hXH1pf8l0_IDYGJksalCq8IS5LisZ81xoF3ZYx6dLoZ4fgJ9bgrCyw2S7QVoBFuAlF_u_o8YzVs59x0EX_O09JigDkJKT9yQpdFgiBm)
+
+Posteriormente tenemos gráficas relacionadas con los accesos ya sean exitosos o fallidos de acuerdo al host para detectar comportamientos anómalos.
+
+![](https://lh4.googleusercontent.com/qMmLn0ADebwnSaXFml_YXcIKirEL9L6ZXerW5Q2rlLDRbuLxa3Tlz8TjPy1wxXLF8AzRVfwjfMvuJf57EZObMBt4iqpfZOmGkGKDJmKvd5a8Ca18cBpjIKB-QlOKjmDZFpwvfx45)
+
+### IIS Dashboard<a name="id40711"></a>
+
+Creamos una visualización tipo Lens, donde seleccionamos Stacked bar como tipo de Lens, en el eje X seleccionamos @timestamp y en el eje Y Count of records, de esta forma podemos observar las peticiones al servicio a través del tiempo.
+
+![](https://lh6.googleusercontent.com/E_vj83wIfuO0490WPsqs1YYK97OqS2pYZMjF4eJR3axI3Ca5pRP2nx2YFKRgZ49ga9lyYMlDUmG3Xp0UcmefueyDWGccL_M-v3hfgGELYpVAcr7XxB166hljoK-Q6_6gbynSE_II)
+
+  
+  
+
+Para mostrar el top 5 de las páginas y a cuál puerto se reciben más peticiones, creamos una visualización tipo Lens, dentro de esta seleccionamos Pie, donde en slice by elegimos Filters
+
+![](https://lh6.googleusercontent.com/4d5S80ynKvf0ntUEtJy4uppAtqq32WVZfkFb_0cNmLHXHCqU7w5Rhj1Nfy-FFaebPipsuqeexxHJ8aM4simWwJTx2JTFxbB8Q8xjXHLhVXLyOErZIJv2a2UZ-PdMfsHAvT0pHBHH)
+
+  
+
+Para mostrar el total de peticiones recibidas por el servicio iis, creamos una nueva visualización tipo Metric, donde en el filtro definimos que el servicio sea iis.
+
+![](https://lh4.googleusercontent.com/KBLXP7xWny7z65Qd8GGNh92JfntLrxNDwkKPUm_PbQQnS78JFA3voACj5TVzsI-d_65yUNUBNCzkvcspbDhFLRXIH4GKpRGmJhpMfa77fAKSOWtZiNXnvjW2pdbegE1E--H1Ix4y)
+
+Para obtener el promedio de bytes recibidos creamos una visualización del tipo Lens donde en el tipo seleccionamos Metric, en su configuración seleccionamos Average, seleccionamos iis_bytes y en el formato del valor Bytes.
+
+  
+
+![](https://lh5.googleusercontent.com/_5Xs3oTzoQEA25IFOyCeS1fnCUTDF94Vr3UxaYbOC-284c6r5btaBJxr_XmW5uhNo6jmqjRyHL44XlqaeNBxQyE0GyBzit0AxHnGAaZr1odJ7FTQ_Oq4fYldO9MZWBUno8THqlsP)
+
+  
+  
+  
+
+Para crear una visualización que muestre el top 5 de los países que más visitan el servidor web IIS creamos una visualización tipo Tabla de datos, en esta creamos un nuevo Bucket. En Aggregation seleccionamos Terms, en field geoip.country_name.keyword y en Size 5.
+
+![](https://lh6.googleusercontent.com/TZwviSewHZJX87bx5dd5-65X9KzRzGdA1Rfimse8puHrrjitiRHOgK5oemiLvPzf69AKo6RGMWjgKlScf1bS9DyvtqrhAqm7U-QCTCtHxWtVid5o27aZfOJ0iXG3unrQB0ALhIGl)
+
+Además en el filtro general especificamos que esto es para el servicio de iis.
+
+![](https://lh3.googleusercontent.com/Og66N_sHqpqwwpc-ekVfOVp_SAIjbbmAWGL0vK6ZjhKufnZGe7uowpjtpR_-47FuKlTQcxb-3yBFfR36BSOClQ7JrTboLJnnUvQi5pQDFAn7g5nmfiPI3_NR3ip-bl8NbOfFs_uT)
+
+Para hacer un top 10 de los códigos web más populares con los que responde el servidor iis creamos una visualización tipo Metric, en este creamos un bucket, donde en Aggregation ponemos Terms, en field iis_code.keyword y en Size 10.
+
+![](https://lh4.googleusercontent.com/J5BkX9H1HwS0aXgQNUcGdfVK6Ddv0tWALMd9jqQE7NvucRSrxclpiLzD2BvAK2jBqESgHbO5ewiWNI2viKQTJ_eVBsNawRpMr1_OZApVRR2TdR4OvZ9zVsAIEA5sqvpgpd3fWQ9t)
+
+![](https://lh4.googleusercontent.com/81q99PWpwAuggXr7YmnilP0kEJubcC4MlpO0U_6GKaPFvD-dai7IcJltAVtgcalLUWPTf8F8JfhiUK6OZ1Jh2lEJTsw0vWRWWZ1xAO1wAhIujm_Bc_AmjPtornz04ceQL5_9K3kr)
+
+Para mostral el top 10 de usuarios con intentos fallidos creamos una tabla de datos, donde creamos un nuevo bucket, en Aggregation seleccionamos Terms, en Field iis_username.keyword y en Size 10.
+
+![](https://lh4.googleusercontent.com/JwyzDhPkeWMJ-af2gw7CU3vQIA0AM0IWty61MdbmyjvTcMbcsbXgG66bsxfCurG2PNhx03pjGdtv_Mscp6tPwUS1DyUI9VDr-StdfL1_qwJsORhDQ85DN9EAx9HVPn0Sz658MMpU)
+
+Para definir que son los usuarios no exitosos, ingresamos un filtro donde el código respuesta del servidor web iis es un 4XX, además excluimos todos aquellos que son - .
+
+![](https://lh6.googleusercontent.com/yBHNpVkBEcbTjs8kcfZokiARcW-yXUXMC1tEB6guHwfasKDKy-stkUAKngTNFryphpFS4Ae0CQHsI3VCRUNctwHftK7VxsE70EC2Hdd8Tlsm41fW10Tnfcz8BkIkGF7wP2pKm4AM)
+
+Para listar los usuarios exitosos, creamos una tabla igual, solo que en los filtros definimos que el iis_code sea 2XX.
+
+  
+  
+
+![](https://lh6.googleusercontent.com/lPKjQG0fL2XXxuvhU3WYEIsi6ZzvUMmQV2F3ctHMO2XdU_1aKLi_LvUuAmYJOvv-bcwYmCuSDV16ACoSyv_tygZO6-akTc6ZpNeN83GeyrN1voBZV1bvTBPTLJEkVEKe0g0P2HGY)
+
+![](https://lh5.googleusercontent.com/Y-AQuG9cGR3V--bElrNoGbRbJxbVgwVNtgcxQocxW7c2AMV5efNHMChmG0ZXlDf9gNAH4x2wvg7IHHGKLbORIZ-sHHSxd2BTsYjdXjccU9mwz7sCD1tOxYcoGxlJI-AOsQoNkieU)
+
+  
+
+Para listar el top 5 de los métodos web creamos una visualización tipo Metric, donde creamos un bucket, en Aggregation elegimos Terms y en field iis_method.keyword
+
+  
+
+![](https://lh3.googleusercontent.com/xBxqzexNpK0KlMd7AlQWMJxJaenxcEYUp_GU8HMu-p27RkoC74WiyrJfRVTbcb5YhzPufU4iR_Lrfw0aS0ERV80gh5BnzQwtTs9vHv_sB8vAgjRa8KS4F5TZcpw0_M0YSehNSe7L)
+
+![](https://lh6.googleusercontent.com/evXTRUZq5FfReiQNaaeF3SfLrf7k3WwknBXySt6zwEpqghel6ivT7uXFNh_JfqzHLFxl1LHWzqU2k8pWpJuqdiQetfqz_VYse7cAtFoEbgDMnyQekB--jWf5H2um9P1EIywb-50L)
+
+Para listar el top 10 de el user Agent usado se crea una tabla de datos, donde creamos un bucket, en este en Aggregation seleccionamos Terms, en Field iis_browserInfo.keyword y en Size 10.
+
+![](https://lh6.googleusercontent.com/DCQZnBdR61Zm7O4LYI2wHF63VJbEZ1-Eqk1Lk0sG1wfcweDbY6itk7IazWzB0T7xnf9eVeMy7uq0Ou5yyEYk5gYYPsqB1Y8RN7j26jpz0sUU1KBoOKUGwTOf-wHG0G7hByrXMLJE)
+
+![](https://lh6.googleusercontent.com/pTylsyamdUhpQ4emihJKUKA1Z1zUk57pTA24lTkPH82wYXTqOlKCvNP5FB4CvPXqJgVNL8fv_Vs490TsuuWZtvZ8IdrqFMo629NvrB6OEziV7P5wxq0Ro_8bsa45xWSSsPxu-HO2)
+
+Para listar el top 5 de los clientes IP que realizan peticiones al servicio IIS creamos una tabla de datos, donde creamos un bucket, dentro de este en Aggregation ponemos Terms, en Field seleccionamos iis_clientIP.keyword
+
+![](https://lh6.googleusercontent.com/4YAJyhE4KwomRb6z9OhBSdIKyB9Fy2nJ7RX9MrYBrfOVEgWA4G-dKrRCqaa5vNIXHHQ-0VtztwElgaOgRzbAv1g0t5FMENLxThIany1SPpBnRXiMmEsjkUEXapCJoU194PtTSYkM)
+
+  
+  
+
+![](https://lh5.googleusercontent.com/J6VOIMNXAGJBR9As4fwN-pQQopQr6Rj-yXSl9Er316tUIFX9keCM_50WtoSXGji7kgoGw81Jkb0JdQ0ZtCD8pYzVqxljK-Yxeb9sSEkU00aXqOeH-Qf7LGPhMpdrqw-2-947Ua4z)
+
+  
+
+Listar el top 3 de los clientes IP con la Máxima cantidad bytes recibidos de estos, para esto en Aggregation seleccionamos Terms, en Field iis_clientIP.keyword y en Size 3.
+
+![](https://lh6.googleusercontent.com/TpsSCOp4Th3rgIOvilQoHk9FboRSS7kkyXHXeBHe-XysHt9GXpBgaK0qIGpc2H5QYI8eHJbERhig-aeyFqSHPNkHuB4GlUwTCppZqCTgdgRUZ9Pp_5vwg_CmMorRgQVIMwvjkvc1)
+
+  
+
+En Metric cambiamos los valores, para esto en Aggregation seleccionamos Max, en Field iis_bytes.
+
+![](https://lh3.googleusercontent.com/rHEO0VH4xn-DNmiXOwo5MsvM06Pq4q1SFlE84ER52CBNX4iDC0FzMYFTZwPsBXXLgnRVIRBjM7Nw1He6OjHvBdpzUc7AVPJho5gMQgXyMoq5FHiWKwb6Yghw0vRM_OYLN6-5Dj9q)
+
+Como resultado obtenemos
+
+![](https://lh4.googleusercontent.com/69myTtK2wVYoUjW6v53gGPMpnsmpkV_7dipEPC6_6Pa6QFtvVNhD16HuGXK72NzF9lGW24Db7mYwRwVxxps24NXPeMe7rsGPplyQwFFEO2oA98fv6lK0eu_Er20RW2DVc9bNs6Du)
+
+Para mostrar el top 10 de las URI creamos una tabla de datos, donde en Aggregation seleccionamos Terms, en Field iis_uri.keyword y en Size 10.
+
+![](https://lh6.googleusercontent.com/k1V7KRkJUpJL96U9l6RmxH_gWk0p5gdSCHGNiKBwX64zWFSfXipdkaX3o0Wq_ZTv651AkQQzlOEakNS7LzHFJU03VrE9GhshHd8taSHy2KORoP1QPB4D7HyKcMKmjxlj-zhA6xZY)
+
+![](https://lh3.googleusercontent.com/0t1vEkEApcy1PeY7ERgt34HvhP3NPyzc0NLh7qA17AXL6sszFRgIqddjGsiEzkJ0T9bpf4XP71TE7sR1VgTahWu70coU7y2FSMb16j2ew659-smeFb0EEJaL_072BSE-5UTudnsy)
+
+Para listar el top 5 de los parámetros solicitados, creamos una tabla de datos, donde creamos un nuevo bucket, en Aggregation seleccionamos Terms, en Field iis_query.keyword y en Size 5.
+
+![](https://lh4.googleusercontent.com/WFCdAaygcEq9dgh45aBdJ08eXmcyUdDcp2obQ46Kc4pCItfirkbSeC9hCWIacebSmPcBqAO2-t0D2THV3eFNJXLHrrAdrD6W8RYOWLoCCAREWQTR08YgM9jtVCZrloOr8CBpEhxL)
+
+  
+
+![](https://lh6.googleusercontent.com/TRbhDETfIHy-_o9DiyZE6Vl7aupTjgox56k9fk5_lPfVqNM4akfEa4PPKj4vBMjUK6UyeKv-hCv3BvvU-VbP-CSuCsSzUD9jJKZvTu0002nZN-lSZJgw2Hc_k1PdVMhBcsBVHmyQ)
+
+Para mostrar el top 5 de los usuarios y el código respuesta que reciben se crea una visualización tipo Pie, donde creamos un bucket, en aggregation seleccionamos Terms, en field seleccionamos iis_username.keyword
+
+![](https://lh4.googleusercontent.com/-a7BTHX6RE0oaZAPeXroHQaA36r_41HNXrV0yGIL75h5ISHuMl7_pBUeBaJkR1RC9Tj8EWpqCHvUSkbwGJCD7lN8ZE1q2q2m5OD3xFayaLSKhHp91obDVDb_Giejjare2AS1orA7)
+
+Creamos un sub-bucket, donde en Sub-Aggregation seleccionamos Terms, en Field iis_code.keyword y en Size 10.
+
+![](https://lh3.googleusercontent.com/4jREpWR_dhFNSa2n3ipWo3JhFxato6FShwsTY7sE2hRQvPiKL1-H5T5kkxrX2Yu1zKS_Tn1-rYmIsjS9YwXvW49e4peoY0A4EX2UUEgt0OLLtVIelkU0rtHvigC1aCwFsMoNkUkG)
+
+  
+
+Para mostrar la relación cliente IP con la URI que han solicitaedo, cremoas una visualización tipo Pie, donde creamos un bucket, en Aggregation seleccionamos Terms, en Field iis_clientIP.keyword y en Size 5.
+
+![](https://lh4.googleusercontent.com/RhwsPX1yKuMwRAwiUhQiAUwYEdr7R6AevCymCcVIdXZh6Qume6mvMKGExY6nivs5DHMVuc6zxgshy6PArmSkaBD9AOAbBc3q9oQlQlVM4KRITtOmG5-3j2tD_eQKe3_z4uuYmghN)
+
+Añadimos un sub-bucket, donde en Sub-aggregation seleccionamos Terms, en field iis_uri.keyword y en Size 10.
+
+  
+
+![](https://lh3.googleusercontent.com/ZkFkVGMZP44pbmijIFBXsgBNzVkqmNqu17uzZ3F5Rcjo065DlyD6tXcMupXfih0Mnz3u1R8TTMuuTbpxNl4453X7LMoXXM6dg9xSNVogBIPl_gNnHBEvava3GKe8P_jRUsapXAmF)
+
+![](https://lh5.googleusercontent.com/D296B4zvTRTA64_MgdI4cCWjJZ2ShrrA6vZFm-0E3Ns2r9to-AclqzaBBMack3Ztbv0IVD9PoDtlfVZ5JXJxqo6dNehMVMkVvMK06PLNIMHsetZ2zwoqER6qLx_gqjIk6z2YpYrR)
+
+Para relacionar los parámetros con la IP cliente creamos una visualización tipo Pie, donde creamos un bucket, dentro de este en Aggregation seleccionamos iis_clientIP.keyword, en Size 5.
+
+![](https://lh3.googleusercontent.com/pki3sgixAnx4Jf8RThVXPdbtWxMCxkekxwmp10M_uln40z7OAI7-0XiA5XMILg68D6HbyH38MY2B1C1KRvwQ_m6Nh5HFBI_0U5VZ-UH4dzbTFObu3oEvXJfb3AFJljNFzhFHjFL4)
+
+Creamos un sub-bucket, donde en sub-Aggregation seleccionamos Terms, en Field iis_query y en Size 10.
+
+![](https://lh6.googleusercontent.com/kBzY7yqowM3m_JfxLm1uNTYLdSQFra0t2nWQ0o2vsAwXiVAcfSuBlqWKSci-zH2FYIW88135xke5-bcOGuBT-kiPydv1uABeBtu7VWUrcUY1hfhxb7sbMYMS9QugNIaaQ-eQey11)
+
+  
+
+![](https://lh6.googleusercontent.com/ztJJrQx7js2qDk9M46A6-DEU1J4cQq0vdSLpYTgg9asPCy7nX6pJqxs92tqm9m_Mi4EVEKmm5EiGk_JfxfrXKZPmxaEzyah-SQ8F0Hm1H1XphMbGgJsoM1-wsu0bSB9JvLLWIVeG)
+
+  
+  
+  
+  
+
+Para mostrar el top 10 de los usuarios con relación al tiempo creamos una visualización tipo
+
+TSVB, donde en Group by seleccionamos Terms, en by elegimos iis_username.keyword y excluimos donde el usuario sea -
+
+![](https://lh3.googleusercontent.com/pJcrdFdNE0VM83jBlr6YifvR6-xNhaSwwrgBSHXX36L5eDvti0lebkOSivvAxp1_6Srd0UN-9hvc0aOIKpXJB33DE6Dei4KdkNLiFDoP3k1i9ajYWW0PCx2OEHuTyFfA0jMtbWqA)
+
+  
+
+![](https://lh4.googleusercontent.com/dSLCerEizQFuHX_LlnSNd71AFYMw4AQx0XRzcCLdkCia4LtPppYRuGfo-3-G9VbrSmmBeR1SyerKzE0O_8YmeezdzM_KYWO_hRHAss8WG7BXhtICM4KHqLgweIDpJx7w39Ec4sOs)
+
+  
+
+Para mostrar la cantidad máxima de bytes enviados por una ip a través del tiempo hacia el servicio iis, creamos una visualización tipo TSVB, para Aggregation seleccionamos Max, en Field iis_bytes, en group by Terms y en By iis_clientIP.
+
+![](https://lh6.googleusercontent.com/pC89YI7YO6Tc98ixVn0UpqqaOq6yAKraAvm7x4uiL4p83820rN3spUlLraO4acfRp97t-6ptXmgmH1tbpy3D1Nky-7w3vb5ObEuM_D6m_LQU017yHznCF94Wscmz4N-Nfe2QoQ3b)SS
+
+![](https://lh6.googleusercontent.com/PHlBnptRvhyFPYyogEI9HtOJ21EcgFY8og6erEarmIV2QEhZZpwANWmtYIKkrXjvE-QDyaZIfeXhz_VJEubKcbIKl1EZqpTotfE33Sxlfbwfyv2NGsTpc9VOlaTvMbAiK9JNXyJa)
+
+  
+
+Para visualizar los códigos respuesta a través del tiempo creamos una visualización tipo TSVB donde en Group by seleccionamos Terms, en by iis_code.keyword.
+
+![](https://lh5.googleusercontent.com/ddSfN5-IpjgABm-626PlkSGpCO-a3es57i6maarm9cFRUMTHcUeacnsZ0nrEwqjUIqUo6hNKw3pizbCQfY8pZo08tVRSX41O4oxJvjEzrAO-CnKtZ0cbuuQ3mOEFAg_gHqHgBa86)
+
+![](https://lh3.googleusercontent.com/ln5IV2S-Fq27mtYj2m78lBaz_nD4_Cl1CsGTvfC4X3hViL-DoYrpKmYTi1p-p9lmxQh6HdtmQuTQvDMxfhY5VTrSb9H4CFiz-8LfBmm6k97d2_gjAX6ggl_6U_SBphoCrwve3pKj)
+
+Para ver la cantidad de peticiones al top 10 de clientes IP a través del tiempo creamos una visualización TSVB donde en Group by seleccionamos Terms, en By iis_clientIP.keyword
+
+![](https://lh6.googleusercontent.com/PIhVHpduNe9CHDVXnTNKad_n7nQlLhOLs4gaPSixVkt_JVl7bTlHdbBLUr9S6yn49Pq37dec3ZFbX6-VUTs6Lo_x9uTI1HPXfCt_Fiu5sX2XFaGW4v6CXmG4vOxQqafIvCX1INBk)
+
+![](https://lh5.googleusercontent.com/MXoPCO3QavGFNQeEsFJt3JpZjKA5X_Efk2YsYLzPPZqcv2NTMqdxuW6CQUiTzgzoXnynV-zmShnUFwCJC9EZ8UeEuA0MeZPlrbsIwYpXqWUn8KS22TYpyIcCqmMvGvp0gvSXDquY)
+
+Para mostrar la cantidad de records con el top 10 de códigos web a través del tiempo, creamos una visualización TSVB, dentro de esta en Group by seleccionamos Terms, en By iis_code.keyword y 10 en Size.
+
+![](https://lh3.googleusercontent.com/45hKxrfDLBruBkzSfu7K6sAcW5F8ST9SgJmuSXiNHvxmDJNU7SQuMa78KZlVa8A96X3SbBUuYpOIg8er7C6L5f3xqGcvhmNqOduYs_KVckmacJjgjj_YO5LfLzRHBGtI5l4-NvV9)
+
+  
+
+![](https://lh5.googleusercontent.com/QUaxu3kZtka4ShF4OEvHm1txqFPm-6HkydDwkf-iDqbZPfetfKn49gmVSLmw5SSSY4AF1gAWaKqnJEg2iJJlkD8PacOMKE728_SF5qI2ar3yvsx-f8Jf8pfLn9CfTe8Z8WbV8MZl)
+
+Para mostrar los recursos solicitados a través del tiempo creamos una visualización TSVB, donde en Group by seleccionamos Terms y en By iis_uri.keyword.
+
+![](https://lh3.googleusercontent.com/vi-zCSmrAllFNvRK4mkjrKsQRci6r8oVJhC2z_4pahT8bvy23KjI8oblxfrn5rIyB6_QosBfWsWYgLv4_jWCjNAZHmcYDUreEHrFdb3XMSc4qlyDoTRwv2c8jd5XjFFfbC-2tpHs)
+
+![](https://lh6.googleusercontent.com/kOaqMbQhMRFjw-lSx26LYVSwt9iYdW-kvgetWeHky-ZOmnZISrH2H2_GcEx8aakTvkI2RK2OqMI_gak3MoVgjhN6kln7t4dX-iXIoMXvvPJ7vwTNgmqhZ68GMfq1owYpehldZ0-A)
+
+  
+
+Para mostrar los query solicitados a través del tiempo se crea una visualización TSVB, donde en Group by seleccionamos Terms, en By iis_query.keyword.
+
+![](https://lh4.googleusercontent.com/bSIapClYurD5IZJMURshEgXqlJygOmIMiIouVq2S1YPn6RzwFBOK5Qcx4WM5_LIkva8X-TDQFLeAY3Uh8Sp4585PCjqiO_akFvCaIiqJcMkwA8f6rFBuAn5QeA0HDeQj8NzGLDT8)
+
+![](https://lh4.googleusercontent.com/_x1OHcebwe5y_asEEwcMo8nntnKxXPPYhGQy1cJCtY7hj6vr9NIqZ8e0e9FW-hicsPT-kG-0-VogieL8uma9VroJnn6R2agrzkzMX6ARp7hWyN35qWYleHK3p1kFaCI9zbuyDB72)
+
+### DHCP Dashboard<a name="id40712"></a>
+
+Para mostrar la cantidad de récords que el servicio dhcp ha generado creamos una visualización tipo Lens, donde en el eje X seleccionamos @timestamp y en el eje Y Count of records.
+
+![](https://lh5.googleusercontent.com/UBnZfnfNxvWXOT62DF-48yX8H8yseBcpbM16BN46iCrby1BDEximnRPd2hdSZFyEUSqSCBFnUjObxynRyf6jaXH4cVx8MXKBWLq4BzdCtQbPiizrYsLiJtCRZC2pcpNk12n1z7qB)
+
+Para mostrar el top 5 de las descripciones de los logs creamos una visualización tipo tabla, donde creamos un nuevo bucket, en Aggregation seleccionamos Terms y en Field dhcp_description.keyword
+
+  
+  
+  
+
+![](https://lh5.googleusercontent.com/YjkR1Xp3LwfOFTwcO9bnD9pejTr4BfZQrsVe9-v6xdv_bREkRqkS7E1XeFynYa10vDteBA-unK7KXeRGl6SfeoVStZpB8rokGfFb87e4UBwsGb4TTQaxz_tgUoGz4E7Pa3tK3G-A)
+
+![](https://lh5.googleusercontent.com/YjaHWfFJF_v9h2EIm5CvdpHZdfiPZ9U56kWaiH9nYzrB_kjs7ApJAPGIzoWRo07J3VtkHKenfkpJgACHOwcVdhlZfyZgQdGmA0YeVKn6sfAGgo1VWWbmfxPsYSlh3q0Fi9o3CzTd)
+
+  
+
+Para listar el top 5 de los eventos según su código del sericio dhcp, creamos una tabla de datos, donde creamos una tabla de datos, en Aggregation seleccionamos Terms y en Field dhcp_event.keyword.
+
+  
+
+![](https://lh6.googleusercontent.com/fyqOEy6LVi2RFW4tWjrKpe65TxN_gNX2_YTwzCFj2cnz1CTP6NXSotsSTUcQ-OSd0efOAkSAE2AroPmOfsYvszQUs4S93FDnF8gOS5cwQeGD2cGyvJiitwWWiqfP25yjrBweS1KG)
+
+![](https://lh5.googleusercontent.com/sREt0fTeyKKMYH0g7Ydf_zQMPrhf5pVAlsqjmlCBocPsdShqxGk7MHXXVIaYDzwwZmNDYZjGiENXa8yE2CvyUFt49huQx44iqFU3cXAcdF1S6nXp-0ZKvoeeGVbU8dB3a4ZtewTO)
+
+Ahora para que el usuario de kibana conozca el significado de cada uno, creamos una tabla que tenga su significado, para esto creamos una visualización del tipo Markdown. En este escribimos el código para escribir una tabla con el contenido requerido.
+
+![](https://lh5.googleusercontent.com/yJLZ0hMUgaQl2d8p-QTj2ZjlheY97D4e_uP5FfPTFIB6FGROm90pH9hzGjsHm9vJjFMAhlIGJwpzFoG06POD11Alnnl4RhUnVjRF3wsUm4_OPeU8dSQC282H3tUBZ4qI9hAMFIhv)
+
+  
+
+Para mostrar el top 3 del qresult, creamos una visualización tipo tabla de datos, donde creamos un bucket, en Aggregation seleccionamos Terms, en Field dhcp_qresult.keyword y en Size 3.
+
+![](https://lh5.googleusercontent.com/IXa3MZ7DSu379vxsSBrVcMHg0PGlxRH2J5jjorNrdqt_DHdyZfdnB4Pl8St04la9OAusAd_JW-M9koQBMio_vdTcqU6sOSt6UCieRwGGzuqEkJjg19UK7IfZFZQ0qxzuYc7r4651)
+
+![](https://lh4.googleusercontent.com/CttRBIEoimwIOsDT9LKI_plB0DuP-tQNe5MKxXHGnY1DjCNaftoDqCSNU2uDOEsN1XI69spEd4L9vT1Gj0H7rBXYoeK-mdG9EsaW65N8rWZTw5nAAgK7KzYNQnhs07HRPFO1n0_K)
+
+  
+  
+
+Para mostrar el top 10 de direcciones MAC, las IP asignadas más frecuentes, el hostname del equipo el ID del evento y el qresult, creamos una visualización del tipo Pie, donde creamos un bucket, en el cual seleccionamos Terms en Aggregation, en field dhcp_mac.keyword y 10 en Size.
+
+  
+
+![](https://lh6.googleusercontent.com/1ffD1kp1bt-KMFRLyrc_vuiTnkd5av76piqb54Neyxk1UxrDQpqn9JsIkcz4AvULiXunZn29spdjZ7H7jg__7nvZjCgXVXXgVo5TE8XbEXWNmU1vP6DboTKk841dHUGP4to1dCWi)
+
+Creamos un sub-bucket donde en aggregation seleccionamos Terms y en Field dhcp_clientHostname.keyword.
+
+![](https://lh4.googleusercontent.com/SLp1zvqOoSB3TJY4BRJA303VMAr8dvRJ6Kit0_V_V9DRaEijac8oY1ylC5sfMA_bpILzHk6vLm1IIyyp5JGjxgaAdVnzo46teeGZBpenB9NdFScdKlSDxXXwnH51DZyxwAVWW90J)
+
+Creamos otro sub-bucket donde en Aggregation elegimos Terms y en Field dhcp_clienteIP.keyword
+
+![](https://lh4.googleusercontent.com/VZNuDec8Vy-2PyS30H4GuaMJJYYNyrjm-28ZI65oyEq8xZ-nEKnOMUsmTeqzEjBYvzWj0y8HFPPzv5jL2UzfFdzd-Ef5CXpdb4GRyFRg-D1CJptjQEdF5CZLrAJuPsGsat2cvQyP)
+
+Creamos un nuevo sub-bucket, en Aggregation seleccionamos Terms y en Field dhcp_event.keyword.
+
+![](https://lh5.googleusercontent.com/hBxMhll-cIKiQ61WuYpkMIkc6uvWEozDX27WQIklG_4F1lqCbb6mkPC0mRo7P40IYLNa79WF2jU0od1q_3cQBedyarrDZ3LdkvzluDWF31Kx7Iy4YXg62-ZWZyzvk2WuPqIcdNya)
+
+  
+
+En el último sub-bucket seleccionamos Terms en Aggregation y en Field dhcp_qresult.keyword.
+
+  
+
+![](https://lh5.googleusercontent.com/1vrW4fClY6fAHpRZDBCm4IONdyL-jrydSb_-2pvSVQcLrEMSmX2QwL1eqwyV8V9jcVWVmr_QONaxQ0IpuFaTpnpkFiW_nCRXk8cr_K7A8pe3RmLT_lrAQf_fneTb0MzwEEiDZ0wZ)
+
+![](https://lh6.googleusercontent.com/87CJLN0lPRJYf1RWP9ygU8ldLAGMo-dIBQ-8gXOPAsrImSSl3Sotw_T4ell8RNs5LanPTrCkSAAA2Mse72636A_ApDvq2pSw40rplY230B3mQS1lQYh-l0xF3gxdWmGOdwOxnI9y)
+
+  
+
+Para mostrar cuales MAC han hecho peticiones a través del tiempo creamos una visualización tipo TSVB, en esta seleccionamos el color, en Group by seleccionamos Terms, en By dhcp_mac.keyword.
+
+![](https://lh6.googleusercontent.com/lZRl1cEa3YVQgTyffAdrIipDHgTy35LF91kDuzh1y4UbbmWBndU7Hpg6Z3NpmC0jRkmSmG-GiAMC-Aq32OvJ8jBDqFPzC6gubsNAV8TQluH-eUCigabUNVranoLJ38mg13upkik5)
+
+![](https://lh3.googleusercontent.com/Jl3Yci8XwhWInt1P26ypwg2ZXwai7UU-rFfQmGsPzrtkKGDQVAL6-vOZisZ9Pv1QEuK2_Q2euYC6nU9Zvb-WURgBsSeHLPJkF0itd__ueQ5jvl4kGGHiE4JCNMxo6yyX2cdf9IK9)
+
+Para poder visualizar los hostname a través del tiempo creamos una visualización tipo TSVB, en Group by seleccionamos Terms, en By dhcp_clienteHostname.keyword.
+
+![](https://lh5.googleusercontent.com/kNjy1C4n4inOw0ulluZI8ig5w5Kajq0s0WiHG4aOw9dieToohzgO0KpDcfzFPS7Xj9FYAy8MHrQkqgyLfJFF3jftkKs2JHVKRjgy1Gz7DSG2ay5SwfGrPZDzfWWFfPD_SADLS36o)
+
+![](https://lh5.googleusercontent.com/8SxnG9JU7kgRnJQHq5MbzDugOzLD_rzOhGIxQ_p-VmyncqunjyZ_qV0kNcQv0UZd0dalKOGqKKmD-5usAVA8mQphz5Mx6N-hSx1fdKgs2ECvf1JG4Uy0PEoSyEw9Fs3rf8Vpoqq1)
+
+  
+
+Para mostrar qué IPs se han asignado a través del tiempo creamos una visualización tipo TSVB, donde en group by seleccionamos Terms y en By dhcp_clientIP.keyword.
+
+![](https://lh4.googleusercontent.com/TFUTbXHq0OdPpFdMKyPb-p6FlQBnSL_wl2EykcKVXsBk5bTTzwS8q7HtmcWRoE2i8JOLKfn0ZDQ3tDNLZd93eVAdVtt3xRX99EsvUk7gwJ0luaGzc1y7hHPY0g73wcOgRQVdXE7w)
+
+![](https://lh3.googleusercontent.com/Ki8uB2ijO9SHlB8YPkIKbRmtJwfXzBNkbmPLh_FLeqLQwjZriDqjPt7-0LathK3V2ntAFKiBH3crTYUpFuVjS3XRqIZvW_Czo0aTossZ_q2sfSti2DsuhWx2hXrENvi6gy3LCCbq)
+
+  
+
+Para poder visualizar el momento en el que se obtuvo un supuesto ID de evento, seleccionamos TSVB, en Group by Terms y en by dhcp_event.keyword.
+
+![](https://lh4.googleusercontent.com/ApIGhzK52h-DSnOhJjdefG3gGLva_ETuimtj2GK6ed2JUhXOSWfSjQ6NUVwq1zK5Qw1Aa_hS3iOiXsVBOGve8ZZHnmLXAjMM8T1KusdatbvuvZUn0qqrMSxE_DoUx6Tc95ii8Ao5)
+
+![](https://lh4.googleusercontent.com/9OB7-WZvxB_Say6lbRtZ0RL0XNXTpxZ0_u3OHxmXjraRKYGxc1gcUMQE2ACdD4-ZkH7d_HBNZxTh5j66DDdPAXdYjhGf19UsGD8lxgM0xdpsxkp1tJcBbZLm5dXOZY-Rtjtx8_92)
+
+  
+
+Para mostrar los qresults a través del tiempo creamos una visualización tipo TSVB, en Group by seleccionamos Terms, en by dhcp_qresult.keyword.
+
+![](https://lh3.googleusercontent.com/UMkHG-ttrlxzuygwZmdEAGpDnRkFyGsxhs7BckhXTwRIr5rqT6xULE7WeqjyzntZzbFqoP5CViwwWX5K5SiMWv5ZHjXgKll01EtW63jeozCq_UMRASlcii2zmwKB682ACXJp6fcl)
+
+  
+
+![](https://lh6.googleusercontent.com/qgqDdES0cs8vOxHLCELFR63CcmqOxEIdsr-dWkUHhAjBrqcHlW1gvezg-3BgSKMAR6DdGlE941D70vQliNVRCRGvQvwNRk3rqLLOb_Rni874_sEHy6EJ_VcHXmOJMAchx7tDYT8B)
+
+Para enlistar los valores para el significado qresult, creamos una visualiación tipo Markdown donde agregamos el código para mostrar una tabla.
+
+![](https://lh3.googleusercontent.com/a2Vk95rB8vkiHZ9t7N7ixmF3oIg2m32tvUKs3rGPRFpnQ6v5f5NjP-BxEXqXCqKO8s7gVdQuVvxY2HnHarl0YA3HecThnYsMJvVGU0gUxf5uav2GqHD6jXfY2Tm_rE5r8lPfjJWw)
+
+  
+
+![](https://lh6.googleusercontent.com/gtFu5QPjKqCnMhiEh89KmLmtKMtLmJVfAArhF-L5XvIvGaqHN-QLZNA3fBVs7U7shzqJUoeNnIfl8UpzfS6X0akdz6HMlOedjUxe6xKkFn5PpafKoYA4QqpOcYiojFMpvF6aLQjC)
+
+### Dispositivos de red dashboard.<a name="id40713"></a>
+
+Para el caso de los dispositivos de red se creó un dashboard en el que se muestra ciertos elementos a analizar en los logs de los dispositivos de red solicitados que para nuestro caso es un router Cisco, un firewall Fortigate y un switch Cisco.
+
+En los casos de del switch y del router al ser muy similares se analizan las mismas cosas, para nuestro caso se muestra de manera inicial los últimos logs que se han recibido.
+
+![](https://lh3.googleusercontent.com/ka5zm0GJ3APhML7nxYmb0HpKdsyAKicPsSvqh31eQVy0KpNo3YzX57bpqDBc5gfA23yKFwopdNxESwzT59mPHi8VzVzFNEXBNBo9kRXXeu58q92r1jVb7xC5AIQUpug_Ly2oS0PC)
+
+![](https://lh3.googleusercontent.com/82zDn43xp9c9J7CqGlaGC9dZpjoAfjTjpBie6vji7HiXXzXTH34qvkj5PoQyJefUqoKGciQ8-jGI_fbiERP7Qtb09hfRguuFq2VDXuqyJlE-rDimkp8u-9YLewSZW-DYtGLAM4io)También se lleva un conteo de los accesos exitosos y de los intentos de acceso fallido esto es debido que habitualmente no debería haber esta actividad en unos dispositivos que ya fueron adecuadamente configurados por ello que exista esta actividad puede denotar un comportamiento malicioso.
+
+## ![](https://lh3.googleusercontent.com/72YIpGWwXrgbFjmVc9rwjLlSC9HpjRlBqSP9n4t_db-yYp1W6faZLw7i6jxWDi4imEmdFH9BUaJiLqBzJrrI4R9Xjg5DgL6dcXhpdlDHsBzHSk2xK0Ole-WLbnI-_fzFbJ4q9NOa)
+
+![](https://lh6.googleusercontent.com/VSn8SuV2FeZgmCsxyr2O-XfmZvfIyjjc7kxjpR5qD3-K_Q0BYB6UrH2wTo5Jj82wDIX6SYBeDzavy4Ayw_jzrKce9K5XjJ9M5N0hF3qZULGeICGiEq-iWpvPKAYje5Cywzfwdpji)
+
+Después de estas figuras se muestran las figuras relacionadas con fortigate. En este caso se muestran gráficas distintas a las que se crearon para los otros dos dispositivos. Primero se puede observar una visualización básica en el cual podemos ver un resumen de los logs que se están recibiendo.
+
+![](https://lh4.googleusercontent.com/Yg8AUS_NEAG_3oUECYBpstPw5cEV4gN2ONAe4s4Gk_1WOAm_YCx2ylpztFFnLlwPKJIQl7PvNW1tHI6saVs19pdp2U3vaWdPMAm6FePyiGHXj9iXnyLtSg6sI0NG-5__VgDTXpW_)
+
+Tenemos un mapa que muestra la actividad de acuerdo al país del que se reciben bytes esto sirve para identificar el pais del cual se puede estar recibiendo ataques..
+
+![](https://lh3.googleusercontent.com/KRHhAHQ0Q6FOtuss-5lS01hZCiqfdYTpvj2qw20l5FVqBJH8-KazcNYZUjpR5ucHwRuhtROUrt0xO13xJ3WGOJCStbz1a0ulgUaz6gleG-8RV_TVeSQQk0MvUa5p3jbYrtoFbhAo)
+
+  
+  
+  
+
+Esta gráfica muestra la actividad que se tiene con respecto a las políticas programadas en el fortigate Puede ser útil para reconocer alguna política que no esté funcionando adecuadamente..
+
+## ![](https://lh3.googleusercontent.com/Rj4t2IvJosY4GAetUHFvUjbxRt3vMhaCmxaeGC40mRfulgsRZzWC8ouuOnSFalDeMg63-9BjyZWxfHXQKMdm4K7Bfaoq1BGJ_ejT6EwuYr_b010SVu5RuL4i4bMkICDUHGK4Vmaq)
+
+En esta gráfica podemos identificar de qué IPs se están recibiendo información, en caso de un ataque esta ips pueden ser identificadas y bloqueadas por el administrador.
+
+![](https://lh6.googleusercontent.com/6kJA7_r6tDjEGxuxHd3SeNy3bpAW2f6QOAGi-3DuMTxSAHuwfIiUfBmnNBPO9IKlfRLsMt4n7THczgTUr0mMTanr90MWcKz5tJsgUKhVqJ4D2W3r9VhgDlR9aTGhJYl12Iks4WO2)
+
+En esta otra gráfica podemos ver que servicios o puertos están teniendo más actividad, en caso de un ataque podemos identificar este servicio.
+
+## ![](https://lh3.googleusercontent.com/UAC9iy9XrkGMS8ak506Knyy5Lgt3-NzfY4exnG7CwRRupl42rCU32mcbHhv0gP_j69Sf4HeUR12xJGr7VnA6Dta1IgoGrZ4Vx7kjlAhIVp00-pXZ8mg7Dq2YF_9ka71LgIklN9Od)
+
+En esta gráfica podemos apreciar que aplicación tiene más actividad en la red lo cual denotaria en un ataque el posible objetivo.
+
+![](https://lh3.googleusercontent.com/arqq2waVx9Mizf2Q9cD_gVZ0UW4oumsAwoS4kARHgfw7kp5pwBYpFBEHviB5iOjrCawsJRc8AnjWQ4bKP10Hnvs5IoZseHRuAiachIO4BZ2IRG2VHlQUaUcoyh5B7nU5Z2xXqM4G)
+
+  
+  
+  
+  
+
+Por último podemos ver la gráfica en la se representan cuál política tienen más actividad esto es para identificar funcionamiento de las mismas.
+
+![](https://lh6.googleusercontent.com/gY9Tr5UPjeazv13m5drJNeTUu-vYAV3bI9Y-T_l1Ey_5HkvnylyCRTcjs97GBYnx_etkDHRVv3RuzI7AW-mRtX5NyLso9UP5v_H7AeaW2CET5WvbZJCUCfsLSILp5J0oh-P6QWkV)
+
+  
+
+### Active Directory Dashboard<a name="id40714"></a>
+
+El dashboard de Active Directory permite monitorear la actividad de inicios y cierres de sesión, intentos de inicio de sesión fallidos, cuentas bloqueadas, creación, modificación y eliminación de cuentas de usuario y grupos. Todo esto a través de métricas, líneas de tiempo, gráficas y tablas de eventos.
+
+Los primeros dos paneles muestran la cantidad de eventos asociadas a ciertas actividades, como por ejemplo la cantidad de inicios de sesión (exitosos y fallidos), cantidad de cierres de sesión, eventos asociados al servicio de administración de grupos, o eventos de autenticación a través de Kerberos. Adicionalmente, la línea de tiempo muestra la ocurrencia de eventos a través de un periodo de tiempo.
+
+![](https://lh4.googleusercontent.com/b-Og02K9IHltet5JUQSYqHmxhvhe9xsMqWkFIqyNk7ZH3TIa2-CO1BxsPm0xqcFNj3h-s1QWp9OYXhsScJPai9N6zQYnZTUDakp4DShcSl-oTj8debOwyYGJy-UKtb1ECOyMjGBC)
+
+Los siguientes paneles muestran información correspondiente a la distribución de inicios de sesión sobre cuentas de usuario, equipos y tipos de inicio de sesión. Además, se cuenta con una tabla que despliega un conteo de inicios de sesión de acuerdo a la fecha, cuenta, equipo y tipo empleado; y una métrica que muestra la cantidad de inicios de sesión exitosos, fallidos y cierres de sesión.
+
+![](https://lh6.googleusercontent.com/3cbSzLug_i-8CwIu2H2SEfjqJQu0l-aslQtnSRfnXUPahqArVd-lXGLpOqlh1QIieu2jGS57Vw4WNIBOBHQ5F6d4p8kbvG9_x3sz_CN1-T6SxmD2wN4U9ORmVRIzXb_XjQib1kEz)
+
+La siguiente sección muestra una línea de tiempo de los inicios de sesión fallidos, así como unas gráficas que muestran la distribución de estos intentos fallidos de acuerdo al equipo, cuenta de usuario y método empleado.
+
+![](https://lh6.googleusercontent.com/K62vESjP-VPUZJZP3LIY1v6UV53aMwHiMX0h69kDfpnneUt9cR6xv_hKZjiwukXWIp6knr5uOXG82swaOFLoIlxm7Xl2ZJfJx6Sm6xT0FqwuV5VNbFvhNb_EDCEgl2ZwvyxjvIyQ)
+
+Posteriormente se cuentan con tablas de eventos que permiten observar los intentos fallidos de inicio de sesión de acuerdo a la fecha, cuenta, tipo de intento, y razón por la cual se el intento fue fallido. La segunda tabla muestra los reinicios de contraseñas aplicados a una cuenta y la cuenta que realizó este cambio. La siguiente tabla corresponde a cuentas de usuario bloqueadas y el equipo en donde se realizó el bloqueo. Finalmente la cuarta tabla muestra aquellos desbloqueos de cuentas y el usuario que realizó dicha acción.
+
+![](https://lh3.googleusercontent.com/LObNMFygz2r1qv93oekcKZUACWmHev-K4cRuoErgCpqXwXt6YRXVKg4IAk9s03NtSXXb-eht8tH-dgsWU-eFxiUyTV5nOKP1dSuRbCQWuueql0Oo3-Id9R3JoOy3aS62HKe6hmmD)
+
+La siguiente sección permite monitorear eventos relacionados al servicio de administración de usuarios y grupos, como por ejemplo la creación, modificación o eliminación de cuentas de usuario o grupos. En este caso se pueden monitorear dichos eventos a través de una línea de tiempo.
+
+La gráfica de pie muestra la distribución de los eventos del servicio de administración de cuentas, y la tabla muestra un conteo de cada evento asociado a este servicio.
+
+![](https://lh5.googleusercontent.com/C2IQUKilliAsQ5l1eMDCWEbsptB0Dr7AMaRJk0dCUeF-DARyFSzAgauvvM99yXN5_QBFRxqbgOAheG6QJfQj1EEiKvpVOU0d4y-EWTM-TgWOMwCykV3gH-ECSQQbszg0Ox7bazs7)
+
+Los siguientes paneles muestran una tabla para determinar el tipo de evento asociado a una cuenta, como por ejemplo la creación o eliminación, una pequeña descripción del evento, la cuenta involucrada, la cuenta que realizó la acción y el equipo en el que se realizó. Además, se cuenta con una gráfica que muestra la cantidad de eventos de acuerdo al tipo de acción realizada.
+
+Por otro lado, se tienen dos paneles que muestran información correspondiente al servicio de administración de grupos, la gráfica de pie muestra la distribución de dichos eventos y la tabla muestra un conteo de cada evento del servicio.
+
+![](https://lh4.googleusercontent.com/TRaN-LPZ4vH_cCWQswggh68eonrHA_1lOlHuINl02yaxSLZdjhz2kBUDFfs32Tj5NHm7wJh_7GyNtQ0qHDG3CgqwJGTT4K-865GSO4naWJt99zkGtClYvvD0Eey2Pmm41seYBDx0)
+
+Finalmente se cuentan con dos pares de tablas y gráficas. Los primeros dos paneles muestran los eventos asociados a la creación, modificación, eliminación de grupos, así como un conteo a través de una gráfica de barras.
+
+De la misma forma, los siguientes paneles muestran las modificaciones de membresías de cuentas de usuarios en grupos, así como un conteo de incorporaciones o eliminación de cuentas de usuarios sobre grupos.
+
+![](https://lh3.googleusercontent.com/IN1Rua4tSBLMfjbj8Bap0cstiePde107kFSrt9e7N8Pt-ewEcgWJocqGJTgfa6feHF1EEeTmgX24B1v7_cI_gWAzJwojzH-WZzSUwlE0A1cP7dlaeIQOOoGmKY2Lz9VixUnVpBGJ)
+
+### Hyper-V Dashboard<a name="id40715"></a>
+
+El servicio de Hyper-V cuenta con un dashboard dividido en cuatro secciones principales, las cuales corresponden a una vista general de eventos, acciones sobre máquinas virtuales, eventos de replicación, y eventos de fallas, ya sea sobre acciones en las máquinas o sobre el servicio de replicación.
+
+Como ya se mencionó, la primera sección corresponde a una vista general de los eventos del servicio de Hyper-V. El primer panel muestra la cantidad de eventos de acuerdo a las secciones mencionadas anteriormente. Además, se cuenta con un treemap que muestra la distribución de todos los eventos del servicio de Hyper-V.
+
+![](https://lh4.googleusercontent.com/wpqEc-cR0RuROlt2m_pnZt5VVnkYv2k3-Sj2qsB6iislQOwRJsKZfM9hnJWqMV5eKAsGvpT7KPi9EQ3do1d0-mwBzrco8e4YOAzE8Etf2mQ0ZvGbtRkxY0Xum1M_zRdqU5pmc8vq)
+
+La segunda sección está enfocada a monitorear acciones sobre las máquinas virtuales, como por ejemplo apagar o prender una máquina, crearla o eliminarla, etc.
+
+El primer panel muestra la ocurrencia de este tipo de eventos a través del tiempo, mientras que el segundo y tercer panel muestra la distribución de las acciones sobre cada máquina virtual, así como un conteo de dichas acciones.
+
+![](https://lh3.googleusercontent.com/Kdpz2cNptON77KT9MtVDJnY2C-0-R6vOr1Cgdgy7QymzfC6XnlzaWKXizjJu4F-oj0kGvX8l8Mpx2-6zmL0soi09r1uKEna19xeY8uuPG9kPdxD948NVx4FVPlBbGdr8nlqL7el0)
+
+Adicionalmente se cuenta con un tercer panel que despliega las acciones realizadas de acuerdo a una fecha, nombre de máquina virtual y nombre del servidor de Hyper-V involucrado.
+
+![](https://lh4.googleusercontent.com/4nMqROxq9xL7ldSCO8cEc6NmjZDR_6Kwk4bGeIE71TraoPvWhiyXRfmLgsMl-Z5oofpddd8nFDjNHMuOnkM3ULOYIiCBEzr6ZRG8lbbqYc1mgZB6GmeJ9geyln5fEtphEMEyPEXm)
+
+La tercera sección está orientada al monitoreo de eventos correspondientes al servicio de réplica, como por ejemplo la habilitación de replicación de una máquina virtual, pausar la replicación, iniciar el proceso de failover, entre otros eventos.
+
+Al igual que la segunda sección, se cuenta con una línea de tiempo, una tabla y una gráfica que permiten analizar la distribución de este tipo de eventos.
+
+![](https://lh5.googleusercontent.com/oIT2dje-_QCqpRBTb0aMOqtxH8sTY4EodjPrGCUvS5VBWrpI13PCl7y5M7y3j4TzgS7NryNV_T82znDmgkRJ33HfalulcDpF3HjNnk5okFSu5bGL_ZHo8iKOEnDTKi_p06oYMdqV)
+
+De igual manera, se tiene una tabla que muestra el evento ocurrido, seguido de la máquina y servidor de Hyper-V involucrado.
+
+![](https://lh3.googleusercontent.com/z51oqq7d6uVcFCyRnvVkCFx7pr_SEZVddsHXjJgIuAnYaRHeXlEEQqTzHehEPClPJn5umj8ybWZ_US2LaY5Vi7Gtp50x0PN-00I_2bnSVcUXlYWxMOxAOr1qtUYiSGGbxy5Ia1aP)
+
+Finalmente se tiene una sección destinada a monitorear fallos, ya sea sobre acciones en máquinas virtuales o eventos del servicio de replicación, por ejemplo, una creación de disco duro virtual fallida, falla en la replicación de una máquina virtual, estado inválido de la replicación, etc.
+
+En esta sección se tiene nuevamente una línea de tiempo para monitorear el comportamiento de estos sobre el tiempo, una gráfica de pie para el análisis de la distribución de eventos sobre las máquinas virtuales, y una tabla que muestra el conteo de cada evento detectado.
+
+![](https://lh4.googleusercontent.com/5GyAu4FJky1qDcNrvHx9zfj94nSvCUDLM034hvVcP7GfIdtReXeWE5vlvEfAI-AG4e2RwAYfFT88UfQjSx-iGG4TPr9MyWa0OXFs0NkZgkF-xKB9Ot4aRhK9mfwYgo5lr4chwcgw)
+
+Por último, se tiene un panel que muestra cada fallo detectado, la máquina virtual afectada, el usuario involucrado y el nombre del servidor de Hyper-V en cuestión.
+
+![](https://lh5.googleusercontent.com/M1by0ZqADqR_THPDiqV_olKCny9qWVwycEsqmXim_aKKVO5BSlcWwHIQdwIgiWaITBQpk0bE_JrN9ieG2r8NRZbnETPHgQPUxXRqkdnW2sY2bjCrncNuLLEmcILD_5XDZ98u-Oe8)
+
+### Threats Dashboard<a name="id40716"></a>
+
+El dashboard de threats está orientado a monitorear los aspectos más relevantes de cada servicio. Cabe destacar que este dashboard contiene únicamente aquellos servicios que utilizan Filebeat como mecanismo de envío de bitácoras, esto es debido a que los servicios con otro tipo de mecanismo, utilizan un patrón de índice distinto; al integrar índices de patrones distintos en uno solo provocaría que las consultas fueran más lentas.
+
+Los servicios que se encuentran monitoreados por este dashboard son Email, MariaDB, FTP, PSQL, SSH, LDAP, DHCP, IIS, IPTables, WAF, Web y SQL Server.
+
+A continuación se muestran algunos de los paneles de este dashboard.
+
+En la siguiente imagen se muestra la distribución de emails de acuerdo a su clasificación, así como el estado de estos sobre el tiempo.
+
+![](https://lh4.googleusercontent.com/T2g1Nc1LHc8yElrtZMdOrZRvLm0G3U5cXMZzIKLbFX6S1K718sTRqxG_avvUSWFfN4qXB97lHSBeXsbyL4qthQxUaVaktlw3OA_40PKQjiCGKOygE4u0J1e4WWB6QOOw5_UykUgM)
+
+En el caso de MariaDB se muestran las IPs y países más comunes.
+
+![](https://lh3.googleusercontent.com/WCCCsHzWq5wKoQbkGEEbIe41BFwBlqiLcoEOYs9A6E0ZmrJaBbbjYQpqiVAFpkI1U4IjpqOCAyh5zGi5yi3bYz2hiKEMTFDPETToke2SmQcin9viwIoh1f_GV0S-xEyWwtZPPHP-)
+
+Para el servicio de IPtables/Fail2ban se muestran las IPs baneadas, así como los países más comunes.
+
+![](https://lh3.googleusercontent.com/R0rOKW-2GDDT9ctK4duyqebwwjEJryoEtwYP_PZvC4ZHwq3wpQAljt5kZyZKD2ktXU3Pt145hvkusfDn2jJTWMVsQrIVhwpFZY0XwHzHwAlK6DcI1dLA6_3-WNjRlmkirCV8JUHw)
+
+Así como también puertos y protocolos más comunes.
+
+![](https://lh3.googleusercontent.com/IX-ch2XhBSGJymkptoT1mvHbO29BCXLxMy8NPRS0Afe2LNXgLcb7qdOgoDT7AuAGolghcbTrOLDKijNMbpZ2tkivzwmW9pTHMm8JKRwiAngmyLecBVo6wCB-cHJfHpYqiWHSRwCo)
+
+En el caso del WAF se muestran las reglas de OWASP más comunes, así como las IPs y recursos asociados a cada regla de OWASP.
+
+![](https://lh4.googleusercontent.com/RuieXNLi-yg991LnPXZBn6Ox0ViCIOIz2KWuBX4vkBW2wDGB0OUT9x-sCML5k4p3z5547Fq3A1St8YnN6N89IzgyXxbZugX2I8socjfrLheDaKVQb818i1DJgR7nKBsiBVeIxH1e)
+
+### Windows Services Threats Dashboard<a name="id40717"></a>
+
+En el caso del dashboard de Windows Services threats se monitorea los aspectos más relevantes de los servicios de Active Directory y Hyper-V. De forma similar este dashboard contiene únicamente aquellos servicios que utilizan Winlogbeat como mecanismo de envío de bitácoras.
+
+A continuación se muestran algunos de los paneles de este dashboard.
+
+En el apartado de Active Directory podemos observar la actividad de inicios de sesión de acuerdo a las cuentas y equipos del dominio, así como los métodos de inicio de sesión empleados.
+
+![](https://lh6.googleusercontent.com/u7YIRctin5-Tj8ufEU5oleOpEbKqguwLy2QC3O1JJkSWG1rMT3wRB79peeiri1ppe7tqa8nJw5dGJCvWA2MwejN3GQp7txgpaG0pN4UZVmwtPEl9ShhpUE-xSisO1SDK6sN6V44r)
+
+Además, podemos observar información sobre inicios de sesión fallidos, cuentas involucradas y equipos en los cuales se realizó el intento.
+
+![](https://lh4.googleusercontent.com/xD7NbZ1tdxmJ2ZKrzxNKg6MAYiD7JgSOLehMMfGq72s-5AKHYZUfgchtPEuuDH3MbOHShuvMR3J0SH6cNOhQHRQ9Da-nNA86d-5ZVXqCgXpwz4YxbfQKT6kfVtgaKWB6Ylge2oGk)
+
+En el caso de Hyper-V, se observan eventos sobre acciones en las máquinas virtuales, replicación de máquinas virtuales y fallos en el servicios.
+
+![](https://lh4.googleusercontent.com/z9Gd3hFJBKlaWKgslPD8ETQYMN4vQksoOqMakaaWhD1agqgOFvnuCu3VIxqCgvuHQuSJjwkDepnHVgjw23LukUOxGI3YzBdAsRlwvaVt_Mf6xHnNFnaxcOAw_k2dQi72mENkJieI)
+
+## Alertas<a name="id408"></a>
+
+Kibana cuenta con la opción de generar alertas de acuerdo a la ocurrencia de ciertos eventos. Para generar una nueva alerta deberemos dirigirnos a la sección Security > Detections, ubicada en el panel lateral izquierdo.
+
+![](https://lh6.googleusercontent.com/xbSdfkP4yFCtxiIwdsuYep7y5BSvUNTgXS-xhizLgBJEyayGWC3_uV79s4b1bCoAdRNO2asn_NyiNv5P6MVJjMOPwSmM40VIWVvHXDlM7uub_cBt4IpN4YAQuA4etWaSB4ghlLQA)
+
+En la nueva ventana llamada Detection alerts, debemos hacer click en el botón Manage detection rules, esto nos llevará a la sección correspondiente.
+
+![](https://lh6.googleusercontent.com/_WJzre9WL0ZsdWFSrfZM1ql030ZzeArDlyZAI1zs5eAw_znlkwlw1UczSXuB1hqEzruq_Cd5ztJKWnFhWq2EzdOaxStSqUs10n7W2_QPyX8NCTt2e_JyKJ3NH6I8rMShVQspa4dV)
+
+En la sección de reglas de detección podemos cargar reglas preconfiguradas, importar reglas o crear una nueva. Para crear una nueva regla debemos hacer click en Create new rule.
+
+![](https://lh3.googleusercontent.com/8GIMYiTbem9fKPa05BE0YdhckDGSYUL3s9LVEcIoShTAGcuZHujCuR99RsyEDjy_ctDJkFn91F2-9IN8tyNQSs7m_0AvVjrtrvkIQGz1EcaJoQ_cvTpkb1yucEftadkMYARJebOf)
+
+En la nueva ventana deberemos seleccionar el tipo de regla a crear. En Kibana tenemos cinco tipos de reglas distintos:
+
+-   Custom query: Reglas que utilizan el lenguaje KQL o Lucene para detectar errores a través de los índices.
+    
+-   Machine Learning: Utilizan trabajos de machine learning para detectar actividad anómala.
+    
+-   Threshold: Utilizan resultados consultas que excedan un umbral especificado.
+    
+-   Event Correlation: Utiliza el lenguaje EQL para asociar eventos o secuencias de eventos.
+    
+-   Indicator Match: Utiliza fuentes de inteligencia de amenazas para asociar eventos y alertas.
+    
+
+![](https://lh4.googleusercontent.com/rbQm9Yt8AL7JLCBNLgi0CVbqZuZNEtx5xsVBNDqQJg3nTHCtPhSiHD5ADw3BPqK86fjegYCWVmno6llSHvp4_ULBOzpEVj-TB-nv6iPIzoEWAacGGkfoWaxTRt13E8BY79ZUy9x7)
+
+En este caso seleccionaremos una regla de tipo Threshold.
+
+En este tipo de regla deberemos indicar los patrones de índices a utilizar, una consulta KQL o Lucene para obtener sólo aquellos eventos de interés; y el valor de umbral a utilizar el cual activará la alerta una vez que este sea excedido. De forma opcional podemos agrupar los resultados por campo, así como utilizar un plantilla de línea de tiempo.
+
+![](https://lh5.googleusercontent.com/C7_zRT1D5pYZeBRUpKE7Kw1uPJ5IgPgoqH1bjiBJEhrfmp48ajuBj6RMTOIPPGS3ibBSTNXxRVN1nhyO8he1xuCRnAvmTy76s7c-FlH19dVqFfrKLo-2eqJCoy609ZS7nA0WVB8h)
+
+Posteriormente deberemos indicar información general de la regla. En este caso indicamos un nombre, una descripción, el nivel de severidad de la posible amenaza y el puntaje de riesgo.
+
+![](https://lh4.googleusercontent.com/lHbwi2I_nSy_hy8aFpqNr36efJaEBRS2zuw4NJ-__NI7ICqC42o--xAjmUSRsHb5XB2UAKwua57jfYflKjoUOxBzTjQYGTd6k0EnFyf7TLb16qElfsPn_RU44DpaSSBvF6NgEPPi)
+
+También podemos indicar etiquetas, urls de referencia, ejemplos de escenarios catalogados como falsos positivos, así como tácticas y técnicas de MITRE.
+
+![](https://lh3.googleusercontent.com/xDs3udKSfZ79oWc3DI8okQqXlhB0kKXsBYR_yf17Sg0I0xpZ2tz_4Z5ztCN8cCXq-nHK2i7mg3cDfFkUyWWoeakXbnlZNSeoWDTqksy94jL9WitwJzdTXf3RVobnBBynFztE4KJE)
+
+De forma opcional podemos indicar los autores, el nombre de licencia, y un campo para sobreescribir el nombre de la regla y el timestamp.
+
+![](https://lh4.googleusercontent.com/X_g6qaT9k_CJAptg0-EJAVGV2eXQrPKZVKJdZyr65UqXDR7sD4wtalff_IwPJe1q91SCCHNjkqmLMJ_NPuZXJbTjgB8gnP1qvuRkBTF_6TYa7vvuEGPZD8e7hg3tj-P5Pa_so37q)
+
+Lo siguiente será definir un horario de ejecución de tal forma que la verificación de la alerta se realice de forma automática cada cierto tiempo.
+
+![](https://lh5.googleusercontent.com/cDMs-FtSAKeFbSym8dTQKyQOR9x7ERAz06lYUH2hBJbJQ3do0BHXkTM5cx0v2MEQf15A8Zc5uyabKLK-56L4K4cO7q9QzWIUOdsK6AB6lzpEWQOo37YhquxHF-UMnYM1p5gpffHH)
+
+Finalmente podemos agregar una acción a realizar una vez que la alerta sea disparada. En nuestro caso seleccionamos Slack, para enviar alertas a través de esta herramienta.
+
+Más adelante se detalla el procedimiento para crear un conector a esta aplicación de mensajería.
+
+![](https://lh3.googleusercontent.com/V-9U3iZgCmqPv03IqSIYMb7-J1PglkQwH0T6cR8n98-Hz-O3QN4DjiU6OW2CGNOhGhMVYAMJ9sbmcdI1uv0aoMG4F7VAqfN1f87Ng_eaqCVD8AzeSX9Fcv0k1uCf5kLrkaETQUbi)
+
+Por último, deberemos seleccionar el conector de Slack que queramos y el mensaje a enviar. En este caso se envía el nombre de la alerta, una descripción breve, el nivel de severidad, el puntaje de riesgo y la url asociada a la alerta.
+
+Al finalizar, hacemos click en Create & activate rule.
+
+![](https://lh3.googleusercontent.com/0oAwANOh7EhAOACQDDKW9J2FrqBpbDaNvEdl1fTGBKFlIMG8RWcfpiORyI3edG0uNVt5mPS5oB0MMKzOhky4QXlwW4xhosO5bkAoA8gINRPz3vrKn71263e7-w05m7XQyW9h8MdU)
+
+Una vez que la alerta sea activada y se exceda el umbral de emails catalogados como SPAM, podremos visualizar nuestra alerta a través de Slack.
+
+![](https://lh6.googleusercontent.com/cuukkNhfX_IPjIwh6xLCwWsboXrT4pjsF-awSpimTyVefo59I6kO6PlQ2njJ4hrRa9b-xlCQlue2hByL_IMWkNMwUAhNm4tA8_zEpQW4OmekWR2bG1K26GhO73L_wwOmUBJNZwv5)
+
+### Alertas de Email<a name="id40801"></a>
+
+El servicio de email cuenta con ocho alertas de las cuales seis son de tipo threshold y dos son de correlación de eventos. A continuación se describe cada una de ellas.
+
+-   Alerta de SPAM: Envía una alerta cuando se detectan más de 100 emails catalogados como SPAM en un lapso de cinco minutos.
+    
+-   IMAP Brute Force: Es activada cuando se detectan más de 100 intentos fallidos de autenticación a través del servicio de IMAP, en un lapso de cinco minutos.
+    
+-   SMTP Brute Force: Es activada cuando se detectan más de 100 intentos fallidos de autenticación a través del servicio de SMTP, en un lapso de cinco minutos.
+    
+-   POP3 Brute Force: Es activada cuando se detectan más de 100 intentos fallidos de autenticación a través del servicio de POP3, en un lapso de cinco minutos.
+    
+-   Ataque SMTP Open Relay: Es activada cuando se detectan más de 100 intentos emails con direcciones de correo origen y destino no pertenecientes al dominio, en un lapso de cinco minutos.
+    
+-   SMTP exposed account: Es activada cuando se detectan múltiples intentos fallidos de autenticación a través de SMTP, y posteriormente se detecta una autenticación exitosa.
+    
+-   Enumeración SMTP: Es activada cuando se detectan múltiples rechazos de emails con dirección de correo electrónico destino inválida o no perteneciente al dominio.
+    
+-   IMAP-POP3 exposed account: Es activada cuando se detectan múltiples intentos fallidos de autenticación a través de IMAP o POP3, y posteriormente se detecta una autenticación exitosa.
+    
+
+![](https://lh3.googleusercontent.com/vRO8cjknLMgmI1G6KNHHO7OG7nAj-GGAnogsYZrbp5UW_RT4Ey2d0hJktJVa9Rh7M4NXmuuqU-Q4w3kxgJ2FLTrcww9DuINckaoFP0Se5_BJlJcQL2ebsgd7UlaV1HQX-rYWrQGY)
+
+En la sección de alertas de detección es posible observar el comportamiento de cada una de las alertas a través del tiempo.
+
+![](https://lh4.googleusercontent.com/CxRqwdn51y1IhFhyH97QueJDpxE37Ms7n9iy_wzPkP1LcJol-xmDS187NDtY_cyxZD7t8WBSwQ-7bffxz3k_j22LxNJP3DqQ3SrDxFxOlOGE6jno_lnsskh-CRl5GideVjxDJMN0)
+
+De la misma forma, se cuenta con un panel que lista la ejecución de cada una de las alertas, así como información general de cada alerta ejecutada.
+
+![](https://lh4.googleusercontent.com/fGjNfwv9mjXTvU7ysceKMuFTZMiTKuo89Mf2kjAp4XTuUGoq7MZG8GY2PZbvfcAMAQWxsoejUg2gDHtsFEDPCvVrPHpCZjZh32xa_02Jtb1ca17Gfoe2n8rhPpcB-s97STW_27Z-)
+
+  
+
+### Alertas de Waf<a name="id40802"></a>
+
+Para el servicio de WAF se crean 6 reglas, donde en los logs del WAF se obtiene la regla que ha sido intentada violar. A continuación se describen las alertas.
+
+-   SQL injection: Esta alerta busca que nuestro WAF lance un log donde la regla contenga la cadena SQLi, y los agrupamos por la ip que generó la petición.
+    
+-   Local File Inclusion: Con esta alerta se busca un log donde la regla contenga la cadena LFI, y los agrupamos por la IP que generó la petición.
+    
+-   Remote File Inclusion: Para esta alerta se debe encontrar la palabra RFI en la regla que se intenta violar con WAF.
+    
+-   Remote Code Execution: Otra regla que OWASP brinda para el WAF es la detección de Remote Code Execution, para esto se busca el query en los logs.
+    
+-   XSS: Para esta alerta se realiza el mismo proceso, indicando que se busque la regla respectiva para XSS en el campo OWASPrule.
+    
+-   Escaneos: OWASP también cuenta con una regla para la detección de escaneos, por lo que se llenan la secciones según su caso.
+    
+
+![](https://lh4.googleusercontent.com/D2CzRoJmrsi_XJpY8AEHZyCLykane7yjuSIJZ3CBLfFqG8QBiVyksr1YJDqRlojqPQ4YmpFho8C5SmfVVaqA1F81CKYZNnxj3SrACJvliexmf8gtKoHjtu-7OVSOtg_4PLqNouwx)
+
+  
+
+### Alertas de web<a name="id40803"></a>
+
+A continuación se listan las alertas que revisan los logs enviados por el servicio de Apache o Nginx.
+
+-   Escaneo de directorios: Para esta alerta se utiliza threshold, en busca de 50 logs donde el código web sea 404, agrupándolos por el cliente IP.
+    
+-   BasicAuth-Bruteforce: Esta alerta identifica cuando se hacen varias peticiones al servidor web, cuando el campo auth es distinto a “-”, la respuesta es 401, el servicio es Apache y son agrupados por la información del navegador, en un periodo de tiempo corto, indicando que se trata de un posible ataque de fuerza bruta.
+    
+-   DoS: Para detectar un posible DoS, creamos la siguiente regla, donde se reciben demasiadas peticiones en un lapso de tiempo corto, estas provenientes de las misma IP.
+    
+-   Servicio no disponible: Esta alerta es activada cuando el servidor web arroja un código 503, servicio no disponible. Esta alerta se ha creado pues de recibir la Alerta de un posible DoS y enseguida esta se puede facilitar la búsqueda de problemas en el servidor.
+    
+-   Acceso a la página web evitando el WAF: Esta alerta se activa cuando algún servidor que no es el WAF, accede al servidor Web.
+    
+
+![](https://lh6.googleusercontent.com/7S_DxeOfdhMDUK4gc0kZCEA9fbNt8L-IGKdJwtL4uicO8OSa5PkmgzW1Gif8T9J-zta8nzYwdGfd35JhTdhPXvLvEEEA1QdV1LLvuj0u_7TwEEng8_I2lij1uWm7cbNVewJw30G0)
+
+### Alertas de iptables y fail2ban<a name="id40804"></a>
+
+En cuanto a las alertas para el firewall con netfilter se crean reglas, tanto para iptables como para fail2ban.
+
+-   Escaneo-iptables: Para iptables se crea una regla que recibe demasiadas peticiones en un tiempo definido, pudiendo ser un escaneo de puertos.
+    
+-   BruteForce-Fail2ban: En cuanto al servicio fail2ban, se recibe si hay ataques de fuerza bruta en los servicios que tienen habilitados.
+    
+
+![](https://lh3.googleusercontent.com/T6j_SR0z23hwzVkKFYQuv-iJOaSqMVHnzwuxcftHES0NqQGMX-l0sRjUcFQ13GN3I-q7pXRNI1y7WtdWWbnGdNULKuOsfDnD2ZizY8q5RYVExsxVrn32waDoIZifueNnhmViiQm7)
+
+  
+
+### Alertas para Bases de datos<a name="id40805"></a>
+
+Ya que las instalaciones usadas para las bases de datos no fueron modificadas, los logs que se reciben sólo contienen información de inicios de sesión, por lo que solo podemos crear alertas de fuerza bruta.
+
+-   MariaDB Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de MariaDB en un lapso de tres minutos.
+    
+-   PostgreSQL Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de postgresql en un lapso de tres minutos.
+    
+-   MSSQL Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de mssql en un lapso de tres minutos.
+    
+-   MSSQL User Bruteforce: Es activada cuando se detectan más de 10 intentos fallidos de autenticación en el servicio de mssql en un lapso de tres minutos por un mismo usuario. Esto se identifica a través del código 8 de error de autenticacion de mssql
+    
+
+Notemos que las alertas están definidas y que están siendo activadas cuando le otorgamos las condiciones necesarias.
+
+![](https://lh3.googleusercontent.com/B0PU1KlKFnbwmlhZbp5RqdOdQu1PK4bQDzWdB3KWHhzbqtU4Q52TRU-CPXxMuQkGoU6VuFowzl4xbtU_Y9GW9lzjjOnqy9bDBR09kBNR-h78056klLnSSPkeYxMWOeyjxUDH-eAo)![](https://lh4.googleusercontent.com/ivFyNoBWsAcXd09kbdbQj2CvKxVfyH8Gb-kTO6NfYeH8Mk3mSW-lcsjWYqiyx_BhqqbApfavOUh6rXyV59182u1A-G1l2phqUrwuxgJm4ytgH8bGBkstgKYd3WS7Q9HOJm534lmW)
+
+  
+
+![](https://lh4.googleusercontent.com/MWn2aIBRF3rLgifbqtKTqCWwk6yxRs30Hoa8C48r-qsbvPOtjfSZN2x3SGv_-Go8KMAEqP7Vo6Yh9gY3vwGJuBIPEfX8bI9t9j7QacfdFGmqXmp3A90pdkfwv3ay5beI50T54BX0)
+
+Dado que usamos el conector de slack, las notificaciones llegan a ese recurso.
+
+![](https://lh4.googleusercontent.com/NP8hmrbwlpjXKCOHJHeW6dQdhFrg9ch_8XpaWOh50n3DzNc54wxG6xCsSlpiFgNn7kpkQt87HqelQae8qZUpdtGO8crEddnT4lFcLI8NfAGZ_A6_B53N6pGbBnzS71KJIIJoN2iK)
+
+![](https://lh3.googleusercontent.com/kgrsRNdErMzuVY30s_D3_RUSAhTALqho0-bnDU_Tql0AG8Z5bErJ_Zs7RRiMRoveUFVPsEnwpZX6TJA7GDdZ6dz_Mc78cwSXdLIxwh0o9GVCFn17p1KBpQzIukCyBui9egpFoELO)
+
+  
+  
+  
+  
+
+### Alertas SSH<a name="id40806"></a>
+
+Para este servicio solo se creó la alerta de ataque de fuerza bruta.
+
+-   SSH Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de SSH en un lapso de tres minutos.
+    
+
+![](https://lh3.googleusercontent.com/PT1_8IUnce7DKbreq-3RK4WeN75Rdr6AYbQxWs1PmoTFck9OJ0sB6xpFIcAWJYgKMXq_ySY3lVDL20tKlsj9YLBewOkTYfqnNuX9pyalpvrMJKgHLWiFiRFGT6EDQzXeLAhWHmGT)
+
+![](https://lh3.googleusercontent.com/hcgWPlIAsqUjluckR7MFE97DMZ5WRXlU-ugE7kpAMAvhR7DVBAMrWb1OFNfptFCK6MYcscCoLWGqJKlIPt7HLKP36DPbv8lGnwSLN0c6-6zJqRwzQJGR93b5UCuGc2hSX6cOUJPN)
+
+### Alertas LDAP<a name="id40807"></a>
+
+Para este servicio solo se creó la alerta de ataque de fuerza bruta.
+
+-   LDAP Bruteforce: Es activada cuando se detectan más de 30 intentos fallidos de autenticación en el servicio de LDAP(S) en un lapso de dos minutos.
+    
+
+![](https://lh5.googleusercontent.com/Ue5ZDaxniRLWWnukQz6r0J9wzi5SaI9b92RzlhpTzDr-NYMfR-c1ckckRU3HkSYTzrtA6DxFaSqTsO8sk1D4h8SOk6En1lVX50vLeeW0pQJmUA1sVTFeYlld9jAzhO1oOTjr3n8a)
+
+  
+
+### Alertas DNS<a name="id40808"></a>
+
+Para este servicio se creó una alerta que un atacante está haciendo un listado de los dominios del servidor
+
+-   DNS Scan: Es activada cuando se detecta que se han recibido más de 30 peticiones de agrupados en un solo timestamp
+    
+
+  
+
+![](https://lh5.googleusercontent.com/7nAPTY9CT7rMpyhu4PRp5VSRo59X0_eNUogR3j1yJF6p-wtMwn-1lbsjtQ0ob4qJkd06DHn2gH0upwAud8Fw7h7nNife7UttkjJPPGpD0O3ak12UxWUFXCAXjJGpxFQK9ETfqH9D)
+
+  
+
+### Alertas FTP<a name="id40809"></a>
+
+La situación con FTP es similar a la de bases de datos. Los logs recibidos solo indican autenticaciones y no los comandos usados una vez que se logra iniciar sesión. También se hace notar que la autenticación anónima no está permitida
+
+-   ProFTPD Bruteforce: Es activada cuando se detectan más de 10 intentos fallidos de autenticación en el servicio de FTP en un lapso de tres minutos.
+    
+
+A continuación, se muestran las alertas recibidas en slack dado que la alerta fue activada.
+
+![](https://lh3.googleusercontent.com/nhNGb_BQhpJdpaijfDsY9xDilsNDHQRcVhOPoSN2riJFvuYsFgRZCqBc9e4sUCuIJVmaoyWHTuKFxyC1Cq1nflBlKy1PTxQsx8EM5A5gNBU2p6OuY3bWEjF0ik_ehUiC1OfbhY7U)
+
+  
+
+### Alertas IIS<a name="id40810"></a>
+
+Se crearon 9 alertas en total. En las siguientes 3 se reconocen ciertos ataques por la actividad registrada en el servidor iis y los códigos http como respuesta a las peticiones.
+
+-   Escaneo de directorio (iis): Esta alerta identifica cuando se realiza un escaneo web, para conocer los archivos en la carpeta, donde utilizamos una alerta Threshold, donde definimos que reciba varias peticiones en poco tiempo y que estas peticiones regresen un código 404 provenientes de una misma IP.
+    
+-   Basic Authentication Brute Force (iis): Esta alerta revisa una secuencia, donde dentro de 20 segundos debe recibirse una petición con código respuesta 401 y finalmente un 200, donde todas son desde la misma IP cliente.
+    
+-   DoS (iis): Esta alerta se activa cuando se recibe 1 petición para el servidor iis y finalmente una que regrese el código 503, ambas por la misma IP. Esta secuencia se debe encontrar en un lapso de 1m, tomando en cuenta el tiempo de respuesta que el servidor deja de funcionar y manda ese código.
+    
+
+Para las siguientes alertas se realizan queries simples, pues desde el filtro en logstash, dependiendo de las peticiones recibidas, se asigna un posible ataque realizado.
+
+-   File Brute-Force:  Se activa la alerta cuando recibe10 logs donde el ataque es fileBF y los códigos respuesta son 400 o 404.
+    
+
+-   LFI: Se activa cuando se encuentra que el ataque es lfi y el código respuesta es 200.
+    
+
+-   RCE: Se activa cuando se recibe que el ataque es un rce y el código repuesta es 200.
+    
+
+-   RFI: Esta alerta manda un mensaje cuando logstash reconoce carácteres/palabras para un ataque rfi y el código es 200.
+    
+
+-   SQLi:  Se activa cuando se reconoce un SQL injection buscando las palabras clave desde el filtro logstash, además el código respuesta debe ser 200.
+    
+
+-   XSS: Se activa cuando el filtro logstash reconoce un intento de ataque xss buscando 3E y 3C, pues estos son los valores hexadecimales para > y < respectivamente, además el código web respuesta debe ser 200.
+    
+
+![](https://lh6.googleusercontent.com/_043v9Pwj74qWOf2QcVE49O-fwoU-cwPknikRLauyWdIUuibCv6WuZ-PAP0unj1KjeRDNa4E-qZfErrWqsLJUykAfw35yJWd1MCdbMxfMcqKjISgosb_1k83DMnjEmJFu5uAYZdd)
+
+### Alertas DHCP<a name="id40811"></a>
+
+Para DHCP se crean dos alertas donde utilizamos EQL. A continuación se describen cada una:
+
+-   DHCP Starvation: Para alertar en la secuencia se define 1 asignación de IP dentro de 30 segundos donde el hostname sea el mismo que cuando el servidor dhcp mande un evento 14, el cual significa que no se pudo satisfacer la solicitud por que el pool de direcciones se agotaron. En este caso se juntan por Hostname pues para cambiar este, se requieren de permisos.
+    
+-   DHCP exhaustion attack: Esta alerta es similar a la de arriba, solo que agrupa por dirección MAC y finalmente se obtiene el id de evento 14.
+    
+
+![](https://lh4.googleusercontent.com/LYknv5g898bJ8IvYXesf3idgH-tnxoM3b3KsvFMQ6kLWTnm_WF_4vit56VoXvLQC4h1LqyrYTDoXH9ncvhi9Noqo1GyUL_lnigtob2SRSNF9EQebkV_GDVIXkKx_3xg6FdoE5gtI)
+
+## ![](https://lh5.googleusercontent.com/AIJUBiWBjQ_DPs7tYPUCaEigJr15ZlkfzitHebWgxHKv4PFNY9jCnO5hxke_S83ES3R0ukZhD5fnbQr1zVkhs-keGbOQ7iB4I61lyTwPBt8sgXrX21lwRa02L2Zt9PJeh3eQyRDE)
+
+### Alertas de Active Directory<a name="id40812"></a>
+
+Active Directory cuenta con seis alertas de tipo custom query. A continuación se describe cada una de ellas.
+
+-   AD - [4765] SID History was added to an account: Envía una alerta cuando se detecta que se ha agregado el historial de SID a una cuenta.
+    
+-   AD - [4618] Monitored security event pattern: Es activada cuando se produce un patrón de evento de seguridad supervisado.
+    
+-   AD - [4713] Kerberos policy was changed: Es activada cuando se cambia una política de Kerberos.
+    
+-   AD - [4719] System audit policy was changed: Es activada cuando se cambia una política de auditoría del sistema.
+    
+-   AD - [4766] An attempt to add SID History to an account failed: Es activada cuando ocurre un error al intentar agregar el historial de SID a una cuenta.
+    
+-   AD - [4897] Role separation enabled: Es activada cuando se la separación de roles es habilitada.
+    
+
+![](https://lh5.googleusercontent.com/jku1TEJjAw81zZc9okpwjMOWJPsnvYMmR6AYBRL7ZuRqFY7YSZa_4s-sXwOcKAjm4xn7Odn8lNt1BsksMRlxFwBt62ypqzHNL9ScWdojPreVjUa8GraYz2gM8RgYKp4XW8gT7zLI)
+
+### Alertas de Hyper-V<a name="id40813"></a>
+
+Hyper-V posee tres alertas de las cuales dos son de tipo correlación de eventos, y la otra de tipo threshold. A continuación se describe cada una de ellas.
+
+-   HV - [13003] Multiple VMs deletion: Envía una alerta cuando se detecta que se han eliminado varias máquinas virtuales en un periodo de tiempo corto.
+    
+-   HV - [18303] Multiple VM exportation: Es activada cuando se detecta que se han exportado varias máquinas virtuales en un periodo de tiempo corto.
+    
+-   HV - [19050] Multiple replica invalid state: Es activada cuando se han detectado varias máquinas virtuales con estado inválido.
+    
+
+![](https://lh5.googleusercontent.com/1Phq0zaDndmlRlqfplWZThrMLT9v3BwXT-auqcmxW9ODEAcYzyexjeJxjhvSnBZK11hB_AJxinOgV3aeaoURa-2wreFhFRlj4wzM17a2_sPH-EL_ZH1EUR5PKKqcJ1XaDfpVWnBy)
+
+## Conectores<a name="id409"></a>
+
+Como se mencionó anteriormente, las alertas pueden ser enviadas a través del servicio de mensajería de Slack. Para ello debemos crear un conector al servicio, por lo que debemos dirigirnos a Management > Stack Management, a través del panel lateral izquierdo.
+
+![](https://lh3.googleusercontent.com/3HSaWZ0hy9lI3QnNH6ohSkAfAk7q4WW9f70hbiUzOZNcGzjaGZUEbhRWs6u1m0WXDSz_-HkBm9Dw2a6meCWv8uC--9WGUJ_-Wy8GIG0TbRgBw9K1MoGB4dAhYV7D-EQ7euj77u4f)
+
+En la nueva ventana seleccionamos la opción Alerts and Actions dentro de la sección Alerts and Insights.
+
+![](https://lh5.googleusercontent.com/3WauEdRYRawJjGx9UunE074SgU-o2eG9sTp3bJ06lQW9k_4LsM4zDwK8a5PwHw1CnXEa_SNjSmGdIz6Gh5m2iUoQP8_tPWmkmZyMy9gGtXDKuXsQhxEMdKsPANKYuQcIwGorduui)
+
+En la nueva ventana deberemos hacer click en el botón Create connector.
+
+![](https://lh3.googleusercontent.com/fE1tQaTbVlUZjN5vlnDik9_ltEWREj_KqX5btRY1-pGbPF9QXvvEzGu3dgicp9hzDTwiqD0P90sXotJ4MYUgz73MPH0fxCZhpNbXeQpDc1V3bn12XEYlA4p_dZfKItvaoLXEXwu2)
+
+Se nos mostrarán los distintos tipos de conectores que podemos crear, en nuestro caso seleccionamos Slack para el envío de alertas a través de este servicio de mensajería.
+
+![](https://lh6.googleusercontent.com/RWAZjVXb4xS4lvqozOw3BzdeRXhZgtEEj9i_wCoCGECFCvwQPeM0X42jBaDu5na-NevPTHz5HDU87ePSxMEuyzmBT25xCkOtTh1nyxOXC-X2ahSyWWfFry2UAPfejUWzvZGYWJZd)
+
+Antes de continuar con la creación del conector, nos dirigimos a nuestra aplicación de Slack y seleccionamos la opción Settings & administration > Manage apps.
+
+![](https://lh4.googleusercontent.com/Cg-gMr86mi4G4jpfkAUws7HXkbuJy9P0y8FMNoQD6-gQTi_Wh7cH3DzhV_nAXNuLiFXudcmIOFoBDsqx6JwW5RVrsj-65n9EOfFAmAg-69SOhRQEifx-pKNji23qd5jtRttyJOAL)
+
+Se nos mostrará una nueva ventana en la cual nos dirigiremos al apartado Custom integrations y posteriormente seleccionamos la opción Incoming WebHooks.
+
+![](https://lh3.googleusercontent.com/7Hg_N2YQu4xHJh11-SocR1vSyS465X6vk8ckfODm76KzpqW5M-no46Gu-bHs3J6FkPp7OQjtU8Se_RlG9bc1_Z-po5e0YpjMZmVCuXtMPLg2SJajHnsFPBMvIxZgv6Qq9WNbpODT)
+
+En esta nueva ventana deberemos hacer click en el botón Add to Slack.
+
+![](https://lh5.googleusercontent.com/UVUwUVWN-owsc5bKQAKjK6SsPZVFZotPT9y5kds7GQ3gWarVjGitJbjzRa78JWjQsIIAgtL4lruNgKTeT-2EvFECppnorPDQPnCL1VGt2Sclbi1JvF7riDLEJW2Kswxr2rcqaUSH)
+
+Se mostrará una nueva ventana en la cual deberemos seleccionar el canal al cual se enviarán los mensajes. Una vez seleccionado, hacemos click en el botón Add Incoming WebHooks integration.
+
+![](https://lh5.googleusercontent.com/5QC8wWO59hJ4oqzYvrPEUmtt-P4hkwhAgap5YH2L6oT3SOhRvvYkmqCDm0zwufMxz__HP_2WQOG0qMOHwxWd_0j1vdQwX3jf7taNVt_BEUSFmJEJ06MkDtOjSJ5RYiKU7-Yk3a6e)
+
+Se mostrará la URL del Webhook que acabamos de crear.
+
+![](https://lh5.googleusercontent.com/SXADb5sHwTebjIcJlIwdLOuUzJ2K_a13p-NlDCtmQPZ8I6uKanfZN8GULW8aTDY2XMSH9383sJOyzI1sNYTLVdSixPGOFmbEqB1AqV8RE3aPFpqrVFaHQH-VwGBzbJgbWhiMKJmc)
+
+Finalmente regresamos a Kibana. Ahora debemos ingresar un nombre del conector y la URL del Webhook que creamos hace un momento.
+
+![](https://lh5.googleusercontent.com/Foub3bCCx4bjZp4guXZ2nmswk9vQBvkUbekFVg6fT58NDKZ6QbS0kpI86cgfAkYrUCfSLJ7c_ujV520KDdTvAP5o4vzn-9p9qxuh6cVLxEBPkiVAv0Ka7jOI9nikM4fSYf-eQS6Y)
+## Reportes<a name="id410"></a>
+
+Para crear alertas es necesario tener la versión gold de elasticsearch el cual nos habilita el uso del watcher. Primero nos dirigimos a la sección de stack management.
+
+![](https://lh5.googleusercontent.com/3EcKBTGpiZJScA_W4FjlEocmtxhy3FhGm8ULQ8rZAJ309nE0HhQUpRvuThd6uwVrOIC0x7e1cQP_8Y68mSgXYXHYWWmfpWAbZwAid8wtmxi0gO9q7s0WPMmPEI-7c2ORi34ouJFf)
+
+Después a la sección de Watcher.
+
+![](https://lh3.googleusercontent.com/zx8pzySSBCuh5vbggidPHEOVtvzog_6m0ZcFaxrYcIFbDhysJRN1Hc2jEkAaoqOb8oLGruUz47JymGLQW2RWsmbhlb-Yc0RAD6Xvv8H4yy417thPAL5RJ3yLfhkuXkYURRXUNUDg)
+
+  
+  
+
+En esta sección podemos crear el watcher el cual nos permite la creacion de reportes de manera periódica. Creamos un watch avanzado.
+
+![](https://lh4.googleusercontent.com/rbmAG2_aAEALpWHYH83mIbLsIP8mH09ukq4QP9Qu0dwavP-yCTT1tXfo88megMWHPzINGwvHGLjKFEtRcoJkGffXkxDPBh_A3_64tqQfyxM6rfxLZeA4L6nrPMf1SRKYbYLvRr_t)
+
+Posteriormente establecemos un nombre y una id para el watch, y colocamos el siguiente código el cual permite crear y mandar reportes.![](https://lh6.googleusercontent.com/BfEAnEGPVS5iUf3gDqp7jCNf8ynaEO6wdPkekmXvTzVVxMgRBLCE4AGSyWh--x-dmOeAl8o-G8fh31EBhC9WZi-LzNz5vuO_ctMCSR1QTPwr8EcV99T5x-roDGaCJoWOFLYRKOj6)
+
+![](https://lh6.googleusercontent.com/BZx4ZD4wFk49AKR4N8u-2GQsywpNVYzsYIvV4wZ1O1R7BxkUq288qlsHb4tBqBG8NLBXnYZk1Idzg9x2bt1M5aiOfR50FSrnYVP0bXQwOvQTUisTljExqjrdSXkuU9TjmZ1tDF0Q)
+
+Una vez escrito el código del json procedemos a guardarlo y nos mostrará que está en estado ok.
+
+![](https://lh4.googleusercontent.com/5FSBMdN8DRJkBf3fN3oisJkCL6P2RrMmD-RZeyMm2qP-97tHstavV9p-vPnGJphA_lwMHuEQNNN1EK22CmvxY36hBEOzDFKjKathxEMGTocyeTBvQKWAc3902JrLn3izAkTXzRVN)
+
+Cuando el watcher se ejecuta el estado cambia estado a firing cuando en efecto se ejecuta el watcher.
+
+![](https://lh5.googleusercontent.com/rhxDJKU-E3WmRiN5jE7a1cdseyVriX-sVfetzcWxxgewtSpMwlc7u5zNlLlMDyfRgBrARod9t1I8j5u9zjVO5rSxX47qsSG3vwQPvBwNa83Vp3atGksN6jfR-monCC3xQsqiGbny)
+
+Y por último en el correo podemos observar que se ejecutó la acción del watcher.
+
+![](https://lh6.googleusercontent.com/vZzJsiILYwdq1r8wsLRp2lyTWbHpsHh3Pz4AogQdP1F0zE5Wz-WoJmEOKUBdSPqe-LOx9TTtjCc_uXepfCSpEZIYn8tsQ2EnBU9mq9Htx5ziXfZuxBHW3j4QeitqFnVx7bOBaPdW)
+  
+  
+  
 # Pentest<a name="id5"></a>
 
 ## Resumen ejecutivo<a name="id51"></a>
