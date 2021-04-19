@@ -32,6 +32,8 @@
         - [CentOS](#id4011)
         - [Debian](#id4012)
         - [Windows](#id4013)
+            * [Winlogbeat](#id40131)
+            * [Filebeat](#id40132)
         - [Dispositivos de red](#id4014)
     * [Elasticsearch](#id402)
     * [Logstash](#id403)
@@ -39,19 +41,37 @@
     * [Configuración de TLS-HTTPS](#id405)
     * [Generación de visualizaciones de kibana](#id406)
     * [Dashboards](#id407)
-        - [Email Dashboard](#id4071)
-        - [Web Dashboard](#id4072)
-        - [WAF Dashboard](#id4073)
-        - [Iptables Dashboard](#id4074)
-        - [FTP-DB Dashboard](#id4075)
-        - [Windows Dashboard](#id4076)
+        - [Email Dashboard](#id40701)
+        - [Web Dashboard](#id40702)
+        - [WAF Dashboard](#id40703)
+        - [Iptables Dashboard](#id40704)
+        - [FTP-MariaDb-PSQL Dashboard](#id40705)
+        - [DNS Dashboard](#id40706)
+        - [MSSQL](#id40707)
+        - [LDAP(S)](#id40708)
+        - [SSH](#id40709)
+        - [Windows Dashboard](#id40710)
+        - [IIS Dashboard](#id40711)
+        - [DHCP Dashboard](#id40712)
+        - [Dispositivos de red Dashboard](#id40713)
+        - [Active Directory Dashboard](#id40714)
+        - [Hyper-V Dashcoard](#id40715)
+        - [Threats Dashboard](#id4071)
+        - [Windows Services Threats Dashboard](#id4071)
     * [Alertas](#id408)
-        - [Alertas de Email](#id4081)
-        - [Alertas de WAF](#id4082)
-        - [Alertas de Web](#id4083)
-        - [Alertas de Iptables y fail2ban](#id4084)
-        - [Alertas de base de datos](#id4085)
-        - [Alertas de FTP](#id4086)
+        - [Alertas de Email](#id40801)
+        - [Alertas de WAF](#id40802)
+        - [Alertas de Web](#id40803)
+        - [Alertas de Iptables y fail2ban](#id40804)
+        - [Alertas de base de datos](#id40805)
+        - [Alertas SSH](#id40806)
+        - [Alertas LDAP](#id40807)
+        - [Alertas DNS](#id40808)
+        - [Alertas de FTP](#id40809)
+        - [Alertas IIS](#id40810)
+        - [Alertas DHCP](#id40811)
+        - [Alertas de Active Directory](#id40812)
+        - [Alertas de Hyper-V](#id40813)
     * [Conectores](#id409)
     * [Reportes](#id410)
 5. [Pentest](#id5)
@@ -1718,30 +1738,41 @@ Una vez descargado debemos de instalarlo con el siguiente comando.
 La configuración de Debian es exactamente la misma que la de CentOS por lo cual no lo colocamos debido a que sería redundante.
 
 ### Windows.<a name="id4013"></a>
+#### Winlogbeat<a name="id40131"></a>
 
 Es necesario descargar el siguiente zip desde la página oficial de elastic.
 
-![](https://lh5.googleusercontent.com/0nZswtHHppPHhCKwdKJ_LYjD9-srlE6FdAfuxGey8H1t6RiZ5VM2vE05O_rCesMiR0kG8bG1ThQtBEh0rVckG6H6gqDw22VHbdjUiw-dX1CXL17D6Ox_u7oPCDAM5EQKThDFNmBb)
+![](https://lh3.googleusercontent.com/AEVi82ON7Xj6rNLVDNjjdTmQXO51VjTRoafiZZCEcO55iLbgVNDOtm7Xct1EgE8DHqor2WJGxchVSCQ-5kZOHNBjcS0hbfYHi6lb8FOA5NDEXXnffflTWIFghOYJR0z0PNa7ENrZ)
 
 Se descomprime en la ruta C:\Program Files
 
-![](https://lh3.googleusercontent.com/Cpu0rIF8-qtpvSlGElgAM-a1JpA91EarAxwAKbTAU_lKe5y947ZJb6Yna64ilNqIAwoOD8ULeC0SRx_xgA1v8uZ3T2G5XnWbK4sH3chfMlyaCWD8PkU69ESe6_2A9SV_CqmPLmSW)
+![](https://lh5.googleusercontent.com/2qaWn0HqWfpp419EW2SgV3oQc4tTOhOx9URPCmdzT02dXH8ysdj-VCHZjoF5ZVRK7Z_r2qnC5lVJcTT-uamr-2iBOjfW9J2KENbvr3MhR58ogh8HarXvHZRfWBxEZnlmBiCueBy9)
 
 Después cambiamos el nombre de la carpeta.
 
-![](https://lh6.googleusercontent.com/RVsNAV44WVFhMdZqVL40bCryu4cE2H4U8xoj8LxhNdfULeUthQK-NB3qEgKadf-wTyjcpHXo5alKeo5Bl6-i-DCC-lHYvkJA0IGKSxJ5kYrt2AKHjWC7W0tiOgqm7zx3Cj07u-7F)
+![](https://lh6.googleusercontent.com/JwtIfAvOu73xuH8b0dZlyOCNhcXLPgPVp_G5_Xqqki_gtVbeGlx8nqvZl9kyKfg8ledNstk-l1fAcrHwI4EhOZpxkXabkMIhGddn6_4coo8Qmg9Nh_iduDCC47NRhg_bRy68Nniz)
 
 Después lo instalamos mediante powershell.
 
-![](https://lh4.googleusercontent.com/aUi4YLmyFVYa3MGekDhrcidLwBMQ2QOq6e-oAHOzxtf9Rn1NKar2OLni-MhnURi_y0CF6xfIRpPlHKjW5X08_PO40djqsIGzDsougv9gwKLVxMYFNt1q81ctY5DNhttbTu6h-qXG)
+![](https://lh6.googleusercontent.com/zYoflNDO_1g1oWnTv1ZmT_FrRX4iSmGWPcUQyTZTGXWS37wW-oy0uQZfnUfnoDpDPQnAejhXZg64RaZflC0KGrdN_WBESBQ4FXBqN4KlicpRhb8uAxmjMgBXsQenEJAqh9ttG961)
 
 Después realizamos la configuración en el archivo winlogbeat.yml de manera similar que en windows.
 
-![](https://lh3.googleusercontent.com/kZq-VdD9sSAlG-ovJsjYn9FCf67ko5WdZoUJdscIKoeabmbjzaJECmNKmFbQlnrllZ_CPaGxD4YdJ5A2s1lIkkKALM7x-tDNurOjDN4aE-GuuiKmUydJpORovrI7d7YvBX3RkBOW)
+![](https://lh6.googleusercontent.com/yiI6UrLyGl6lp6gS4AyJHB45NKnC6OKsdJwkMXmC0AwtniQs2z6oEbqhFiOKDThORCrZkJnjDZL3lGUHwWjsaVdsmSgzq_4Gdbhd7kckRu9OybscljhdhHjnLq6RRY6zkl8CGopW)
 
 Después en services activamos el servicio.
 
-![](https://lh6.googleusercontent.com/onUTFgT2EDQ5PiJkrYiCxWOLvj8nno7ZNgWShp3Ll1Uz8sCaYjk4CpUerQanPSy6_3eiZc1H14HhiBhsg0qmHw5JqKHD3-c9i6C89gQ1bhF4Uq4Fp__qKKhG5vSGQVnbUAh1yNF8)
+![](https://lh6.googleusercontent.com/51pgqLXx81qSCKdOoP7a9QkRIHxRbQs6S98W7T7IMhoYZw6E1PQz_1TkdQU-PDxSlDUFF6pyiK_sN9YvJmxP9-nS0qrnkDLLFCm2X4Klt60_4qd80PE2gBVp87tA2yqaZn3f0Y_r)
+
+#### Filebeat<a name="id40132"></a>
+
+Para esto se descarga, descomprimimos el archivo zip, abrimos Powershell y corremos el script de instalación.
+
+  
+
+![](https://lh5.googleusercontent.com/R0U_lyYVw4INiZGNR1pTrt_l1YtWSqGAA3Xr0eE3PetxjJCBC6SQmyh8pJ3kcyLwdfS3u7uUdsij6SOHKK5w50KtN5ULD8EooPRwbIbMj0TGNlj6ynW1qj3mzkwX1TY5rLj7ZVSH)
+
+Dependiendo del servicio del que se requiere enviar los logs, a partir de este punto se habilita un módulo o se configura el archivo de filebeat.yml.
 
 ### Dispositivos de red.<a name="id4014"></a>
 
@@ -1924,7 +1955,147 @@ Reiniciamos el servicio una vez se ha configurado.
 Ahora se revisa en el navegador, donde se visita [IPKibana:5601](http://ipkibana:5601).
 
 ![](https://lh6.googleusercontent.com/tHZGAKNG7AIwZ_ILK4gL3VJA7h11UPq15NeOx-xScfcYjWJcVZBeDraVT5D326w34K9tz3hmjwZTrEMN5et0p_hEBry0aUClS69hYkl1I9TmMx0lWRjD-ymHSMPAQArHzZ7gSQTb)
+## Configuración de TLS-HTTPS<a name="id405"></a>
 
+Kibana tiene como requisito poseer una conexión segura a través de TLS y HTTPS para poder hacer uso del servicio de reportes, de modo que en la siguiente sección se aborda el proceso de configuración requerido.
+
+Lo primero que debemos hacer es configurar nuestras estancias de Elasticsearch. Ingresamos a la instancia principal y nos cambiarnos a modo superusuario.
+
+![](https://lh5.googleusercontent.com/jAzJJ324p2PpA4c21cvog7GeFut2LdcmAbmQ9vG24lpXvA_FNoqX2lwdpRn1RVe2Pn3Wlfo_VTrMydQTNBvdFd-PrcHLhXp7-XNCRrTuSswN0Wce2HlMG7U-_m0N-2zcKKEEoc2N)
+
+Posteriormente instalamos curl en caso de que no contemos con dicha herramienta.
+
+![](https://lh3.googleusercontent.com/DeoRMSRdvDiK28p03nzgHnLKmVgu0OwVaNoISh0g-obobo82S5aS32_jexNRJoXsm8IrZ_OouT_BWc8e_BletC3d24U66hyLN1eGmH9nf6c5DMkVrpPGQRwo_uzQ_wD3M0P87urn)
+
+Una vez instalada procedemos a verificar el estado de elasticsearch mediante curl.
+
+![](https://lh5.googleusercontent.com/TyhcPnuLjih8jf7QbVCB8Sno_Nw4y0vj4oOG7hewwVB2wwePclv-m1dvatT2vimG5muJ3g1m4XFGGIMzDJk9pP3u_cwA2MW3sSI48xzkjIAzUwTXajWoPdAjx-58Q-UdhexjwGSF)
+
+Ya que estamos seguros de poder acceder a nuestro servicio de elasticsearch a través de peticiones HTTP, nos cambiamos al directorio /usr/share/elasticsearch.
+
+![](https://lh5.googleusercontent.com/jo0LNua5Lg__iNNLkb1PY11teOlIn5C671uXd41l_xF_dI3y1UrnEdfkQ7d7Iw-aTjCN8LHlAGktZI_0FGLbU-DkYZe6Qk7eGlNt1IGtjXLlA8WTnU_pJXiA5aL1gLWNUv3nFYaQ)
+
+Ahora generamos nuestro archivo CA a través de la utilería elasticsearch-certutil de elasticsearch.
+
+![](https://lh6.googleusercontent.com/vOwIx7wZngp90Efj9rVoJ9RkfczW4fYS7K51AVN5ZNFfiVbPWpElH4O2j8V4Cn1Hzs7h1ibJunKEa6qz9_Ecv0DfBEMoq8R86jyvaToUITDpW5c0G76OkXeeeUYg5AgNL4N9Ai77)
+
+Ingresamos la ruta de salida del archivo, así como la contraseña asociada. Ambos campos son opcionales y pueden dejarse en blanco.
+
+![](https://lh6.googleusercontent.com/chjP6BGIaD5c-AY1cVMPG2n3CB7FK3PFo3ggoE8VomhsVjd4ZFnWwYNPQu1vhIYexRvk7JSwIXj33T--Lcc7YrcSao_Lpfd5pY5biFipZMuOGkbgWh_CGfFTVgrfrr78AGad0uAM)
+
+De la misma forma generamos un certificado a partir de nuestro archivo CA que acabamos de crear.
+
+![](https://lh5.googleusercontent.com/XPkzOtUMEso-Q90Hu0t5ncX6PlpNAWZf209_1-zwuzewrL-ppTxwYc_cEv38Ymv9__ns2F4yzmkfnN1uZ_DTAxMS1DWHpGV7XOoOOJoWSp49aj0NPuuqGdGRLiVCd0XvEv12ZHUM)
+
+Ingresamos la contraseña del archivo CA (en caso de que la tenga), y nuevamente la ruta y contraseña de archivo de salida, los cuales también son opcionales.
+
+![](https://lh4.googleusercontent.com/UwxiFFYeqvUXPaFIF9QGdAjsQw3Y40SYos9U35N1sAHVTZdCfypjPkfL8OW2ukZmDBcJjvKuNJAnj48_eVZUcsAvhhf2_zWXqjIur_5R7ZzJe60y5s3lE-E6tyHM5y7jwbqfUvLJ)
+
+Ahora movemos el certificado generado a la ruta /etc/elasticsearch/.
+
+![](https://lh5.googleusercontent.com/4gZBaVFetlflXD26F749zLh1i_8WDgra9mRF5gs5kvj1ED9XwpPKQFfT6q-J4OTLcySpFRb1dVdr6Iw_bvSDGy3gy6SaKilb-eY543_YwlP_fvJ6j9KC0twknxIO5gpYqR3kTCTu)
+
+Editamos el archivo de configuración del servicio de Elasticsearch ubicado en /etc/elasticsearch/elasticsearch.yml.
+
+![](https://lh6.googleusercontent.com/EFQuKu4JYNfk22Eh-GGrrqZZx1SziJq71FFIBOb2yc7Vr6z8AQnHKHhJhDGI-R4bFnzxIOj1LXc3dUhHbvK03Y_w8bX2jZBolmgSAtMgn4taqXsIFwW4NcJgTdrsYENfZs1tFT_-)
+
+Al final del archivo ingresamos el siguiente contenido, el cual habilita TLS e indica la ruta al certificado que acabamos de generar.
+
+![](https://lh4.googleusercontent.com/KTYbf9GEnFDbuiX_48LB0zpuVnlKk3V0wo5BwcVTMuQB0cHF-WYqHr6RTBlPOuRKB_Se0vjR1uMr5Rj1-GNVWUc-Cc2Xno4HDHpOrvlaCq5E2MbsturFHFF_hz7roYz010ld_3NJ)
+
+Posteriormente cambiamos el propietario del certificado de modo que pueda ser leído por el servicio de Elasticsearch.
+
+![](https://lh5.googleusercontent.com/ISv5q0-jjJVCDipz07UFxCq3WvVFtVTYS2CmST8fNpuMydnNhevKE3bqJt_ZXGaaGaviAeIU_WmUrob35VNIT_5hrXD6oRuBnb1bvvK_m3HthlSbLCZ9d8-tx-TaU4IC_Kzxodec)
+
+De igual manera cambiamos los permisos de acceso del certificado.
+
+![](https://lh5.googleusercontent.com/uLhkLVx8_CpSkHlmRxxudGE6OMhiP7aFgiFIVV8wiLB8AhmYjvbIsAZgOzrJCYzl9o6nFIYRikbPzP3bGYWJQm2w-MwqCJ2ta2SpNgx-sWwGIKPNdZf--gX08Ei8MRsFma3n6ytR)
+
+Reiniciamos el servicio.
+
+![](https://lh3.googleusercontent.com/lsqa0rUWnNZxl57QQhlt2x1yPEyrotm5eXFVMOs8XzQ0KiB2Vx4etGhuF6pQS59ZFXsFt1XnRW7zFnTD9Ioo_C6hmDPSglMRkzUQoaSPuCZNO9O0W_4I01dZ0Jt4-qaXV2BQ5kll)
+
+Una vez que se reinicie el servicio podemos generar las contraseñas para cada uno de los usuarios asociados a los servicios de nuestra pila ELK. Esta tarea se hace a través del comando /usr/share/elasticsearch/bin/elasticsearch-setup-passwords auto, el cual genera de forma automática las contraseñas para cada usuario. También es posible indicar la contraseña de forma manual para cada usuario proporcionando la opción manual en lugar de auto.
+
+![](https://lh5.googleusercontent.com/eMmvLF-xcItCeNSBW07mP2SZ5BTw-94K7zV8iLbStLRgJUu00cZ45KIroFDATh0A-zy5QslcIswij25oQtXjQCFruTZ1yFSmTEv6jP_v_6vNar4c4NxOYT_YzTfoAU8SMLfbSrID)
+
+La utilería desplegará en la salida estándar los usuarios y contraseñas para cada servicio, por lo que se deberán guardar dichas credenciales en un lugar seguro.
+
+![](https://lh5.googleusercontent.com/5U9FChyhRfLbpUBIZI0t4L3ZL2k1I_wFC0OflqL8iVe1U0MrQHWlQ3jZc7WOcf5joYeZF-Jk_htkGusJVNllInhdWjhH6scsl4-gz_W52iVLeDbSWI2C2z7E_s1ZvIRxAKAl_78t)
+
+Ahora podemos verificar la conexión mediante las credenciales a través de curl. El comando es casi el mismo a excepción de que ahora se proporciona la opción `-u elastic:<password>`.
+
+![](https://lh6.googleusercontent.com/uWsPFd4xluq6KQFUIBTFM0ghi3GeOyTBuO0YJq9U2eOfONMuLLmBq2qSkLsJ9pURZS0Ga1xvgPQ4Hpv93xDImgx7-XtKPKhEf92Yw8iIZWvLzoxIk56UqY9MXmsa98YKgaWlwEeG)
+
+Lo siguiente es habilitar HTTPS ingresando el siguiente contenido al final de archivo /etc/elasticsearch/elasticsearch.yml.
+
+![](https://lh3.googleusercontent.com/eT0_bOer0HI1Rx91mMBry-ASTKlBlUfjAYJBScRBb8IUqUWDr2sYAmG8MJy2mjQyhOkT3tfJmTWj7E4Jn9vBVGr773374iBXhFU45uILNs93SWPvEoPH9SKhUGMrxLBR8DGET5bv)
+
+Posteriormente reiniciamos el servicio.
+
+![](https://lh3.googleusercontent.com/lsqa0rUWnNZxl57QQhlt2x1yPEyrotm5eXFVMOs8XzQ0KiB2Vx4etGhuF6pQS59ZFXsFt1XnRW7zFnTD9Ioo_C6hmDPSglMRkzUQoaSPuCZNO9O0W_4I01dZ0Jt4-qaXV2BQ5kll)
+
+El siguiente paso es generar un certificado en formato PEM para los servicios de Kibana y Logstash. Para ello nos cambiamos a la ubicación de /etc/elasticsearch y ejecutamos el siguiente comando.
+
+![](https://lh3.googleusercontent.com/2Oh-bQYbpi2UXDMmc-EqO2DreFXmsQkdgbRQZiN-pTQhVqsU4mmgoK5vBAU4StFclWC7FihDyPHGpSvMpn02k0A55A2NpUe819j_iwHQSpzvFy60QXYoyHhIQ_XLZ6EZt8ix0YVg)
+
+De la misma manera, ejecutamos lo siguiente para generar una llave en formato PEM.
+
+![](https://lh6.googleusercontent.com/c3JZ0nOTXJG6YWwWWSrnB1GjNaiQHD-AC6OmLUIA-Q8eIVxxOxdlMdd8mKMJpYtPBI5gF8nOlvjDV59J7gTPAPQfcaJcQhzZMydqdiGI3sF2XCmZo9blyQ-o2cmV2wRosBLTWlCN)
+
+Ahora deberemos copiar dichos archivos a la instancia de Kibana, ya sea mediante SCP, una USB o algún otro medio de transferencia. Una vez transferidos, movemos dichos a la ruta /etc/kibana/.
+
+![](https://lh4.googleusercontent.com/wlNTXo9Q9VFp0sjeDbJUVu_JqN2qxyPizQX7WdSbdJ6VNCP6OnE9YeI6Ja8hJzZyoAAfTso-x5nzwRcteYSt5eeHRLW0YLbzs8yvPVDPDPHx55AWJbtfycls1SP0pfi8aLrh2FVb)
+
+Luego cambiamos propietario y permisos de forma que el servicio de Kibana pueda acceder a ellos.
+
+![](https://lh5.googleusercontent.com/SXp9YIDHwKeUvg5Cx8xdhco-V45-D_21gYl8mGkW3zMZzb5HBGStIewagPwbaKYb_qXgtyKp2qBrJ0z9xBj3MqwDuZqHwlwDCkoq5qf13c0FVb95q8Js9fQIcpPwYkfftoNvTzvP)
+
+Abrimos el archivo de configuración de kibana mediante algún editor de texto.
+
+![](https://lh5.googleusercontent.com/_XWa3wAYNIQ1SKrKB1u-UbxPTDEXn0ur4t3ElsGv8KybqMXEakMoR9tZxLsoEQHIm_z9phcbo_FR_4HQSL4eFXhGeTr0ouYQ1Ut_b3EnKpV_4F8Y6m0jR5RrBbSl_gAmi_FU-yte)
+
+Agregamos el prefijo https:// a cada una de las direcciones asociadas a las instancias de Elasticsearch.
+
+![](https://lh3.googleusercontent.com/2qOAAqcWphTeguIJA6pSS0S_oufLqEAyPSnlUqHjSaWepUk5UYjNOJiL7pIfv87x_tf5JZB3EOeMDACgt37JMSFM5wvRRqwQskcSrbrChve3d5zZbzWSEZLJlyAsLNxMLAKslNI1)
+
+Agregamos el siguiente contenido para habilitar las conexiones seguras e indicar las credenciales de acceso, así como la ruta a la llave y certificado que generamos anteriormente.
+
+![](https://lh5.googleusercontent.com/FFmpCcD3GE3PXcsZ8WU-frC4Jri2WVqVQDuEGCEmSa66K6JQhmtNqYK1F4oKBHtHXdzfHHuHDV0Vo-AkyniCqAPPrYltkPqTPuCSANgJ0jpjl5n-RdMj_lvLoR7W-odDNV3hbCWj)
+
+Luego reiniciamos el servicio de Kibana.
+
+![](https://lh4.googleusercontent.com/YT-y2-5gVBOkKiiqlI34IOwiLENUneXkHxPQX3PEaJe_YuxdZh9eVCRCWM7zUsIRp6yvH0Ez2JlnuIHwSpQzvZbaJHp6SdKjNvgLFD9Vx_iv8iN_v2pqsUunWqmfLm50Hgrz4qQ0)
+
+De igual manera, deberemos configurar Logstash para habilitar conexiones seguras. En este caso debemos transferir el certificado en formato PEM a nuestra instancia de Logstash y colocarlo en la ruta /etc/logstash/.
+
+![](https://lh3.googleusercontent.com/9-Mn1Ld0UmitxtbxsyucJaYswL4MC3Q7_VZSRy3-jgjoOxjHtj0vBG6exkQG1eDmixge_qggtVvLyByWApNbUx_79gYU2QTie-4BSsprTTFLiHgpsg3TutYJ97-eJrToBLzl7knb)
+
+Nuevamente cambiamos propietario y permisos de tal manera que sea accesible por el servicio de Logstash.
+
+![](https://lh6.googleusercontent.com/EfpQVZGmuXMRWBToT0XAsKKffHnmTiV00wkdAYreiNtKH3N9ZlnKXaNEU-8fZWjcI94vW-ctqPmhDBySgo0NwSoGpYAnUf_3BrEOEau7cWkXE2OVwGuD4N9D2WAuz3OSl0RBN5TS)
+
+Ahora abrimos el archivo de configuración de Logstash mediante un editor de texto.
+
+![](https://lh6.googleusercontent.com/3sIonNqEe07nOByO8-9SDdIsA6RTmOgPxpg0UwnRx7wZzIQ92TsbDtZhCUv4eZhC2dRWbHxxAJkfqeQsJkC6PdK7tzkMJNqzapNhRNPIapihNNeM-AJYvousVMjO8xt3z3Iypvg4)
+
+En la sección de output debemos agregar el prefijo https:// a cada una de las direcciones asociadas a las instancias de Elasticsearch. Además, mediante los campos user y password indicamos las credenciales de acceso. Por medio del campo cacert indicamos la ruta al certificado y a través de ssl_certificate_verification indicamos que no queremos realizar una verificación del certificado.
+
+![](https://lh3.googleusercontent.com/GGAWInkPm1hicWFqysaszX_zWE1l9rodWnTiHv158qP0t7gevx3YntVyUaNzRFQfDEC04JsI9ncUeh5QCM_rHk4qPPJeEapLgvgQY6-GZW80crlZsHHJ974fIc8p1Ds9yrSZFGrU)
+
+Finalmente reiniciamos el servicio de Logstash.
+
+![](https://lh3.googleusercontent.com/7UyIWjy9Ju-7bH0x2kr0n52_78o1HdK2v-U8X_kWlqCU8_zcQrALktArJ5OFJ8xE0yW3lvTbflrixb-8pnMQm-U6rRKHGfo8TuFpN9GWyy5fiTGmWUZsXS6G6PFjqSG0S53XKUK2)
+
+Por último, ingresamos a Kibana a través de HTTPS y mediante las credenciales del usuario elastic.
+
+![](https://lh6.googleusercontent.com/65OBrzQHdjhqHE6r1KTVGBoDyQYcnrhDamWSqlxOp8TSVlkYteMewLC9NrJndZ-gKGayYvMYW-LRaijmFlWkiFEMe8_E8HM7rXKwulTbXceqYWoqG3X4KUXQVpylhQKpDJtYXrm_)
+
+Nos dirigimos a `Management > Security > Users > Create user`. En esta nueva ventana ingresamos los datos de un nuevo usuario con rol de superusuario de modo que no tengamos que acceder a través del usuario elastic.
+
+![](https://lh5.googleusercontent.com/IXyXQR5eJpS2voYsqxUDfU1BZuDCewK954i-YGxVTEYM2fQOTopbdcNdUbdRCIM1Dg4x5aUjn3RwGeC02aOu9Qsy6vzf1q0CZkXft4A8P4tBhOrV0i8aNFHvOqTj70cHRU5jghXc)
+
+## Generación de visualizaciones en Kibana<a name="id406"></a>
 
 
 # Pentest<a name="id5"></a>
