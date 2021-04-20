@@ -1,9 +1,16 @@
+Realizado por:
+* Fernández Martínez Abisinia Ivey
+* López Matías Alexis Brayan
+* Luna Castañeda Abraham Iván
+* Resendiz Cruz Luis Fernando
+
 ###  Proyecto final: Instalación y configuración de la pila ELK.
 
 **Tabla de contenidos**   
 1. [Definición del proyecto](#id1)
 2. [Objetivos planteados](#id2)
-3. [Instalación de ambientes](#id3)
+3. [Requisitos para el funcionamiento](#id8)
+4. [Instalación de ambientes](#id3)
     * [Windows](#id31)
         - [Hyper-V](#id311)
         - [IIS](#id312)
@@ -27,7 +34,7 @@
         - [MySQL/MariaDB](#id3210)
         - [ProFTPD](#id3211)
     * [Dispositivos de red](#id33)
-4. [Instalación de BELK Stack](#id4)
+5. [Instalación de BELK Stack](#id4)
     * [Beats](#id401)
         - [CentOS](#id4011)
         - [Debian](#id4012)
@@ -74,7 +81,8 @@
         - [Alertas de Hyper-V](#id40813)
     * [Conectores](#id409)
     * [Reportes](#id410)
-5. [Pentest](#id5)
+    * [Objetos](#id411)
+6. [Pentest](#id5)
     * [Resumen ejecutivo](#id51)
         - [Puntos positivos](#id511)
         - [Puntos negativos](#id512)
@@ -87,8 +95,15 @@
     * [Vulnerabilidades](#id53)
     * [Hallazgos](#id54)
     * [Recomendaciones](#id55)
-6. [Conclusión](#id6)
-7. [Bibliografía](#id7)
+
+7. [Actividades realizadas por integrante](#id9)
+8. [Conclusión](#id6)
+    * [General](#id61)
+    * [Alexis Brayan López Matías](#id62)
+    * [Abisinia Ivey Fernández Martínez](#id63)
+    * [Luis Fernando Resendiz Cruz](#id64)
+    * [Abraham Iván Luna Castañeda](#id65)
+10. [Bibliografía](#id7)
 
 # Definición del proyecto.<a name="id1"></a>
 
@@ -116,7 +131,136 @@ El principal objetivo es el desarrollo de una infraestructura que implemente la 
 Otro objetivo que se tiene es la creación de un script que permita establecer la línea base de seguridad de los distintos equipos que serán monitoreados.
 
   
-  
+# Requisitos para el funcionamiento.<a name="id8"></a>
+
+Para poner en funcionamiento los elementos de la pila BELK son necesarios los siguientes requisitos:
+
+Elasticsearch (3 equipos)
+
+Sistema operativo: Debian 10.
+
+RAM: 2 GB
+
+Espacio: 15 GB
+
+CPU: 4 cores
+
+Software adicional: wget, curl
+
+Versión: 7.12
+
+
+
+Logstash y Kibana (1 equipo)
+
+Sistema operativo: Debian 10
+
+RAM: 2 GB
+
+Espacio: 15 GB
+
+CPU: 4 cores
+
+Software adicional: wget, curl.
+
+Versión: 7.12
+
+
+
+Archivos de configuración
+```
+Beats
+├── AD_HV (C:\Program Files\Winlogbeat)
+│   └── winlogbeat.yml
+├── DB_FTP (/etc/filebeat/)
+│   └── filebeat.yml
+├── DHCP  (C:\Program Files\Filebeat)
+│   └── filebeat.yml
+├── Dispositivos
+│   ├── cisco.yml (/etc/filebeat/modules.d/)
+│   └── filebeat.yml (/etc/filebeat/)
+├── Firewall (/etc/filebeat/)
+│   └── filebeat.yml
+├── IIS (C:\Program Files\Filebeat)
+│   ├── filebeat.yml
+│   └── modules.d
+│       └── iis.yml
+├── LDAP (/etc/filebeat/)
+│   └── filebeat.yml
+├── Mail (/etc/filebeat/)
+│   └── filebeat.yml
+├── SSH (/etc/filebeat/)
+│   └── filebeat.yml
+├── WAF (/etc/filebeat/)
+│   └── filebeat.yml
+├── Web (/etc/filebeat/)
+│   └── filebeat.yml
+├── Win_dns_sql
+│   └── filebeat.yml (C:\filebeat\filebeat.yml)
+└── Windows (C:\Program Files\Winlogbeat)
+    └── winlogbeat.yml
+Elasticsearch  (/etc/elasticsearch)
+├── es01
+│   └── elasticsearch.yml
+├── es02
+│   └── elasticsearch.yml
+└── es03
+    └── elasticsearch.yml
+Kibana
+├── Alertas (Importación)
+│   ├── AD_HV.ndjson
+│   ├── dhcp_iis.ndjson
+│   ├── dns_rule.ndjson
+│   ├── ftp_rule.ndjson
+│   ├── ldap_rule.ndjson
+│   ├── mariadb_rule.ndjson
+│   ├── mssql_rule.ndjson
+│   ├── mssql_user_rule.ndjson
+│   ├── psql_rule.ndjson
+│   ├── router.ndjson
+│   ├── SMTP_detection_rules.ndjson
+│   ├── ssh_rule.ndjson
+│   ├── switch.ndjson
+│   └── WAF_Web_Fwall_rules.ndjson
+├── Dashbords (Importación)
+│   ├── AD_HV.ndjson
+│   ├── devices.ndjson
+│   ├── DHCP_IIS.ndjson
+│   ├── Email_objects.ndjson
+│   ├── MARIA_DNS_PSQL_SSH_LDAP_MSSQL_FTP.ndjson
+│   ├── WAF_Web_Fwall.ndjson
+│   └── windows.ndjson
+├── generacion_de_reportes (A través de Kibana)
+│   └── Daily_report.json
+│
+└── kibana.yml (/etc/kibana)
+LDAP  ldifs
+├── ldap-tls.ldif
+├── logs.ldif
+├── new_user.ldif
+├── no_anony.ldif
+└── org.ldif
+Logstash
+├── filtros (/etc/logstash/conf.d)
+│   ├── ad.conf
+│   ├── Apache_Nginx.conf
+│   ├── dhcp.conf
+│   ├── DNS_MSSQL.conf
+│   ├── Email.conf
+│   ├── fortigate.conf
+│   ├── FTP_MARIA_PSQL_SSH_LDAP.conf
+│   ├── hyperv.conf
+│   ├── iis.conf
+│   ├── in_out.conf
+│   └── WAF_IpTables_F2ban.conf
+└── patrones (/etc/logstash/patterns.d)
+    ├── ad.grok
+    ├── amavis.grok
+    ├── dovecot.grok
+    └── postfix.grok
+pwds.txt
+
+```
   
   
   
@@ -3184,751 +3328,4 @@ Los primeros dos paneles muestran la cantidad de eventos asociadas a ciertas act
 
 Los siguientes paneles muestran información correspondiente a la distribución de inicios de sesión sobre cuentas de usuario, equipos y tipos de inicio de sesión. Además, se cuenta con una tabla que despliega un conteo de inicios de sesión de acuerdo a la fecha, cuenta, equipo y tipo empleado; y una métrica que muestra la cantidad de inicios de sesión exitosos, fallidos y cierres de sesión.
 
-![](https://lh6.googleusercontent.com/3cbSzLug_i-8CwIu2H2SEfjqJQu0l-aslQtnSRfnXUPahqArVd-lXGLpOqlh1QIieu2jGS57Vw4WNIBOBHQ5F6d4p8kbvG9_x3sz_CN1-T6SxmD2wN4U9ORmVRIzXb_XjQib1kEz)
-
-La siguiente sección muestra una línea de tiempo de los inicios de sesión fallidos, así como unas gráficas que muestran la distribución de estos intentos fallidos de acuerdo al equipo, cuenta de usuario y método empleado.
-
-![](https://lh6.googleusercontent.com/K62vESjP-VPUZJZP3LIY1v6UV53aMwHiMX0h69kDfpnneUt9cR6xv_hKZjiwukXWIp6knr5uOXG82swaOFLoIlxm7Xl2ZJfJx6Sm6xT0FqwuV5VNbFvhNb_EDCEgl2ZwvyxjvIyQ)
-
-Posteriormente se cuentan con tablas de eventos que permiten observar los intentos fallidos de inicio de sesión de acuerdo a la fecha, cuenta, tipo de intento, y razón por la cual se el intento fue fallido. La segunda tabla muestra los reinicios de contraseñas aplicados a una cuenta y la cuenta que realizó este cambio. La siguiente tabla corresponde a cuentas de usuario bloqueadas y el equipo en donde se realizó el bloqueo. Finalmente la cuarta tabla muestra aquellos desbloqueos de cuentas y el usuario que realizó dicha acción.
-
-![](https://lh3.googleusercontent.com/LObNMFygz2r1qv93oekcKZUACWmHev-K4cRuoErgCpqXwXt6YRXVKg4IAk9s03NtSXXb-eht8tH-dgsWU-eFxiUyTV5nOKP1dSuRbCQWuueql0Oo3-Id9R3JoOy3aS62HKe6hmmD)
-
-La siguiente sección permite monitorear eventos relacionados al servicio de administración de usuarios y grupos, como por ejemplo la creación, modificación o eliminación de cuentas de usuario o grupos. En este caso se pueden monitorear dichos eventos a través de una línea de tiempo.
-
-La gráfica de pie muestra la distribución de los eventos del servicio de administración de cuentas, y la tabla muestra un conteo de cada evento asociado a este servicio.
-
-![](https://lh5.googleusercontent.com/C2IQUKilliAsQ5l1eMDCWEbsptB0Dr7AMaRJk0dCUeF-DARyFSzAgauvvM99yXN5_QBFRxqbgOAheG6QJfQj1EEiKvpVOU0d4y-EWTM-TgWOMwCykV3gH-ECSQQbszg0Ox7bazs7)
-
-Los siguientes paneles muestran una tabla para determinar el tipo de evento asociado a una cuenta, como por ejemplo la creación o eliminación, una pequeña descripción del evento, la cuenta involucrada, la cuenta que realizó la acción y el equipo en el que se realizó. Además, se cuenta con una gráfica que muestra la cantidad de eventos de acuerdo al tipo de acción realizada.
-
-Por otro lado, se tienen dos paneles que muestran información correspondiente al servicio de administración de grupos, la gráfica de pie muestra la distribución de dichos eventos y la tabla muestra un conteo de cada evento del servicio.
-
-![](https://lh4.googleusercontent.com/TRaN-LPZ4vH_cCWQswggh68eonrHA_1lOlHuINl02yaxSLZdjhz2kBUDFfs32Tj5NHm7wJh_7GyNtQ0qHDG3CgqwJGTT4K-865GSO4naWJt99zkGtClYvvD0Eey2Pmm41seYBDx0)
-
-Finalmente se cuentan con dos pares de tablas y gráficas. Los primeros dos paneles muestran los eventos asociados a la creación, modificación, eliminación de grupos, así como un conteo a través de una gráfica de barras.
-
-De la misma forma, los siguientes paneles muestran las modificaciones de membresías de cuentas de usuarios en grupos, así como un conteo de incorporaciones o eliminación de cuentas de usuarios sobre grupos.
-
-![](https://lh3.googleusercontent.com/IN1Rua4tSBLMfjbj8Bap0cstiePde107kFSrt9e7N8Pt-ewEcgWJocqGJTgfa6feHF1EEeTmgX24B1v7_cI_gWAzJwojzH-WZzSUwlE0A1cP7dlaeIQOOoGmKY2Lz9VixUnVpBGJ)
-
-### Hyper-V Dashboard<a name="id40715"></a>
-
-El servicio de Hyper-V cuenta con un dashboard dividido en cuatro secciones principales, las cuales corresponden a una vista general de eventos, acciones sobre máquinas virtuales, eventos de replicación, y eventos de fallas, ya sea sobre acciones en las máquinas o sobre el servicio de replicación.
-
-Como ya se mencionó, la primera sección corresponde a una vista general de los eventos del servicio de Hyper-V. El primer panel muestra la cantidad de eventos de acuerdo a las secciones mencionadas anteriormente. Además, se cuenta con un treemap que muestra la distribución de todos los eventos del servicio de Hyper-V.
-
-![](https://lh4.googleusercontent.com/wpqEc-cR0RuROlt2m_pnZt5VVnkYv2k3-Sj2qsB6iislQOwRJsKZfM9hnJWqMV5eKAsGvpT7KPi9EQ3do1d0-mwBzrco8e4YOAzE8Etf2mQ0ZvGbtRkxY0Xum1M_zRdqU5pmc8vq)
-
-La segunda sección está enfocada a monitorear acciones sobre las máquinas virtuales, como por ejemplo apagar o prender una máquina, crearla o eliminarla, etc.
-
-El primer panel muestra la ocurrencia de este tipo de eventos a través del tiempo, mientras que el segundo y tercer panel muestra la distribución de las acciones sobre cada máquina virtual, así como un conteo de dichas acciones.
-
-![](https://lh3.googleusercontent.com/Kdpz2cNptON77KT9MtVDJnY2C-0-R6vOr1Cgdgy7QymzfC6XnlzaWKXizjJu4F-oj0kGvX8l8Mpx2-6zmL0soi09r1uKEna19xeY8uuPG9kPdxD948NVx4FVPlBbGdr8nlqL7el0)
-
-Adicionalmente se cuenta con un tercer panel que despliega las acciones realizadas de acuerdo a una fecha, nombre de máquina virtual y nombre del servidor de Hyper-V involucrado.
-
-![](https://lh4.googleusercontent.com/4nMqROxq9xL7ldSCO8cEc6NmjZDR_6Kwk4bGeIE71TraoPvWhiyXRfmLgsMl-Z5oofpddd8nFDjNHMuOnkM3ULOYIiCBEzr6ZRG8lbbqYc1mgZB6GmeJ9geyln5fEtphEMEyPEXm)
-
-La tercera sección está orientada al monitoreo de eventos correspondientes al servicio de réplica, como por ejemplo la habilitación de replicación de una máquina virtual, pausar la replicación, iniciar el proceso de failover, entre otros eventos.
-
-Al igual que la segunda sección, se cuenta con una línea de tiempo, una tabla y una gráfica que permiten analizar la distribución de este tipo de eventos.
-
-![](https://lh5.googleusercontent.com/oIT2dje-_QCqpRBTb0aMOqtxH8sTY4EodjPrGCUvS5VBWrpI13PCl7y5M7y3j4TzgS7NryNV_T82znDmgkRJ33HfalulcDpF3HjNnk5okFSu5bGL_ZHo8iKOEnDTKi_p06oYMdqV)
-
-De igual manera, se tiene una tabla que muestra el evento ocurrido, seguido de la máquina y servidor de Hyper-V involucrado.
-
-![](https://lh3.googleusercontent.com/z51oqq7d6uVcFCyRnvVkCFx7pr_SEZVddsHXjJgIuAnYaRHeXlEEQqTzHehEPClPJn5umj8ybWZ_US2LaY5Vi7Gtp50x0PN-00I_2bnSVcUXlYWxMOxAOr1qtUYiSGGbxy5Ia1aP)
-
-Finalmente se tiene una sección destinada a monitorear fallos, ya sea sobre acciones en máquinas virtuales o eventos del servicio de replicación, por ejemplo, una creación de disco duro virtual fallida, falla en la replicación de una máquina virtual, estado inválido de la replicación, etc.
-
-En esta sección se tiene nuevamente una línea de tiempo para monitorear el comportamiento de estos sobre el tiempo, una gráfica de pie para el análisis de la distribución de eventos sobre las máquinas virtuales, y una tabla que muestra el conteo de cada evento detectado.
-
-![](https://lh4.googleusercontent.com/5GyAu4FJky1qDcNrvHx9zfj94nSvCUDLM034hvVcP7GfIdtReXeWE5vlvEfAI-AG4e2RwAYfFT88UfQjSx-iGG4TPr9MyWa0OXFs0NkZgkF-xKB9Ot4aRhK9mfwYgo5lr4chwcgw)
-
-Por último, se tiene un panel que muestra cada fallo detectado, la máquina virtual afectada, el usuario involucrado y el nombre del servidor de Hyper-V en cuestión.
-
-![](https://lh5.googleusercontent.com/M1by0ZqADqR_THPDiqV_olKCny9qWVwycEsqmXim_aKKVO5BSlcWwHIQdwIgiWaITBQpk0bE_JrN9ieG2r8NRZbnETPHgQPUxXRqkdnW2sY2bjCrncNuLLEmcILD_5XDZ98u-Oe8)
-
-### Threats Dashboard<a name="id40716"></a>
-
-El dashboard de threats está orientado a monitorear los aspectos más relevantes de cada servicio. Cabe destacar que este dashboard contiene únicamente aquellos servicios que utilizan Filebeat como mecanismo de envío de bitácoras, esto es debido a que los servicios con otro tipo de mecanismo, utilizan un patrón de índice distinto; al integrar índices de patrones distintos en uno solo provocaría que las consultas fueran más lentas.
-
-Los servicios que se encuentran monitoreados por este dashboard son Email, MariaDB, FTP, PSQL, SSH, LDAP, DHCP, IIS, IPTables, WAF, Web y SQL Server.
-
-A continuación se muestran algunos de los paneles de este dashboard.
-
-En la siguiente imagen se muestra la distribución de emails de acuerdo a su clasificación, así como el estado de estos sobre el tiempo.
-
-![](https://lh4.googleusercontent.com/T2g1Nc1LHc8yElrtZMdOrZRvLm0G3U5cXMZzIKLbFX6S1K718sTRqxG_avvUSWFfN4qXB97lHSBeXsbyL4qthQxUaVaktlw3OA_40PKQjiCGKOygE4u0J1e4WWB6QOOw5_UykUgM)
-
-En el caso de MariaDB se muestran las IPs y países más comunes.
-
-![](https://lh3.googleusercontent.com/WCCCsHzWq5wKoQbkGEEbIe41BFwBlqiLcoEOYs9A6E0ZmrJaBbbjYQpqiVAFpkI1U4IjpqOCAyh5zGi5yi3bYz2hiKEMTFDPETToke2SmQcin9viwIoh1f_GV0S-xEyWwtZPPHP-)
-
-Para el servicio de IPtables/Fail2ban se muestran las IPs baneadas, así como los países más comunes.
-
-![](https://lh3.googleusercontent.com/R0rOKW-2GDDT9ctK4duyqebwwjEJryoEtwYP_PZvC4ZHwq3wpQAljt5kZyZKD2ktXU3Pt145hvkusfDn2jJTWMVsQrIVhwpFZY0XwHzHwAlK6DcI1dLA6_3-WNjRlmkirCV8JUHw)
-
-Así como también puertos y protocolos más comunes.
-
-![](https://lh3.googleusercontent.com/IX-ch2XhBSGJymkptoT1mvHbO29BCXLxMy8NPRS0Afe2LNXgLcb7qdOgoDT7AuAGolghcbTrOLDKijNMbpZ2tkivzwmW9pTHMm8JKRwiAngmyLecBVo6wCB-cHJfHpYqiWHSRwCo)
-
-En el caso del WAF se muestran las reglas de OWASP más comunes, así como las IPs y recursos asociados a cada regla de OWASP.
-
-![](https://lh4.googleusercontent.com/RuieXNLi-yg991LnPXZBn6Ox0ViCIOIz2KWuBX4vkBW2wDGB0OUT9x-sCML5k4p3z5547Fq3A1St8YnN6N89IzgyXxbZugX2I8socjfrLheDaKVQb818i1DJgR7nKBsiBVeIxH1e)
-
-### Windows Services Threats Dashboard<a name="id40717"></a>
-
-En el caso del dashboard de Windows Services threats se monitorea los aspectos más relevantes de los servicios de Active Directory y Hyper-V. De forma similar este dashboard contiene únicamente aquellos servicios que utilizan Winlogbeat como mecanismo de envío de bitácoras.
-
-A continuación se muestran algunos de los paneles de este dashboard.
-
-En el apartado de Active Directory podemos observar la actividad de inicios de sesión de acuerdo a las cuentas y equipos del dominio, así como los métodos de inicio de sesión empleados.
-
-![](https://lh6.googleusercontent.com/u7YIRctin5-Tj8ufEU5oleOpEbKqguwLy2QC3O1JJkSWG1rMT3wRB79peeiri1ppe7tqa8nJw5dGJCvWA2MwejN3GQp7txgpaG0pN4UZVmwtPEl9ShhpUE-xSisO1SDK6sN6V44r)
-
-Además, podemos observar información sobre inicios de sesión fallidos, cuentas involucradas y equipos en los cuales se realizó el intento.
-
-![](https://lh4.googleusercontent.com/xD7NbZ1tdxmJ2ZKrzxNKg6MAYiD7JgSOLehMMfGq72s-5AKHYZUfgchtPEuuDH3MbOHShuvMR3J0SH6cNOhQHRQ9Da-nNA86d-5ZVXqCgXpwz4YxbfQKT6kfVtgaKWB6Ylge2oGk)
-
-En el caso de Hyper-V, se observan eventos sobre acciones en las máquinas virtuales, replicación de máquinas virtuales y fallos en el servicios.
-
-![](https://lh4.googleusercontent.com/z9Gd3hFJBKlaWKgslPD8ETQYMN4vQksoOqMakaaWhD1agqgOFvnuCu3VIxqCgvuHQuSJjwkDepnHVgjw23LukUOxGI3YzBdAsRlwvaVt_Mf6xHnNFnaxcOAw_k2dQi72mENkJieI)
-
-## Alertas<a name="id408"></a>
-
-Kibana cuenta con la opción de generar alertas de acuerdo a la ocurrencia de ciertos eventos. Para generar una nueva alerta deberemos dirigirnos a la sección Security > Detections, ubicada en el panel lateral izquierdo.
-
-![](https://lh6.googleusercontent.com/xbSdfkP4yFCtxiIwdsuYep7y5BSvUNTgXS-xhizLgBJEyayGWC3_uV79s4b1bCoAdRNO2asn_NyiNv5P6MVJjMOPwSmM40VIWVvHXDlM7uub_cBt4IpN4YAQuA4etWaSB4ghlLQA)
-
-En la nueva ventana llamada Detection alerts, debemos hacer click en el botón Manage detection rules, esto nos llevará a la sección correspondiente.
-
-![](https://lh6.googleusercontent.com/_WJzre9WL0ZsdWFSrfZM1ql030ZzeArDlyZAI1zs5eAw_znlkwlw1UczSXuB1hqEzruq_Cd5ztJKWnFhWq2EzdOaxStSqUs10n7W2_QPyX8NCTt2e_JyKJ3NH6I8rMShVQspa4dV)
-
-En la sección de reglas de detección podemos cargar reglas preconfiguradas, importar reglas o crear una nueva. Para crear una nueva regla debemos hacer click en Create new rule.
-
-![](https://lh3.googleusercontent.com/8GIMYiTbem9fKPa05BE0YdhckDGSYUL3s9LVEcIoShTAGcuZHujCuR99RsyEDjy_ctDJkFn91F2-9IN8tyNQSs7m_0AvVjrtrvkIQGz1EcaJoQ_cvTpkb1yucEftadkMYARJebOf)
-
-En la nueva ventana deberemos seleccionar el tipo de regla a crear. En Kibana tenemos cinco tipos de reglas distintos:
-
--   Custom query: Reglas que utilizan el lenguaje KQL o Lucene para detectar errores a través de los índices.
-    
--   Machine Learning: Utilizan trabajos de machine learning para detectar actividad anómala.
-    
--   Threshold: Utilizan resultados consultas que excedan un umbral especificado.
-    
--   Event Correlation: Utiliza el lenguaje EQL para asociar eventos o secuencias de eventos.
-    
--   Indicator Match: Utiliza fuentes de inteligencia de amenazas para asociar eventos y alertas.
-    
-
-![](https://lh4.googleusercontent.com/rbQm9Yt8AL7JLCBNLgi0CVbqZuZNEtx5xsVBNDqQJg3nTHCtPhSiHD5ADw3BPqK86fjegYCWVmno6llSHvp4_ULBOzpEVj-TB-nv6iPIzoEWAacGGkfoWaxTRt13E8BY79ZUy9x7)
-
-En este caso seleccionaremos una regla de tipo Threshold.
-
-En este tipo de regla deberemos indicar los patrones de índices a utilizar, una consulta KQL o Lucene para obtener sólo aquellos eventos de interés; y el valor de umbral a utilizar el cual activará la alerta una vez que este sea excedido. De forma opcional podemos agrupar los resultados por campo, así como utilizar un plantilla de línea de tiempo.
-
-![](https://lh5.googleusercontent.com/C7_zRT1D5pYZeBRUpKE7Kw1uPJ5IgPgoqH1bjiBJEhrfmp48ajuBj6RMTOIPPGS3ibBSTNXxRVN1nhyO8he1xuCRnAvmTy76s7c-FlH19dVqFfrKLo-2eqJCoy609ZS7nA0WVB8h)
-
-Posteriormente deberemos indicar información general de la regla. En este caso indicamos un nombre, una descripción, el nivel de severidad de la posible amenaza y el puntaje de riesgo.
-
-![](https://lh4.googleusercontent.com/lHbwi2I_nSy_hy8aFpqNr36efJaEBRS2zuw4NJ-__NI7ICqC42o--xAjmUSRsHb5XB2UAKwua57jfYflKjoUOxBzTjQYGTd6k0EnFyf7TLb16qElfsPn_RU44DpaSSBvF6NgEPPi)
-
-También podemos indicar etiquetas, urls de referencia, ejemplos de escenarios catalogados como falsos positivos, así como tácticas y técnicas de MITRE.
-
-![](https://lh3.googleusercontent.com/xDs3udKSfZ79oWc3DI8okQqXlhB0kKXsBYR_yf17Sg0I0xpZ2tz_4Z5ztCN8cCXq-nHK2i7mg3cDfFkUyWWoeakXbnlZNSeoWDTqksy94jL9WitwJzdTXf3RVobnBBynFztE4KJE)
-
-De forma opcional podemos indicar los autores, el nombre de licencia, y un campo para sobreescribir el nombre de la regla y el timestamp.
-
-![](https://lh4.googleusercontent.com/X_g6qaT9k_CJAptg0-EJAVGV2eXQrPKZVKJdZyr65UqXDR7sD4wtalff_IwPJe1q91SCCHNjkqmLMJ_NPuZXJbTjgB8gnP1qvuRkBTF_6TYa7vvuEGPZD8e7hg3tj-P5Pa_so37q)
-
-Lo siguiente será definir un horario de ejecución de tal forma que la verificación de la alerta se realice de forma automática cada cierto tiempo.
-
-![](https://lh5.googleusercontent.com/cDMs-FtSAKeFbSym8dTQKyQOR9x7ERAz06lYUH2hBJbJQ3do0BHXkTM5cx0v2MEQf15A8Zc5uyabKLK-56L4K4cO7q9QzWIUOdsK6AB6lzpEWQOo37YhquxHF-UMnYM1p5gpffHH)
-
-Finalmente podemos agregar una acción a realizar una vez que la alerta sea disparada. En nuestro caso seleccionamos Slack, para enviar alertas a través de esta herramienta.
-
-Más adelante se detalla el procedimiento para crear un conector a esta aplicación de mensajería.
-
-![](https://lh3.googleusercontent.com/V-9U3iZgCmqPv03IqSIYMb7-J1PglkQwH0T6cR8n98-Hz-O3QN4DjiU6OW2CGNOhGhMVYAMJ9sbmcdI1uv0aoMG4F7VAqfN1f87Ng_eaqCVD8AzeSX9Fcv0k1uCf5kLrkaETQUbi)
-
-Por último, deberemos seleccionar el conector de Slack que queramos y el mensaje a enviar. En este caso se envía el nombre de la alerta, una descripción breve, el nivel de severidad, el puntaje de riesgo y la url asociada a la alerta.
-
-Al finalizar, hacemos click en Create & activate rule.
-
-![](https://lh3.googleusercontent.com/0oAwANOh7EhAOACQDDKW9J2FrqBpbDaNvEdl1fTGBKFlIMG8RWcfpiORyI3edG0uNVt5mPS5oB0MMKzOhky4QXlwW4xhosO5bkAoA8gINRPz3vrKn71263e7-w05m7XQyW9h8MdU)
-
-Una vez que la alerta sea activada y se exceda el umbral de emails catalogados como SPAM, podremos visualizar nuestra alerta a través de Slack.
-
-![](https://lh6.googleusercontent.com/cuukkNhfX_IPjIwh6xLCwWsboXrT4pjsF-awSpimTyVefo59I6kO6PlQ2njJ4hrRa9b-xlCQlue2hByL_IMWkNMwUAhNm4tA8_zEpQW4OmekWR2bG1K26GhO73L_wwOmUBJNZwv5)
-
-### Alertas de Email<a name="id40801"></a>
-
-El servicio de email cuenta con ocho alertas de las cuales seis son de tipo threshold y dos son de correlación de eventos. A continuación se describe cada una de ellas.
-
--   Alerta de SPAM: Envía una alerta cuando se detectan más de 100 emails catalogados como SPAM en un lapso de cinco minutos.
-    
--   IMAP Brute Force: Es activada cuando se detectan más de 100 intentos fallidos de autenticación a través del servicio de IMAP, en un lapso de cinco minutos.
-    
--   SMTP Brute Force: Es activada cuando se detectan más de 100 intentos fallidos de autenticación a través del servicio de SMTP, en un lapso de cinco minutos.
-    
--   POP3 Brute Force: Es activada cuando se detectan más de 100 intentos fallidos de autenticación a través del servicio de POP3, en un lapso de cinco minutos.
-    
--   Ataque SMTP Open Relay: Es activada cuando se detectan más de 100 intentos emails con direcciones de correo origen y destino no pertenecientes al dominio, en un lapso de cinco minutos.
-    
--   SMTP exposed account: Es activada cuando se detectan múltiples intentos fallidos de autenticación a través de SMTP, y posteriormente se detecta una autenticación exitosa.
-    
--   Enumeración SMTP: Es activada cuando se detectan múltiples rechazos de emails con dirección de correo electrónico destino inválida o no perteneciente al dominio.
-    
--   IMAP-POP3 exposed account: Es activada cuando se detectan múltiples intentos fallidos de autenticación a través de IMAP o POP3, y posteriormente se detecta una autenticación exitosa.
-    
-
-![](https://lh3.googleusercontent.com/vRO8cjknLMgmI1G6KNHHO7OG7nAj-GGAnogsYZrbp5UW_RT4Ey2d0hJktJVa9Rh7M4NXmuuqU-Q4w3kxgJ2FLTrcww9DuINckaoFP0Se5_BJlJcQL2ebsgd7UlaV1HQX-rYWrQGY)
-
-En la sección de alertas de detección es posible observar el comportamiento de cada una de las alertas a través del tiempo.
-
-![](https://lh4.googleusercontent.com/CxRqwdn51y1IhFhyH97QueJDpxE37Ms7n9iy_wzPkP1LcJol-xmDS187NDtY_cyxZD7t8WBSwQ-7bffxz3k_j22LxNJP3DqQ3SrDxFxOlOGE6jno_lnsskh-CRl5GideVjxDJMN0)
-
-De la misma forma, se cuenta con un panel que lista la ejecución de cada una de las alertas, así como información general de cada alerta ejecutada.
-
-![](https://lh4.googleusercontent.com/fGjNfwv9mjXTvU7ysceKMuFTZMiTKuo89Mf2kjAp4XTuUGoq7MZG8GY2PZbvfcAMAQWxsoejUg2gDHtsFEDPCvVrPHpCZjZh32xa_02Jtb1ca17Gfoe2n8rhPpcB-s97STW_27Z-)
-
-  
-
-### Alertas de Waf<a name="id40802"></a>
-
-Para el servicio de WAF se crean 6 reglas, donde en los logs del WAF se obtiene la regla que ha sido intentada violar. A continuación se describen las alertas.
-
--   SQL injection: Esta alerta busca que nuestro WAF lance un log donde la regla contenga la cadena SQLi, y los agrupamos por la ip que generó la petición.
-    
--   Local File Inclusion: Con esta alerta se busca un log donde la regla contenga la cadena LFI, y los agrupamos por la IP que generó la petición.
-    
--   Remote File Inclusion: Para esta alerta se debe encontrar la palabra RFI en la regla que se intenta violar con WAF.
-    
--   Remote Code Execution: Otra regla que OWASP brinda para el WAF es la detección de Remote Code Execution, para esto se busca el query en los logs.
-    
--   XSS: Para esta alerta se realiza el mismo proceso, indicando que se busque la regla respectiva para XSS en el campo OWASPrule.
-    
--   Escaneos: OWASP también cuenta con una regla para la detección de escaneos, por lo que se llenan la secciones según su caso.
-    
-
-![](https://lh4.googleusercontent.com/D2CzRoJmrsi_XJpY8AEHZyCLykane7yjuSIJZ3CBLfFqG8QBiVyksr1YJDqRlojqPQ4YmpFho8C5SmfVVaqA1F81CKYZNnxj3SrACJvliexmf8gtKoHjtu-7OVSOtg_4PLqNouwx)
-
-  
-
-### Alertas de web<a name="id40803"></a>
-
-A continuación se listan las alertas que revisan los logs enviados por el servicio de Apache o Nginx.
-
--   Escaneo de directorios: Para esta alerta se utiliza threshold, en busca de 50 logs donde el código web sea 404, agrupándolos por el cliente IP.
-    
--   BasicAuth-Bruteforce: Esta alerta identifica cuando se hacen varias peticiones al servidor web, cuando el campo auth es distinto a “-”, la respuesta es 401, el servicio es Apache y son agrupados por la información del navegador, en un periodo de tiempo corto, indicando que se trata de un posible ataque de fuerza bruta.
-    
--   DoS: Para detectar un posible DoS, creamos la siguiente regla, donde se reciben demasiadas peticiones en un lapso de tiempo corto, estas provenientes de las misma IP.
-    
--   Servicio no disponible: Esta alerta es activada cuando el servidor web arroja un código 503, servicio no disponible. Esta alerta se ha creado pues de recibir la Alerta de un posible DoS y enseguida esta se puede facilitar la búsqueda de problemas en el servidor.
-    
--   Acceso a la página web evitando el WAF: Esta alerta se activa cuando algún servidor que no es el WAF, accede al servidor Web.
-    
-
-![](https://lh6.googleusercontent.com/7S_DxeOfdhMDUK4gc0kZCEA9fbNt8L-IGKdJwtL4uicO8OSa5PkmgzW1Gif8T9J-zta8nzYwdGfd35JhTdhPXvLvEEEA1QdV1LLvuj0u_7TwEEng8_I2lij1uWm7cbNVewJw30G0)
-
-### Alertas de iptables y fail2ban<a name="id40804"></a>
-
-En cuanto a las alertas para el firewall con netfilter se crean reglas, tanto para iptables como para fail2ban.
-
--   Escaneo-iptables: Para iptables se crea una regla que recibe demasiadas peticiones en un tiempo definido, pudiendo ser un escaneo de puertos.
-    
--   BruteForce-Fail2ban: En cuanto al servicio fail2ban, se recibe si hay ataques de fuerza bruta en los servicios que tienen habilitados.
-    
-
-![](https://lh3.googleusercontent.com/T6j_SR0z23hwzVkKFYQuv-iJOaSqMVHnzwuxcftHES0NqQGMX-l0sRjUcFQ13GN3I-q7pXRNI1y7WtdWWbnGdNULKuOsfDnD2ZizY8q5RYVExsxVrn32waDoIZifueNnhmViiQm7)
-
-  
-
-### Alertas para Bases de datos<a name="id40805"></a>
-
-Ya que las instalaciones usadas para las bases de datos no fueron modificadas, los logs que se reciben sólo contienen información de inicios de sesión, por lo que solo podemos crear alertas de fuerza bruta.
-
--   MariaDB Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de MariaDB en un lapso de tres minutos.
-    
--   PostgreSQL Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de postgresql en un lapso de tres minutos.
-    
--   MSSQL Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de mssql en un lapso de tres minutos.
-    
--   MSSQL User Bruteforce: Es activada cuando se detectan más de 10 intentos fallidos de autenticación en el servicio de mssql en un lapso de tres minutos por un mismo usuario. Esto se identifica a través del código 8 de error de autenticacion de mssql
-    
-
-Notemos que las alertas están definidas y que están siendo activadas cuando le otorgamos las condiciones necesarias.
-
-![](https://lh3.googleusercontent.com/B0PU1KlKFnbwmlhZbp5RqdOdQu1PK4bQDzWdB3KWHhzbqtU4Q52TRU-CPXxMuQkGoU6VuFowzl4xbtU_Y9GW9lzjjOnqy9bDBR09kBNR-h78056klLnSSPkeYxMWOeyjxUDH-eAo)![](https://lh4.googleusercontent.com/ivFyNoBWsAcXd09kbdbQj2CvKxVfyH8Gb-kTO6NfYeH8Mk3mSW-lcsjWYqiyx_BhqqbApfavOUh6rXyV59182u1A-G1l2phqUrwuxgJm4ytgH8bGBkstgKYd3WS7Q9HOJm534lmW)
-
-  
-
-![](https://lh4.googleusercontent.com/MWn2aIBRF3rLgifbqtKTqCWwk6yxRs30Hoa8C48r-qsbvPOtjfSZN2x3SGv_-Go8KMAEqP7Vo6Yh9gY3vwGJuBIPEfX8bI9t9j7QacfdFGmqXmp3A90pdkfwv3ay5beI50T54BX0)
-
-Dado que usamos el conector de slack, las notificaciones llegan a ese recurso.
-
-![](https://lh4.googleusercontent.com/NP8hmrbwlpjXKCOHJHeW6dQdhFrg9ch_8XpaWOh50n3DzNc54wxG6xCsSlpiFgNn7kpkQt87HqelQae8qZUpdtGO8crEddnT4lFcLI8NfAGZ_A6_B53N6pGbBnzS71KJIIJoN2iK)
-
-![](https://lh3.googleusercontent.com/kgrsRNdErMzuVY30s_D3_RUSAhTALqho0-bnDU_Tql0AG8Z5bErJ_Zs7RRiMRoveUFVPsEnwpZX6TJA7GDdZ6dz_Mc78cwSXdLIxwh0o9GVCFn17p1KBpQzIukCyBui9egpFoELO)
-
-  
-  
-  
-  
-
-### Alertas SSH<a name="id40806"></a>
-
-Para este servicio solo se creó la alerta de ataque de fuerza bruta.
-
--   SSH Bruteforce: Es activada cuando se detectan más de 100 intentos fallidos de autenticación en el servicio de SSH en un lapso de tres minutos.
-    
-
-![](https://lh3.googleusercontent.com/PT1_8IUnce7DKbreq-3RK4WeN75Rdr6AYbQxWs1PmoTFck9OJ0sB6xpFIcAWJYgKMXq_ySY3lVDL20tKlsj9YLBewOkTYfqnNuX9pyalpvrMJKgHLWiFiRFGT6EDQzXeLAhWHmGT)
-
-![](https://lh3.googleusercontent.com/hcgWPlIAsqUjluckR7MFE97DMZ5WRXlU-ugE7kpAMAvhR7DVBAMrWb1OFNfptFCK6MYcscCoLWGqJKlIPt7HLKP36DPbv8lGnwSLN0c6-6zJqRwzQJGR93b5UCuGc2hSX6cOUJPN)
-
-### Alertas LDAP<a name="id40807"></a>
-
-Para este servicio solo se creó la alerta de ataque de fuerza bruta.
-
--   LDAP Bruteforce: Es activada cuando se detectan más de 30 intentos fallidos de autenticación en el servicio de LDAP(S) en un lapso de dos minutos.
-    
-
-![](https://lh5.googleusercontent.com/Ue5ZDaxniRLWWnukQz6r0J9wzi5SaI9b92RzlhpTzDr-NYMfR-c1ckckRU3HkSYTzrtA6DxFaSqTsO8sk1D4h8SOk6En1lVX50vLeeW0pQJmUA1sVTFeYlld9jAzhO1oOTjr3n8a)
-
-  
-
-### Alertas DNS<a name="id40808"></a>
-
-Para este servicio se creó una alerta que un atacante está haciendo un listado de los dominios del servidor
-
--   DNS Scan: Es activada cuando se detecta que se han recibido más de 30 peticiones de agrupados en un solo timestamp
-    
-
-  
-
-![](https://lh5.googleusercontent.com/7nAPTY9CT7rMpyhu4PRp5VSRo59X0_eNUogR3j1yJF6p-wtMwn-1lbsjtQ0ob4qJkd06DHn2gH0upwAud8Fw7h7nNife7UttkjJPPGpD0O3ak12UxWUFXCAXjJGpxFQK9ETfqH9D)
-
-  
-
-### Alertas FTP<a name="id40809"></a>
-
-La situación con FTP es similar a la de bases de datos. Los logs recibidos solo indican autenticaciones y no los comandos usados una vez que se logra iniciar sesión. También se hace notar que la autenticación anónima no está permitida
-
--   ProFTPD Bruteforce: Es activada cuando se detectan más de 10 intentos fallidos de autenticación en el servicio de FTP en un lapso de tres minutos.
-    
-
-A continuación, se muestran las alertas recibidas en slack dado que la alerta fue activada.
-
-![](https://lh3.googleusercontent.com/nhNGb_BQhpJdpaijfDsY9xDilsNDHQRcVhOPoSN2riJFvuYsFgRZCqBc9e4sUCuIJVmaoyWHTuKFxyC1Cq1nflBlKy1PTxQsx8EM5A5gNBU2p6OuY3bWEjF0ik_ehUiC1OfbhY7U)
-
-  
-
-### Alertas IIS<a name="id40810"></a>
-
-Se crearon 9 alertas en total. En las siguientes 3 se reconocen ciertos ataques por la actividad registrada en el servidor iis y los códigos http como respuesta a las peticiones.
-
--   Escaneo de directorio (iis): Esta alerta identifica cuando se realiza un escaneo web, para conocer los archivos en la carpeta, donde utilizamos una alerta Threshold, donde definimos que reciba varias peticiones en poco tiempo y que estas peticiones regresen un código 404 provenientes de una misma IP.
-    
--   Basic Authentication Brute Force (iis): Esta alerta revisa una secuencia, donde dentro de 20 segundos debe recibirse una petición con código respuesta 401 y finalmente un 200, donde todas son desde la misma IP cliente.
-    
--   DoS (iis): Esta alerta se activa cuando se recibe 1 petición para el servidor iis y finalmente una que regrese el código 503, ambas por la misma IP. Esta secuencia se debe encontrar en un lapso de 1m, tomando en cuenta el tiempo de respuesta que el servidor deja de funcionar y manda ese código.
-    
-
-Para las siguientes alertas se realizan queries simples, pues desde el filtro en logstash, dependiendo de las peticiones recibidas, se asigna un posible ataque realizado.
-
--   File Brute-Force:  Se activa la alerta cuando recibe10 logs donde el ataque es fileBF y los códigos respuesta son 400 o 404.
-    
-
--   LFI: Se activa cuando se encuentra que el ataque es lfi y el código respuesta es 200.
-    
-
--   RCE: Se activa cuando se recibe que el ataque es un rce y el código repuesta es 200.
-    
-
--   RFI: Esta alerta manda un mensaje cuando logstash reconoce carácteres/palabras para un ataque rfi y el código es 200.
-    
-
--   SQLi:  Se activa cuando se reconoce un SQL injection buscando las palabras clave desde el filtro logstash, además el código respuesta debe ser 200.
-    
-
--   XSS: Se activa cuando el filtro logstash reconoce un intento de ataque xss buscando 3E y 3C, pues estos son los valores hexadecimales para > y < respectivamente, además el código web respuesta debe ser 200.
-    
-
-![](https://lh6.googleusercontent.com/_043v9Pwj74qWOf2QcVE49O-fwoU-cwPknikRLauyWdIUuibCv6WuZ-PAP0unj1KjeRDNa4E-qZfErrWqsLJUykAfw35yJWd1MCdbMxfMcqKjISgosb_1k83DMnjEmJFu5uAYZdd)
-
-### Alertas DHCP<a name="id40811"></a>
-
-Para DHCP se crean dos alertas donde utilizamos EQL. A continuación se describen cada una:
-
--   DHCP Starvation: Para alertar en la secuencia se define 1 asignación de IP dentro de 30 segundos donde el hostname sea el mismo que cuando el servidor dhcp mande un evento 14, el cual significa que no se pudo satisfacer la solicitud por que el pool de direcciones se agotaron. En este caso se juntan por Hostname pues para cambiar este, se requieren de permisos.
-    
--   DHCP exhaustion attack: Esta alerta es similar a la de arriba, solo que agrupa por dirección MAC y finalmente se obtiene el id de evento 14.
-    
-
-![](https://lh4.googleusercontent.com/LYknv5g898bJ8IvYXesf3idgH-tnxoM3b3KsvFMQ6kLWTnm_WF_4vit56VoXvLQC4h1LqyrYTDoXH9ncvhi9Noqo1GyUL_lnigtob2SRSNF9EQebkV_GDVIXkKx_3xg6FdoE5gtI)
-
-## ![](https://lh5.googleusercontent.com/AIJUBiWBjQ_DPs7tYPUCaEigJr15ZlkfzitHebWgxHKv4PFNY9jCnO5hxke_S83ES3R0ukZhD5fnbQr1zVkhs-keGbOQ7iB4I61lyTwPBt8sgXrX21lwRa02L2Zt9PJeh3eQyRDE)
-
-### Alertas de Active Directory<a name="id40812"></a>
-
-Active Directory cuenta con seis alertas de tipo custom query. A continuación se describe cada una de ellas.
-
--   AD - [4765] SID History was added to an account: Envía una alerta cuando se detecta que se ha agregado el historial de SID a una cuenta.
-    
--   AD - [4618] Monitored security event pattern: Es activada cuando se produce un patrón de evento de seguridad supervisado.
-    
--   AD - [4713] Kerberos policy was changed: Es activada cuando se cambia una política de Kerberos.
-    
--   AD - [4719] System audit policy was changed: Es activada cuando se cambia una política de auditoría del sistema.
-    
--   AD - [4766] An attempt to add SID History to an account failed: Es activada cuando ocurre un error al intentar agregar el historial de SID a una cuenta.
-    
--   AD - [4897] Role separation enabled: Es activada cuando se la separación de roles es habilitada.
-    
-
-![](https://lh5.googleusercontent.com/jku1TEJjAw81zZc9okpwjMOWJPsnvYMmR6AYBRL7ZuRqFY7YSZa_4s-sXwOcKAjm4xn7Odn8lNt1BsksMRlxFwBt62ypqzHNL9ScWdojPreVjUa8GraYz2gM8RgYKp4XW8gT7zLI)
-
-### Alertas de Hyper-V<a name="id40813"></a>
-
-Hyper-V posee tres alertas de las cuales dos son de tipo correlación de eventos, y la otra de tipo threshold. A continuación se describe cada una de ellas.
-
--   HV - [13003] Multiple VMs deletion: Envía una alerta cuando se detecta que se han eliminado varias máquinas virtuales en un periodo de tiempo corto.
-    
--   HV - [18303] Multiple VM exportation: Es activada cuando se detecta que se han exportado varias máquinas virtuales en un periodo de tiempo corto.
-    
--   HV - [19050] Multiple replica invalid state: Es activada cuando se han detectado varias máquinas virtuales con estado inválido.
-    
-
-![](https://lh5.googleusercontent.com/1Phq0zaDndmlRlqfplWZThrMLT9v3BwXT-auqcmxW9ODEAcYzyexjeJxjhvSnBZK11hB_AJxinOgV3aeaoURa-2wreFhFRlj4wzM17a2_sPH-EL_ZH1EUR5PKKqcJ1XaDfpVWnBy)
-
-## Conectores<a name="id409"></a>
-
-Como se mencionó anteriormente, las alertas pueden ser enviadas a través del servicio de mensajería de Slack. Para ello debemos crear un conector al servicio, por lo que debemos dirigirnos a Management > Stack Management, a través del panel lateral izquierdo.
-
-![](https://lh3.googleusercontent.com/3HSaWZ0hy9lI3QnNH6ohSkAfAk7q4WW9f70hbiUzOZNcGzjaGZUEbhRWs6u1m0WXDSz_-HkBm9Dw2a6meCWv8uC--9WGUJ_-Wy8GIG0TbRgBw9K1MoGB4dAhYV7D-EQ7euj77u4f)
-
-En la nueva ventana seleccionamos la opción Alerts and Actions dentro de la sección Alerts and Insights.
-
-![](https://lh5.googleusercontent.com/3WauEdRYRawJjGx9UunE074SgU-o2eG9sTp3bJ06lQW9k_4LsM4zDwK8a5PwHw1CnXEa_SNjSmGdIz6Gh5m2iUoQP8_tPWmkmZyMy9gGtXDKuXsQhxEMdKsPANKYuQcIwGorduui)
-
-En la nueva ventana deberemos hacer click en el botón Create connector.
-
-![](https://lh3.googleusercontent.com/fE1tQaTbVlUZjN5vlnDik9_ltEWREj_KqX5btRY1-pGbPF9QXvvEzGu3dgicp9hzDTwiqD0P90sXotJ4MYUgz73MPH0fxCZhpNbXeQpDc1V3bn12XEYlA4p_dZfKItvaoLXEXwu2)
-
-Se nos mostrarán los distintos tipos de conectores que podemos crear, en nuestro caso seleccionamos Slack para el envío de alertas a través de este servicio de mensajería.
-
-![](https://lh6.googleusercontent.com/RWAZjVXb4xS4lvqozOw3BzdeRXhZgtEEj9i_wCoCGECFCvwQPeM0X42jBaDu5na-NevPTHz5HDU87ePSxMEuyzmBT25xCkOtTh1nyxOXC-X2ahSyWWfFry2UAPfejUWzvZGYWJZd)
-
-Antes de continuar con la creación del conector, nos dirigimos a nuestra aplicación de Slack y seleccionamos la opción Settings & administration > Manage apps.
-
-![](https://lh4.googleusercontent.com/Cg-gMr86mi4G4jpfkAUws7HXkbuJy9P0y8FMNoQD6-gQTi_Wh7cH3DzhV_nAXNuLiFXudcmIOFoBDsqx6JwW5RVrsj-65n9EOfFAmAg-69SOhRQEifx-pKNji23qd5jtRttyJOAL)
-
-Se nos mostrará una nueva ventana en la cual nos dirigiremos al apartado Custom integrations y posteriormente seleccionamos la opción Incoming WebHooks.
-
-![](https://lh3.googleusercontent.com/7Hg_N2YQu4xHJh11-SocR1vSyS465X6vk8ckfODm76KzpqW5M-no46Gu-bHs3J6FkPp7OQjtU8Se_RlG9bc1_Z-po5e0YpjMZmVCuXtMPLg2SJajHnsFPBMvIxZgv6Qq9WNbpODT)
-
-En esta nueva ventana deberemos hacer click en el botón Add to Slack.
-
-![](https://lh5.googleusercontent.com/UVUwUVWN-owsc5bKQAKjK6SsPZVFZotPT9y5kds7GQ3gWarVjGitJbjzRa78JWjQsIIAgtL4lruNgKTeT-2EvFECppnorPDQPnCL1VGt2Sclbi1JvF7riDLEJW2Kswxr2rcqaUSH)
-
-Se mostrará una nueva ventana en la cual deberemos seleccionar el canal al cual se enviarán los mensajes. Una vez seleccionado, hacemos click en el botón Add Incoming WebHooks integration.
-
-![](https://lh5.googleusercontent.com/5QC8wWO59hJ4oqzYvrPEUmtt-P4hkwhAgap5YH2L6oT3SOhRvvYkmqCDm0zwufMxz__HP_2WQOG0qMOHwxWd_0j1vdQwX3jf7taNVt_BEUSFmJEJ06MkDtOjSJ5RYiKU7-Yk3a6e)
-
-Se mostrará la URL del Webhook que acabamos de crear.
-
-![](https://lh5.googleusercontent.com/SXADb5sHwTebjIcJlIwdLOuUzJ2K_a13p-NlDCtmQPZ8I6uKanfZN8GULW8aTDY2XMSH9383sJOyzI1sNYTLVdSixPGOFmbEqB1AqV8RE3aPFpqrVFaHQH-VwGBzbJgbWhiMKJmc)
-
-Finalmente regresamos a Kibana. Ahora debemos ingresar un nombre del conector y la URL del Webhook que creamos hace un momento.
-
-![](https://lh5.googleusercontent.com/Foub3bCCx4bjZp4guXZ2nmswk9vQBvkUbekFVg6fT58NDKZ6QbS0kpI86cgfAkYrUCfSLJ7c_ujV520KDdTvAP5o4vzn-9p9qxuh6cVLxEBPkiVAv0Ka7jOI9nikM4fSYf-eQS6Y)
-## Reportes<a name="id410"></a>
-
-Para crear alertas es necesario tener la versión gold de elasticsearch el cual nos habilita el uso del watcher. Primero nos dirigimos a la sección de stack management.
-
-![](https://lh5.googleusercontent.com/3EcKBTGpiZJScA_W4FjlEocmtxhy3FhGm8ULQ8rZAJ309nE0HhQUpRvuThd6uwVrOIC0x7e1cQP_8Y68mSgXYXHYWWmfpWAbZwAid8wtmxi0gO9q7s0WPMmPEI-7c2ORi34ouJFf)
-
-Después a la sección de Watcher.
-
-![](https://lh3.googleusercontent.com/zx8pzySSBCuh5vbggidPHEOVtvzog_6m0ZcFaxrYcIFbDhysJRN1Hc2jEkAaoqOb8oLGruUz47JymGLQW2RWsmbhlb-Yc0RAD6Xvv8H4yy417thPAL5RJ3yLfhkuXkYURRXUNUDg)
-
-  
-  
-
-En esta sección podemos crear el watcher el cual nos permite la creacion de reportes de manera periódica. Creamos un watch avanzado.
-
-![](https://lh4.googleusercontent.com/rbmAG2_aAEALpWHYH83mIbLsIP8mH09ukq4QP9Qu0dwavP-yCTT1tXfo88megMWHPzINGwvHGLjKFEtRcoJkGffXkxDPBh_A3_64tqQfyxM6rfxLZeA4L6nrPMf1SRKYbYLvRr_t)
-
-Posteriormente establecemos un nombre y una id para el watch, y colocamos el siguiente código el cual permite crear y mandar reportes.![](https://lh6.googleusercontent.com/BfEAnEGPVS5iUf3gDqp7jCNf8ynaEO6wdPkekmXvTzVVxMgRBLCE4AGSyWh--x-dmOeAl8o-G8fh31EBhC9WZi-LzNz5vuO_ctMCSR1QTPwr8EcV99T5x-roDGaCJoWOFLYRKOj6)
-
-![](https://lh6.googleusercontent.com/BZx4ZD4wFk49AKR4N8u-2GQsywpNVYzsYIvV4wZ1O1R7BxkUq288qlsHb4tBqBG8NLBXnYZk1Idzg9x2bt1M5aiOfR50FSrnYVP0bXQwOvQTUisTljExqjrdSXkuU9TjmZ1tDF0Q)
-
-Una vez escrito el código del json procedemos a guardarlo y nos mostrará que está en estado ok.
-
-![](https://lh4.googleusercontent.com/5FSBMdN8DRJkBf3fN3oisJkCL6P2RrMmD-RZeyMm2qP-97tHstavV9p-vPnGJphA_lwMHuEQNNN1EK22CmvxY36hBEOzDFKjKathxEMGTocyeTBvQKWAc3902JrLn3izAkTXzRVN)
-
-Cuando el watcher se ejecuta el estado cambia estado a firing cuando en efecto se ejecuta el watcher.
-
-![](https://lh5.googleusercontent.com/rhxDJKU-E3WmRiN5jE7a1cdseyVriX-sVfetzcWxxgewtSpMwlc7u5zNlLlMDyfRgBrARod9t1I8j5u9zjVO5rSxX47qsSG3vwQPvBwNa83Vp3atGksN6jfR-monCC3xQsqiGbny)
-
-Y por último en el correo podemos observar que se ejecutó la acción del watcher.
-
-![](https://lh6.googleusercontent.com/vZzJsiILYwdq1r8wsLRp2lyTWbHpsHh3Pz4AogQdP1F0zE5Wz-WoJmEOKUBdSPqe-LOx9TTtjCc_uXepfCSpEZIYn8tsQ2EnBU9mq9Htx5ziXfZuxBHW3j4QeitqFnVx7bOBaPdW)
-  
-  
-  
-# Pentest<a name="id5"></a>
-
-## Resumen ejecutivo<a name="id51"></a>
-
-El proceso con el cual se realizó la prueba será descrito de manera general a continuación:
-
--   Revisión de los puertos abiertos en el objetivo con el fin de relacionarlos con servicios
-    
--   Revisión de los servicios encontrados en busca de vulnerabilidades
-    
--   Explotación de las vulnerabilidades encontradas
-    
-
-Con base en lo anterior, reportamos puntos a favor y en contra del sistema.
-
-### Puntos positivos<a name="id511"></a>
-
-Los sistemas cuentan con solo los servicios indispensables para su funcionamiento y monitoreo, lo que evita que existan varias ventanas de oportunidad para atacantes.
-
-Los servicios encontrados no presentan vulnerabilidades críticas o altas.
-
-### Puntos negativos<a name="id512"></a>
-
-Los servicios son vulnerables a ataques de fuerza bruta. Esto representa un riesgo medio ya que, de sufrir un ataque exitoso, se podría comprometer la triada de la seguridad de la pila.
-
-## Introducción<a name="id52"></a>
-
-### Objetivo<a name="id521"></a>
-
-El objetivo de esta prueba es encontrar vulnerabilidades en la pila ELK que pudieran ser explotadas una vez que se haga pública
-
-### Restricciones<a name="id522"></a>
-
-No hacer modificaciones sobre la pila
-
-### Alcance<a name="id523"></a>
-
-La prueba se limita a las máquinas que conforman la pila
-
-### Antecedentes<a name="id524"></a>
-
-Las maquina a evaluar forman una pila ELK, lo que se traduce en que los servicios de Elasticsearch, Logstash y Kibana estarán presentes por lo que ya se tiene información relevante a priori.
-
-  
-  
-
-### Herramientas usadas<a name="id525"></a>
-
--   nmap: Programa que sirve para efectuar escaneo de puertos,versiones de los servicios en estos e incluso el sistema operativo del host.
-    
--   Burpsuite: Plataforma integrada para realizar pruebas de seguridad de aplicaciones web.
-    
--   Metasploit: Proyecto de código abierto para la seguridad informática, que proporciona información acerca de vulnerabilidades de seguridad y ayuda en Pentesting
-    
--   Programación
-    
--   Nessus: Software de escaneo de vulnerabilidades
-    
-
-  
-
-## Vulnerabilidades<a name="id53"></a>
-
-
-| Description |Nombre   | CVSS     |
-| :---        |    :----:   |          ---: |
-| SSH es vulnerable a ataques de fuerza brut      | Brute-force/Dictionary Attack       | 7.3   |
-| Elasticsearch es vulnerable a ataques de fuerza bruta   | Brute-force/Dictionary Attack        | 5.3     |
-| Kibana es vulnerable a ataques de fuerza bruta   | Brute-force/Dictionary Attack       | 6.5   |
-| Extracción de información de servicios   | N/A     | 0.0   |
-
-  
-
-## Hallazgos<a name="id54"></a>
-
-Comenzamos por lanzar un escaneo a uno de los servidores de Elasticsearch. Dado que los 3 servidores de Elasticsearch tienen los mismos servicios y configuración, solo bastará hacer pruebas en uno (el principal)
-
-![](https://lh6.googleusercontent.com/Ni3vJ3Kv41s9EDsqmWuaqfPzxmNodK7HUZ9FvkXSztjMqRE_Xor3h3R-O4ErLM0Fbc19iH8VCtF7wanMbJGOmGq4j-9gLQfVsOmBTFCKvkb3J08E_IKb1-AaaE8oGHOKwyABBDV8)
-
-El puerto 22 está abierto, lo que indica que hay SSH en las máquinas Elasticsearch y, como era de esperarse, nmap señala que el puerto 9200 está abierto pues ahí escucha Elasticsearch,pero nos indica que la autenticación está activada y que las conexiones por HTTP no son válidas, esto es indicador de que el servicio tiene activado HTTPS.
-
-Para comprobar la salida de nmap, mandaremos peticiones GET al servidor para ver si logramos extraer algún tipo de información
-
-El primer paso es comprobar si puede obtener la versión o información acerca de los usuarios
-
-![](https://lh5.googleusercontent.com/Ywjw9pqrz6har-9uWZwIC9jHTqTG2c4jWSCavfRDROqO5oUBM4Y-FoZgv6XdzKywah7fWZ0OLgmcLlc49Zcznr-l4xL0SZuqMlR0xSazFAzGpJJr5jmfCnMEkwfWqYKwrApYRFB0)
-
-La respuesta vacía indica que el HTTP no es posible. Así que pasaremos a usar HTTPS
-
-![](https://lh4.googleusercontent.com/OLzu8oyZe9GKF3vXXC6nO1fZLEWAWE3tfVtjP7jBoo3VlZbyzIxvMpvCGBR3wRxeQnRNf5lr0MtlLkz8y3E5_bDs1p0pz26fLCuMA5gjT0A1H_1PQbUWuaYZPBGWcwHzOtPKC0Lv)
-
-Efectivamente, se está usando HTTPS, así que ahora usaremos la bandera -k para evitar esta advertencia debido a los certificados autofirmados
-
-  
-
-![](https://lh5.googleusercontent.com/IjagSqWBmXFHJ1EDCoPATYVOaL0jppxhT449n9B_Z3uHy09jwzB30LyPr7t9AWruIPU2MDJygmnvQYuy-SKVR20hDpAhYuoXWpvdz_d4rSfQmrJxYICsuGFmRox-wRGHaj0RfMpA)
-
-La respuesta indica que hay autenticación de por medio, justo como nmap nos indicó. Así que ahora se procederá a intentar un ataque de fuerza bruta sobre el servicio con un pequeño script de bash que hemos programado para este análisis. El script mandará peticiones al servidor intentando obtener un usuario y contraseña válidos.
-
-![](https://lh6.googleusercontent.com/AxUsn591cBdkM8FK5KvFYZat906tV8FECn1-LVTt3-ujyjdkiEV6EvBq0m_AkiZgwjr12MIwgQXM4dXB3QAA8yheTJY98iuIENrvShLdmgamGF2m16sQe1qpxRJsEeepwVxlfsDH)
-
-![](https://lh3.googleusercontent.com/ZnLSRInz2M3Cys7SWkkUV6zzzapTMxE8Sx3UpD2OkC4neVY2rY0_f_H5PCqefCbv9_5T52p26vX0X-3t-Fu6iLao9D-B63MZNZ9aUCWbBJ8FFW_VLBF0bNdi29mrucNxI7fcjvzw)
-
-Dado que el servidor en ningún momento dejó de recibir nuestras peticiones, sabemos que no hay un servicio protegiendo de este tipo de ataques, por lo que los servidores Elasticsearch a analizar son vulnerables a ataques de fuerza bruta/diccionario sobre el mismo servicio de Elasticsearch.
-
-Ahora procedemos a analizar SSH sobre la máquina Elasticsearch principal. Dado que toda la infraestructura ELK comparte configuración de SSH, solo bastará hacerlo sobre esta máquina.
-
-Intentaremos enumerar los usuarios del sistema por medio de la técnica de paquetes malformados a la cual algunas versiones de SSH son vulnerables. Nos apoyaremos en metasploit
-
-![](https://lh6.googleusercontent.com/W9-hoZebIVR8sI9F2PKoydwDaH3nEI2MLUIBGqoo6jLmjXKHguonbxAWSJrODxkELh2r9aVMyoWmuOeWrRQVxQ79oEC__ydRRNSrkxI8_Y2Aivkw7uG8B9RZUWKoy3tGzhHJtf05)
-
-Dado que se están registrando falsos positivos, no podemos asegurar que ssh sea vulnerable a este tipo de ataques.
-
-Ahora verificaremos si el servicio es vulnerable a ataques de fuerza bruta/diccionario. De la misma forma que el servicio anterior, si la máquina sigue recibiendo nuestras peticiones a pesar de ser muchas en poco tiempo, sabremos que no están protegidos contra este tipo de ataques.
-
-![](https://lh3.googleusercontent.com/WhPsq_bVqW3zNe_iA630qiJ0n_nNmXEPUtU0v7siX8vFjbvZYXNsvcwDcmP_BxvahDtHFcBtZB3i5Hrza8gu6VdqEBEZZwT8cJs0Vi02Fal9jH2cGW8SS76QyLH-rKmZavNf7K5y)
-
-Podemos notar que el servidor siguió tomando nuestras peticiones a pesar del intervalo de tiempo, por lo que es vulnerable a este tipo de ataques.
-
-  
-
-Por último haremos pruebas sobre el servidor de Kibana. Ya sabemos que tiene un servicio de ssh vulnerable a ataques de fuerza bruta/diccionario pues todas las máquinas del servidor comparten configuración de ssh, así que usaremos el escáner de Nessus para identificar algún otro servicio o ventana de oportunidad.
-
-![](https://lh3.googleusercontent.com/ImPJNffkCjvgxbDY-buAXwlujLkAv4AEh2k49uaCva1JMvaSxWM5LWsl8FAklfV6z7GTKFexsn4VZQiyDYBHZfEs-1iomD0FoOeaRgDplFQBZQXVX45PnCypGhLX5YU8Hf3Kmr1Z)
-
-En cuanto al servidor, no hay vulnerabilidades importantes detectadas. Las vulnerabilidades medias que se muestran son debido a los certificados auto firmados y las otras son información que se pudo extraer, pero que no consideramos de peligro.
-
-Antes de intentar algo sobre el servidor web, se usará el escáner de vulnerabilidades web de Nessus para cubrir las espacio de búsqueda.
-
-![](https://lh6.googleusercontent.com/jLY8rwNTCOCzZzp-eTldm0YnUffOpOXcNjgDlf7WB1I5YfwJhXiAVLrE4Bm9RN-4iNc_gcsFikh3FG6EjjYd2CySsHuUNaUtfPJHN1ZVeceiW7mpRVXsCA0DjPI8LSzlQRp4moyn)
-
-De nuevo, no se indican vulnerabilidades que explotar. Así que ahora entraremos de forma manual para verificar que no hay nada que explotar.
-
-![](https://lh5.googleusercontent.com/mgb47JhxSOOIOZZC2EuJp_eyT4MVwQcIaosA6rBt9pi1esmBd8GGY99rmTpGi2uHQiP40jFJogHZwdNYZCnIHOknUi71QH8WJsbOeiMZQy9oSKlP9X0gNdGfxN50RqW_UodpiY9e)
-
-Capturamos la petición que se acaba de mandar con Burpsuite
-
-![](https://lh6.googleusercontent.com/liKxvB2taxWSRMUcV_v_Sp0prn5c29mojp8UeFLFZkaZVIv_T8bCXiKMQ_O7ue2t0mXkfOm5GXLwbeWOEDfT5uET7guixllCH6-ie_HxkuQayWQ7-nKcDAh_07NTpkaprf5GoyyW)
-
-La respuesta indica que no se pudo autenticar con esa combinación de usuario y contraseña, así que podríamos analizar respuestas de muchas peticiones para identificar una combinación de usuario y contraseña válida. Entonces procederemos a hacer un ataque de diccionario sobre Kibana.
-
-  
-
-![](https://lh4.googleusercontent.com/bMmWcjf6qZeahJlvOugzw9EiRHTVkS5jXQbH8KaGzgeBcRd7-X7GB3VTJesBog5QiItlICFcULNP6Z3okGwkIwvYJwWMcEgNDWISfA4cOcqHFssSrcit3NFATOAsZHxMjq7FRrM9)
-
-Aquí se muestra como empezamos a configurar el ataque y a continuación la ejecución
-
-![](https://lh5.googleusercontent.com/fWQOO2UBfZ7LmMEsHrwJRXJZE99FAwubTFpEJ-nln1E_ESGoMAMnaYkgGxle6rhswsV7n2IVSzQoaFzEqXnL7FjrUroyJB5nQpMQQJRooExh_QK7SpHypuCL7pAu3vyVZ2D7ls9j)
-
-Notemos que el ataque puede seguirse ejecutando sin problemas, por lo que el servidor es vulnerable a este tipo de ataques.
-
-  
-
-## Recomendaciones<a name="id55"></a>
-
--   Instalar un servicio como Fail2ban para evitar este tipo de ataques.
-    
--   Cambiar los puertos comunes usados por dichos servicios
-    
--   No escuchar en todas las interfaces
-    
--   Usar certificados en lugar de contraseñas para autenticar en SSH
- 
-
-# Conclusión.<a name="id6"></a>
-
-El proyecto ayudó a reforzar los conocimientos sobre servicios y redes que se adquirieron durante el Plan de Becarios, en particular sobre infraestructura de Windows, ya que no se volvió a implementar un servicio sobre este sistema operativo después del primer módulo. Así mismo, se adquirió conocimientos nuevos sobre herramientas como lo son Amavis, Spamassassin, FortiGate, GNS3 y Cerebro, entre otros. Además, nos permitió adquirir conocimientos referente a la realización de un hardening sobre sistemas operativos Debian y CentOS, lo cual nos parece muy útil ya que es necesario implementar una línea base sobre aquellos equipos que conforman nuestra infraestructura de trabajo.
-
-Por otra parte, se logró un aprendizaje significativo respecto al funcionamiento, configuración, instalación y administración de una pila ELK.
-
-Fue una gran experiencia de aprendizaje.
-
-# Bibliografía.<a name="id7"></a>
-
-[3.7.1 Spamassassin [Servidor Debian]. (s/f-a). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/BCdZ) [https://servidordebian.org/es/buster/intranet/antispam/spamassassin](https://servidordebian.org/es/buster/intranet/antispam/spamassassin)
-
-[3.7.1 Spamassassin [Servidor Debian]. (s/f-b). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/ZNBK) [https://servidordebian.org/es/buster/intranet/antispam/spamassassin](https://servidordebian.org/es/buster/intranet/antispam/spamassassin)
-
-[5.3.1 amavisd-new [Servidor Debian]. (s/f-a). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/TDGF) [https://servidordebian.org/es/buster/email/filtering/amavisd_new](https://servidordebian.org/es/buster/email/filtering/amavisd_new)
-
-[5.3.1 amavisd-new [Servidor Debian]. (s/f-b). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/mB6S) [https://servidordebian.org/es/buster/email/filtering/amavisd_new](https://servidordebian.org/es/buster/email/filtering/amavisd_new)
-
-[5.3.3 Filtro Anti-spam [Servidor Debian]. (s/f). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/cJ1s) [https://servidordebian.org/es/buster/email/filtering/amavisd_new_spamassassin](https://servidordebian.org/es/buster/email/filtering/amavisd_new_spamassassin)
-
-[Add and remove nodes in your cluster. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/wfrj) [https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/add-elasticsearch-nodes.html)
-
-[Bearnes, B. (2016, enero 27). How To Protect SSH With Fail2Ban on CentOS 7. DigitalOcean.](http://paperpile.com/b/Q4Pnnj/RStP) [https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-centos-7](https://www.digitalocean.com/community/tutorials/how-to-protect-ssh-with-fail2ban-on-centos-7)
-
-[Bootstrapping a cluster. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/8aLf) [https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-bootstrap-cluster.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-discovery-bootstrap-cluster.html)
-
-[Boucheron, B., Drake, M., & Heidi, E. (2019, julio 22). How To Create a Self-Signed SSL Certificate for Apache in Debian 10. DigitalOcean.](http://paperpile.com/b/Q4Pnnj/R5dp) [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-debian-10)
-
-[Building a Transparent Firewall with Linux, Part V. (s/f). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/bjeV) [https://www.linuxjournal.com/article/10929](https://www.linuxjournal.com/article/10929)
-
-[Cezar, M. (2017, octubre 12). Install a Complete Mail Server with Postfix and Webmail in Debian 9.](http://paperpile.com/b/Q4Pnnj/1okQ) [https://www.tecmint.com/](https://www.tecmint.com/)
-
-[Cookbook. (s/f-a). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/yF1k) [https://docs.fortinet.com/document/fortigate/6.2.0/cookbook/954635/getting-started](https://docs.fortinet.com/document/fortigate/6.2.0/cookbook/954635/getting-started)
-
-[Cookbook. (s/f-b). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/k316) [https://docs.fortinet.com/document/fortigate/6.2.0/cookbook/954635/getting-started](https://docs.fortinet.com/document/fortigate/6.2.0/cookbook/954635/getting-started)
-
-[Erkec, E., & View all posts by Esat Erkec →. (2020, enero 16). How to install SQL Server Express edition.](http://paperpile.com/b/Q4Pnnj/jGIo) [https://www.sqlshack.com/how-to-install-sql-server-express-edition/](https://www.sqlshack.com/how-to-install-sql-server-express-edition/)
-
-[Filebeat quick start: installation and configuration. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/3FPr) [https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html)
-
-[Getting started with the Elastic Stack. (s/f-a). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/Ii4k) [https://www.elastic.co/guide/en/elastic-stack-get-started/7.10/get-started-elastic-stack.html#install-beats](https://www.elastic.co/guide/en/elastic-stack-get-started/7.10/get-started-elastic-stack.html#install-beats)
-
-[Getting started with the Elastic Stack. (s/f-b). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/QZKK) [https://www.elastic.co/guide/en/elastic-stack-get-started/7.10/get-started-elastic-stack.html#install-kibana](https://www.elastic.co/guide/en/elastic-stack-get-started/7.10/get-started-elastic-stack.html#install-kibana)
-
-[Getting started with the Elastic Stack. (s/f-c). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/cHcO) [https://www.elastic.co/guide/en/elastic-stack-get-started/7.10/get-started-elastic-stack.html#install-elasticsearch](https://www.elastic.co/guide/en/elastic-stack-get-started/7.10/get-started-elastic-stack.html#install-elasticsearch)
-
-[GNS3 Talks: Integrate Windows Virtual Machine with GNS3 = GNS3+GNS3 VM + Windows 10 VM + Cisco. (2017, enero 28).](http://paperpile.com/b/Q4Pnnj/YHg2) [https://www.youtube.com/watch?v=Ot6nqrNid3M](https://www.youtube.com/watch?v=Ot6nqrNid3M)
-
-[How To add DNS A/PTR Record in Windows Server 2019. (2019, noviembre 15).](http://paperpile.com/b/Q4Pnnj/VKy8) [https://computingforgeeks.com/how-to-add-dns-a-ptr-record-in-windows-server/](https://computingforgeeks.com/how-to-add-dns-a-ptr-record-in-windows-server/)
-
-[How To add DNS Forward Lookup Zone in Windows Server 2019. (2019, noviembre 11).](http://paperpile.com/b/Q4Pnnj/GYVo) [https://computingforgeeks.com/how-to-add-dns-forward-lookup-zone-in-windows-server/](https://computingforgeeks.com/how-to-add-dns-forward-lookup-zone-in-windows-server/)
-
-[How To add DNS Reverse Lookup Zone in Windows Server 2019. (2019, noviembre 13).](http://paperpile.com/b/Q4Pnnj/yJlK) [https://computingforgeeks.com/how-to-add-dns-reverse-lookup-zone-in-windows-server/](https://computingforgeeks.com/how-to-add-dns-reverse-lookup-zone-in-windows-server/)
-
-[How to deploy FortiGate Firewall in GNS3. (2020, marzo 17).](http://paperpile.com/b/Q4Pnnj/Q5qt) [https://www.gns3network.com/how-to-deploy-fortigate-virtual-firewall-in-gns3/](https://www.gns3network.com/how-to-deploy-fortigate-virtual-firewall-in-gns3/)
-
-[How to Setup ELK Stack on Debian 9 / Debian 8 - ITzGeek. (2017, septiembre 14).](http://paperpile.com/b/Q4Pnnj/EYr4) [https://www.itzgeek.com/how-tos/linux/debian/how-to-setup-elk-stack-on-debian-9-debian-8.html](https://www.itzgeek.com/how-tos/linux/debian/how-to-setup-elk-stack-on-debian-9-debian-8.html)
-
-[Install and Configure DHCP Server on Windows Server 2019. (2019, octubre 12).](http://paperpile.com/b/Q4Pnnj/DdJy) [https://computingforgeeks.com/how-to-install-and-configure-dhcp-server-on-windows-server/](https://computingforgeeks.com/how-to-install-and-configure-dhcp-server-on-windows-server/)
-
-[Install and Configure DNS Server on Windows Server 2019. (2019, noviembre 7).](http://paperpile.com/b/Q4Pnnj/Z1es) [https://computingforgeeks.com/install-and-configure-dns-server-in-windows-server/](https://computingforgeeks.com/install-and-configure-dns-server-in-windows-server/)
-
-[Install Elasticsearch with Debian Package. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/BDmt) [https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/deb.html)
-
-[Install GNS3 with GNS3 VM with routers and switches CCNA / CCNP Practical Labs. (2020, junio 16).](http://paperpile.com/b/Q4Pnnj/Vzxp) [https://www.youtube.com/watch?v=c1Lr_xOqaIA](https://www.youtube.com/watch?v=c1Lr_xOqaIA)
-
-[Install Kibana with Debian package. (s/f). Recuperado el 4 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/4y69) [https://www.elastic.co/guide/en/kibana/current/deb.html#deb-repo](https://www.elastic.co/guide/en/kibana/current/deb.html#deb-repo)
-
-[Juell, K., & Heidi, E. (2019, julio 10). How to Install Nginx on Debian 10. DigitalOcean.](http://paperpile.com/b/Q4Pnnj/E7BG) [https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10](https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-debian-10)
-
-[Logstash Introduction. (s/f). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/vL3w) [https://www.elastic.co/guide/en/logstash/7.10/introduction.html](https://www.elastic.co/guide/en/logstash/7.10/introduction.html)
-
-[Mercado, J. A. (2017, octubre 18). How to Install Kibana with Debian Packages.](http://paperpile.com/b/Q4Pnnj/YtQu) [https://juanmercadoit.com/2017/10/18/how-to-install-kibana-with-debian-packages/](https://juanmercadoit.com/2017/10/18/how-to-install-kibana-with-debian-packages/)
-
-[Node. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/WKfg) [https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html)
-
-[Orovengua, J. (2013, abril 11). LinuxParty.](http://paperpile.com/b/Q4Pnnj/62IT) [https://www.linuxparty.es/29-internet/8661-crear-un-puente-de-red-o-bridge](https://www.linuxparty.es/29-internet/8661-crear-un-puente-de-red-o-bridge)
-
-[Protegerse de ataques de fuerza bruta con fail2ban. (s/f). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/qSUi) [https://www.ionos.mx/ayuda/seguridad/servidor-dedicado/protegerse-de-ataques-de-fuerza-bruta-con-fail2ban/](https://www.ionos.mx/ayuda/seguridad/servidor-dedicado/protegerse-de-ataques-de-fuerza-bruta-con-fail2ban/)
-
-[Rodríguez, S. B. (2019, octubre 24). Servidor de correo – Instalación y configuración Amavis, Clamav y Spamassassin (parte 11/15).](http://paperpile.com/b/Q4Pnnj/mpWZ) [https://blog.tiraquelibras.com/?p=667](https://blog.tiraquelibras.com/?p=667)
-
-[Website. (s/f). Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/TAyH) [https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04](https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-18-04)
-
-[Winlogbeat quick start: installation and configuration. (s/f). Recuperado el 5 de febrero de 2021, de](http://paperpile.com/b/Q4Pnnj/qFzA) [https://www.elastic.co/guide/en/beats/winlogbeat/7.10/winlogbeat-installation-configuration.html](https://www.elastic.co/guide/en/beats/winlogbeat/7.10/winlogbeat-installation-configuration.html)
-
-[yombi. (s/f). yombi/Migrar-Drupal. Recuperado el 22 de enero de 2021, de](http://paperpile.com/b/Q4Pnnj/ze8O) [https://github.com/yombi/Migrar-Drupal](https://github.com/yombi/Migrar-Drupal)
+![](https://lh6.googleusercontent.com/3cbSzLug_i-8CwIu2H2SEfjqJQu0l-aslQtnSRfnXUPahqArVd-lXGLpOqlh1QIieu2jGS57Vw4WNIBOBHQ5F6d4p8kbvG9_x3sz_CN1-T6SxmD2wN4U9O
