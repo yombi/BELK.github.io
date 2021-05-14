@@ -1,11 +1,4 @@
-Realizado por:
-* Fernández Martínez Abisinia Ivey
-* López Matías Alexis Brayan
-* Luna Castañeda Abraham Iván
-* Resendiz Cruz Luis Fernando
-
-
-###  Proyecto final: Instalación y configuración de la pila ELK.
+###  Proyecto final: Instalación,configuración,análisis de vulnerabiliades y pentest de una pila ELK.
 
 **Tabla de contenidos**   
 1. [Definición del proyecto](#id1)
